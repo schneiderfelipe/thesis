@@ -20,3 +20,9 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: thesis
+          path: main.pdf
