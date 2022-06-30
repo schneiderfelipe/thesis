@@ -1,7 +1,5 @@
-% ---
-% Possibilita criação de Quadros e Lista de quadros.
-% Ver https://github.com/abntex/abntex2/issues/176
-%
+% allow creating schemes ("quadros") and lists of them
+% (see <https://github.com/abntex/abntex2/issues/176>)
 \newcommand{\quadroname}{Quadro}
 \newcommand{\listofquadrosname}{Lista de quadros}
 
@@ -9,11 +7,11 @@
 \newlistof{listofquadros}{loq}{\listofquadrosname}
 \newlistentry{quadro}{loq}{0}
 
-% configurações para atender às regras da ABNT
+% configurations to attend the ABNT rules
 \setfloatadjustment{quadro}{\centering}
 \counterwithout{quadro}{chapter}
 \renewcommand{\cftquadroname}{\quadroname\space}
 \renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
 
-\setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
-% ---
+% see <https://github.com/abntex/abntex2/issues/176>
+\setfloatlocations{quadro}{hbtp}

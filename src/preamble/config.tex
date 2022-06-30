@@ -1,41 +1,40 @@
-% ---
-% Configurações do pacote backref
-% Usado sem a opção hyperpageref de backref
-\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-% Texto padrão antes do número das páginas
+% # Configuration of the backref package
+
+% when used without the hyperpageref option
+\renewcommand{\backrefpagesname}{Cited in pages:~}
+
+% default text before page numbers
 \renewcommand{\backref}{}
-% Define os textos da citação
+
+% define the actual citing text
 \renewcommand*{\backrefalt}[4]{
 	\ifcase #1 %
-		Nenhuma citação no texto.%
+		No citation in text.%
 	\or
-		Citado na página #2.%
+		Cited in page #2.%
 	\else
-		Citado #1 vezes nas páginas #2.%
+		Cited #1 times in pages #2.%
 	\fi}%
-% ---
 
-% ---
-% Configurações de aparência do PDF final
 
-% alterando o aspecto da cor azul
-\definecolor{blue}{RGB}{41,5,195}
+% # Configuration of the hyperref package
 
-% informações do PDF
+\definecolor{blue}{RGB}{41,5,195}  % use dark blue
+
+% PDF info
 \makeatletter
 \hypersetup{
-     	%pagebackref=true,
-		pdftitle={\@title},
-		pdfauthor={\@author},
-    	pdfsubject={\imprimirpreambulo},
-	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
-    	filecolor=magenta,      		% color of file links
-		urlcolor=blue,
-		bookmarksdepth=4
+	%pagebackref=true,
+	pdftitle={\@title},
+	pdfauthor={\@author},
+	pdfsubject={\imprimirpreambulo},
+	pdfcreator={LaTeX with abnTeX2},
+	pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
+	colorlinks=true,		% false: boxed links; true: colored links
+	linkcolor=blue,			% color of internal links
+	citecolor=blue,			% color of links to bibliography
+	filecolor=magenta,		% color of file links
+	urlcolor=blue,
+	bookmarksdepth=4
 }
 \makeatother
-% ---
