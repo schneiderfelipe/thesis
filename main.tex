@@ -1,49 +1,49 @@
 \documentclass[
-	% # memoir class options
-	12pt,
-	openright,			   % chapters start at odd page numbers
-	twoside,			   % print on both sides (change to `oneside` to
-				   % leave back blank)
-	a4paper,
-	% # abntex2 class options
-	%chapter=TITLE,		   % uppercase chapter titles
-	%section=TITLE,		   % uppercase section titles
-	%subsection=TITLE,	   % uppercase subsection titles
-	%subsubsection=TITLE,  % uppercase subsubsection titles
-	% # babel package options
-	french,				   % additional hyphenization
-	ngerman,		   % additional hyphenization
-	spanish,			   % additional hyphenization
-	brazil,			   % additional hyphenization
-	british,		   % main language of the document
-	]{abntex2}
+    % # memoir class options
+    12pt,
+openright,             % chapters start at odd page numbers
+    twoside,               % print on both sides (change to `oneside` to
+% leave back blank)
+    a4paper,
+    % # abntex2 class options
+%chapter=TITLE,        % uppercase chapter titles
+%section=TITLE,        % uppercase section titles
+%subsection=TITLE,     % uppercase subsection titles
+    %subsubsection=TITLE,  % uppercase subsubsection titles
+    % # babel package options
+french,            % additional hyphenization
+ngerman,           % additional hyphenization
+spanish,           % additional hyphenization
+brazil,            % additional hyphenization
+british,           % main language of the document
+    ]{abntex2}
 
 % # Basic packages
-\usepackage{lmodern}		   % Latin Modern font
-\usepackage[T1]{fontenc}	   % font encoding
+\usepackage{lmodern}           % Latin Modern font
+\usepackage[T1]{fontenc}       % font encoding
 \usepackage[utf8]{inputenc}    % document encoding (e.g., required for diacritics)
-\usepackage{indentfirst}	   % indent the first paragraph of each section
-\usepackage{color}		   % color control
-\usepackage{graphicx}		   % include graphics
-\usepackage{microtype}		   % typography enhancements
+\usepackage{indentfirst}       % indent the first paragraph of each section
+\usepackage{color}             % color control
+\usepackage{graphicx}          % include graphics
+\usepackage{microtype}         % typography enhancements
 
 % # Utility packages
-\usepackage{import}	 % nestable, locally-scoped import directives (note that it
-					 % is best to use commands (e.g., `subimport{...}{...}` in
-					 % their own lines)
-\usepackage{lipsum}	 % TODO: remove this and its usage
+\usepackage{import}  % nestable, locally-scoped import directives (note that it
+                     % is best to use commands (e.g., `subimport{...}{...}` in
+                     % their own lines)
+\usepackage{lipsum}  % TODO: remove this and its usage
 
 % # Citations
-\usepackage[british,hyperpageref]{backref}	% show where works where cited
-\usepackage[alf]{abntex2cite}			% cite according to ABNT
+\usepackage[british,hyperpageref]{backref}   % show where works where cited
+\usepackage[alf]{abntex2cite}                % cite according to ABNT
 
 % # Preamble
-\subimport{./src/preamble}{config}	 % configuration of packages
+\subimport{./src/preamble}{config}   % configuration of packages
 \subimport{./src/preamble}{spacing}  % spacing and placement of elements
 \subimport{./src/preamble}{quadros}  % definition of schemes ("quadros")
-\subimport{./src/preamble}{info}	 % general information such as title, author, etc.
+\subimport{./src/preamble}{info}     % general information such as title, author, etc.
 
-\makeindex	% compile our index
+\makeindex  % compile our index
 
 \begin{document}
 
@@ -113,12 +113,12 @@ configurados por padrão. Verifique um exemplo de utilização:
 \begin{quadro}[htb]
 \caption{\label{quadro_exemplo}Exemplo de quadro}
 \begin{tabular}{|c|c|c|c|}
-	\hline
-	\textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
-	Marcos & 26    & 68   & 178    \\ \hline
-	Ivone  & 22    & 57   & 162    \\ \hline
-	...    & ...   & ...  & ...    \\ \hline
-	Sueli  & 40    & 65   & 153    \\ \hline
+    \hline
+    \textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
+    Marcos          & 26             & 68            & 178             \\ \hline
+    Ivone           & 22             & 57            & 162             \\ \hline
+    ...             & ...            & ...           & ...             \\ \hline
+    Sueli           & 40             & 65            & 153             \\ \hline
 \end{tabular}
 \fonte{Autor.}
 \end{quadro}
