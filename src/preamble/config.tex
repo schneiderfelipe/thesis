@@ -8,10 +8,10 @@
 
 % define the actual citing text
 \renewcommand*{\backrefalt}[4]{
-    \ifcase #1  % chktex will tell you this is a 'command terminated with space',
-% but if you make it `\ifcase{}` you will get a
-% 'missing number, treated as zero' and these are *very hard*
-% to debug.
+% chktex will tell you that the line below is a 'command terminated with space',
+% but if you make it `\ifcase{}` you will get a 'missing number, treated as zero'
+% (*very hard* to debug).
+\ifcase #1  % chktex 1
 No citation in text.%
 \or{}
 Cited in page #2.%
