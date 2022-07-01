@@ -2,7 +2,7 @@
 \frenchspacing                % remove dead spaces between sentences
 
 % \pretextual             % this is not required (it was commented in the template)
-\imprimircapa
+\imprimircapa{}
 \imprimirfolhaderosto*    % * means we want cataloging data ("ficha bibliográfica")
 
 \subimport{.}{ficha}
@@ -16,19 +16,19 @@ Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
 FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
   reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
   rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
-cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
+cães. 2011. 128 f. Tese (Livre-Docência) --- Faculdade de Medicina Veterinária e
 Zootecnia, Universidade de São Paulo, São Paulo, 2011.
 
 \begin{table}[htb]
-  \center
-  \footnotesize
-  \begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
-    \hline
-    \textbf{Folha} & \textbf{Linha} & \textbf{Onde se lê} & \textbf{Leia-se} \\
-    \hline
-    1              & 10             & auto-conclavo       & autoconclavo     \\
-    \hline
-  \end{tabular}
+\center{}
+\footnotesize
+\begin{tabular}{p{1.4cm}p{1cm}p{3cm}p{3cm}}
+\toprule
+\textbf{Folha} & \textbf{Linha} & \textbf{Onde se lê} & \textbf{Leia-se} \\
+\midrule
+1              & 10             & auto-conclavo       & autoconclavo     \\
+\bottomrule
+\end{tabular}
 \end{table}
 
 \end{errata}
@@ -51,13 +51,13 @@ Zootecnia, Universidade de São Paulo, São Paulo, 2011.
 
     \vspace*{\fill}\vspace*{\fill}
     \begin{center}
-      \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+\ABNTEXchapterfont\bfseries\Large\imprimirtitulo{}
     \end{center}
     \vspace*{\fill}
 
     \hspace{.45\textwidth}
     \begin{minipage}{.5\textwidth}
-\imprimirpreambulo
+\imprimirpreambulo{}
     \end{minipage}%
     \vspace*{\fill}
 \end{center}
@@ -127,7 +127,7 @@ contribuirão para a evolução do \abnTeX.
 % resumo em português
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
-Segundo a \citeonline[3.1-3.2]{NBR6028:2003}, o resumo deve ressaltar o
+Segundo a \citeonline[3.1--3.2]{NBR6028:2003}, o resumo deve ressaltar o
 objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
 destes itens dependem do tipo de resumo (informativo ou indicativo) e do
 tratamento que cada item recebe no documento original. O resumo deve ser
@@ -136,7 +136,7 @@ próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
 resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
 ponto e finalizadas também por ponto.
 
-\textbf{Palavras-chave}: latex. abntex. editoração de texto.
+\textbf{Palavras-chave}: latex.\ abntex.\ editoração de texto.
 \end{resumo}
 
 % resumo em inglês
@@ -147,7 +147,7 @@ This is the english abstract.
 \vspace{\onelineskip}
 
 \noindent
-\textbf{Keywords}: latex. abntex. text editoration.
+\textbf{Keywords}: latex.\ abntex.\ text editoration.
 \end{otherlanguage*}
 \end{resumo}
 
@@ -156,7 +156,7 @@ This is the english abstract.
 \begin{otherlanguage*}{french}
     Il s'agit d'un résumé en français.
 
-\textbf{Mots-clés}: latex. abntex. publication de textes.
+\textbf{Mots-clés}: latex.\ abntex.\ publication de textes.
 \end{otherlanguage*}
 \end{resumo}
 
@@ -165,24 +165,24 @@ This is the english abstract.
 \begin{otherlanguage*}{spanish}
 Este es el resumen en español.
 
-\textbf{Palabras clave}: latex. abntex. publicación de textos.
+\textbf{Palabras clave}: latex.\ abntex.\ publicación de textos.
 \end{otherlanguage*}
 \end{resumo}
 
 % inserir lista de ilustrações
 \pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
-\cleardoublepage
+\cleardoublepage{}
 
 % inserir lista de quadros
 \pdfbookmark[0]{\listofquadrosname}{loq}
 \listofquadros*
-\cleardoublepage
+\cleardoublepage{}
 
 % inserir lista de tabelas
 \pdfbookmark[0]{\listtablename}{lot}
 \listoftables*
-\cleardoublepage
+\cleardoublepage{}
 
 % inserir lista de abreviaturas e siglas
 \begin{siglas}
@@ -201,4 +201,4 @@ Este es el resumen en español.
 % inserir o sumario
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
-\cleardoublepage
+\cleardoublepage{}

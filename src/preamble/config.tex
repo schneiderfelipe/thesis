@@ -8,12 +8,12 @@
 
 % define the actual citing text
 \renewcommand*{\backrefalt}[4]{
-    \ifcase #1 %
-        No citation in text.%
-    \or
-        Cited in page #2.%
+\ifcase{} #1 %
+No citation in text.%
+\or{}
+Cited in page #2.%
     \else
-        Cited #1 times in pages #2.%
+Cited #1 times in pages #2.%
     \fi}%
 
 
