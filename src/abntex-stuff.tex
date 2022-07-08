@@ -1,0 +1,43 @@
+% ----------------------------------------------------------
+% PARTE
+% ----------------------------------------------------------
+\part{Preparação da pesquisa}
+% ----------------------------------------------------------
+
+\subimport{.}{commands}
+% ---
+
+\chapter{Conteúdos específicos do modelo de trabalho acadêmico}%
+\label{cap_trabalho_academico}
+
+\section{Quadros}
+
+Este modelo vem com o ambiente \texttt{quadro} e impressão de Lista de quadros
+configurados por padrão. Verifique um exemplo de utilização:
+
+\begin{quadro}[htb]
+\caption{%
+    \label{quadro_exemplo}Exemplo de quadro}
+\begin{tabular}{cccc}
+    \toprule
+    \textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\
+    \midrule
+    Marcos          & 26             & 68            & 178             \\
+    Ivone           & 22             & 57            & 162             \\
+    \ldots          & \ldots         & \ldots        & \ldots          \\
+    Sueli           & 40             & 65            & 153             \\
+    \bottomrule
+\end{tabular}
+\fonte{Autor.}
+\end{quadro}
+
+Este parágrafo incrível apresenta como referenciar o quadro no texto, requisito
+obrigatório da ABNT.\@
+Primeira opção, utilizando \texttt{autoref}: Ver o~\autoref{quadro_exemplo}.
+Segunda opção, utilizando \texttt{ref}: Ver o Quadro~\ref{quadro_exemplo}.
+
+% ----------------------------------------------------------
+% PARTE
+% ----------------------------------------------------------
+\part{Referenciais teóricos}
+% ----------------------------------------------------------
