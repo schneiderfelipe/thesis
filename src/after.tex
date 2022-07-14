@@ -1,28 +1,30 @@
 %\glossary  % see the abntex2 manual if you want this
 
 % # Appendices
+\renewcommand{\apendicename}{Appendix}
+\renewcommand{\apendicesname}{Appendices}
 \begin{apendicesenv}
-  \partapendices{}
+\partapendices{}
 
 
 % one chapter per appendix
-\chapter{Quisque libero justo}
-\lipsum[50]
+\subimport{.}{./appendices/tutorial}
+\subimport{.}{./appendices/other_papers}
 
 
 \end{apendicesenv}
 
-% # Annexes
-\begin{anexosenv}
-  \partanexos{}
+% % # Annexes
+% \begin{anexosenv}
+%   \partanexos{}
 
 
-% one chapter per annex
-\chapter{Morbi ultrices rutrum lorem.}
-\lipsum[30]
+% % one chapter per annex
+% \chapter{Morbi ultrices rutrum lorem.}
+% \lipsum[30]
 
 
-\end{anexosenv}
+% \end{anexosenv}
 
 \phantompart{}
 \printindex  % the index at the end

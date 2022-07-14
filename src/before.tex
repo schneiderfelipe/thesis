@@ -6,79 +6,8 @@
 \imprimirfolhaderosto*    % * means we want cataloging data ("ficha bibliográfica")
 
 \subimport{.}{ficha}
-
-% Inserir errata
-\begin{errata}
-Elemento opcional da~\citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
-
-\vspace{\onelineskip}
-
-FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
-  reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
-  rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
-cães. 2011. 128 f. Tese (Livre-Docência) --- Faculdade de Medicina Veterinária e
-Zootecnia, Universidade de São Paulo, São Paulo, 2011.
-
-\begin{table}[htb]
-  \center{}
-  \footnotesize
-  \begin{tabular}{p{1.4cm}p{1cm}p{3cm}p{3cm}}
-    \toprule
-    \textbf{Folha} & \textbf{Linha} & \textbf{Onde se lê} & \textbf{Leia-se} \\
-    \midrule
-    1              & 10             & auto-conclavo       & autoconclavo     \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\end{errata}
-
-% Inserir folha de aprovação
-
-% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
-% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
-% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
-% imagem da página assinada pela banca com o comando abaixo:
-%
-% \begin{folhadeaprovacao}
-% \includepdf{folhadeaprovacao_final.pdf}
-% \end{folhadeaprovacao}
-%
-\begin{folhadeaprovacao}
-
-  \begin{center}
-    {\ABNTEXchapterfont\large\imprimirautor}
-
-    \vspace*{\fill}\vspace*{\fill}
-    \begin{center}
-\ABNTEXchapterfont\bfseries\Large\imprimirtitulo{}
-    \end{center}
-    \vspace*{\fill}
-
-    \hspace{.45\textwidth}
-    \begin{minipage}{.5\textwidth}
-\imprimirpreambulo{}
-    \end{minipage}%
-    \vspace*{\fill}
-\end{center}
-
-Trabalho aprovado. \imprimirlocal, 24 de novembro de 2012:
-
-\assinatura{\textbf{\imprimirorientador} \\ Orientador}
-\assinatura{\textbf{Professor} \\ Convidado 1}
-\assinatura{\textbf{Professor} \\ Convidado 2}
-%\assinatura{\textbf{Professor} \\ Convidado 3}
-%\assinatura{\textbf{Professor} \\ Convidado 4}
-
-\begin{center}
-    \vspace*{0.5cm}
-    {\large\imprimirlocal}
-    \par
-    {\large\imprimirdata}
-    \vspace*{1cm}
-  \end{center}
-
-\end{folhadeaprovacao}
+% \subimport{.}{errata}
+\subimport{.}{approval}
 
 % Dedicatória
 \begin{dedicatoria}
