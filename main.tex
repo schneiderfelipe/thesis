@@ -25,6 +25,7 @@ british,           % main language of the document
 \usepackage{indentfirst}       % indent the first paragraph of each section
 \usepackage{color}             % color control
 \usepackage{graphicx}          % include graphics
+\usepackage{pdfpages}          % include PDFs
 \usepackage{microtype}         % typography enhancements
 
 % # Utility packages
@@ -53,13 +54,15 @@ british,           % main language of the document
 
 \subimport{./src}{presentation}
 
-\part{State of the art and theory}
+\part{State of the art and theory}%
+\label{part:art-theory}
 
 \subimport{./src}{introduction}
-\subimport{./src}{computational_methods}
+\subimport{./src}{methods}
 
 
-\part{Papers}
+\part{Publications}%
+\label{part:publications}
 
 \subimport{./src}{papers}
 
