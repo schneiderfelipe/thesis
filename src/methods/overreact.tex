@@ -1,0 +1,140 @@
+\section{Automatic determination of kinetics using \overreact}%
+\label{sec:overreact-methods}
+
+\overreact is an open-source library, software package and command-line
+application for building and analyzing
+homogeneous microkinetic models from first-principles
+calculations~\cite{Schneider2022,overreact2021zenodo}.
+It propagates chemical reactions over time using only data available from
+computational chemistry calculations.
+
+All differential equations are and their parameters are inferred from a
+reaction model and calculations provided by the user.
+Simultaneous reactions are easily solved, including parallel and concurrent
+reactions, pre-equilibration and even constant concentration reactants.
+
+Furthermore, \overreact is able to take most of the relevant physics of the problem into
+account in a (semi-)automated fashion.
+This includes concentration effects, symmetries, quantum
+tunneling, standard state corrections, implicit and explicit solvation, proper treatment
+of energy contributions and dispersion corrections.
+In most cases, in particular where solvation effects are weak, results matching
+experimental data are obtained.
+
+It is open source\footnote{Code is available at
+\url{https://github.com/geem-lab/overreact-guide}.}, free of charge, available through the Python Package Index (PyPI) and is
+distributed under the MIT license.
+An online user manual is also
+available\footnote{The user guide can be found at \url{https://geem-lab.github.io/overreact-guide/}.}.
+
+
+
+\section{Thermochemical partition functions}
+
+It is possible to make use of computational calculations to obtain
+thermochemical data and, in particular, the thermochemical partition
+functions.
+This is routinely achieved by standard computational chemistry packages.
+This data can be used to estimate the thermodynamic properties of molecules and
+whole systems.
+
+
+Não apenas seus autovalores nos permitem checar se uma otimização alcançou de fato um mínimo local, mas importantes funções de estado termodinâmicas são acessíveis através da matriz hessiana, valendo-se da aproximação QRRHO para gases ideais.
+
+
+
+teoria do estado de transição~\cite{TransitionStateTheory}. %(\autoref{sec:tst}).
+
+
+
+\section{Why predicting chemical reactions is hard}
+
+DESCRIBE THE EXPONENTIAL ERROR PROBLEM.\@
+
+
+
+\section{``First-principle'' calculations}
+
+Strictly speaking, computational first-principle calculations encompass
+methodologies that do not use experimental data either in their development or
+application.
+Broadly speaking, the first-principle calculations can be referred to
+wavefunction or density-functional theory (DFT) calculations.
+
+
+
+
+Os perfis reacionais resultantes são suficientes para a predição de parâmetros
+cinéticos e termodinâmicos das reações, que foram comparados aos resultados
+disponíveis na literatura. %(\autoref{sec:tst}).
+
+
+\subsection{Quantum tunneling effects}
+
+Hydrogen abstraction reactions (HAA) comprise a class of reactions where
+quantum tunneling is often very important~\cite{Bim2018}.
+A particular group therein is the homolysis of \ce{C-H} bonds by strong
+oxidants, which oftentimes the rate-limiting step in many transformations, and
+a particularly key step in the substrate activation by numerous
+metalloenzymes~\cite{Bim2018}.
+
+
+\section{Microkinetic modelling}
+
+Microkinetic modelling is a technique used to predict the outcome of complex
+chemical reactions.
+It can be used to investigate the catalytic transformations of molecules by
+propagating a system of ordinary differential equations modelling the chemical
+reactions.
+
+The technique can be made first-principle by making use of pure computational
+chemistry predictions.
+It is able to take into account effects that sole use of Gibbs' free energies
+are not able to, such as concentrations of species and complex time dynamics.
+
+
+
+\subsection{Design}
+
+\overreact is a second iteration on an earlier attempt to build a
+homogeneous microkinetic analyzer from first-principles
+calculations~\cite{pyrrole2019zenodo}.
+Some things were learned from that first attempt:
+i. data is relatively easy to obtain from computational chemistry calculations,
+but it is not always in its optimal form;
+ii. solving differential equations is relatively easy in general, but hard to
+make it work for a wide range of problems mostly due to stiffness of the
+equations;
+iii. transforming knowledge about chemical structures into knowledge about the
+chemical reactions is hard to be done in an automated fashion;
+iv. having a good pipeline for data processing makes it easy to add new
+features to the system.
+
+\subsection{Automatic differentiation}
+
+Instead of employing numerical differentiation, whose precision depends on the
+particular step size, automatic differentiation can be used to produce
+analytical derivatives in a precise, efficient and automated way.
+
+One conceptually simple way of doing this is by \emph{forward differentiation}
+through dual numbers, where the real values are extended by an infinitesimal
+part in a trick that is not far from the concept of imaginary numbers.
+The pair of numbers can be added component-wise, and form a commutative algebra
+by making use of a simple multiplication rule that follows from the property
+$\epsilon^2 = 0$:
+\begin{equation}
+    (a, b) * (c, d)
+    \equiv (a + b\epsilon)(c + d\epsilon)
+    = a c + (a d + b c)\epsilon
+    \equiv (a c, a d + b c)
+\end{equation}
+It is not hard to show that, by extending the domain of any real polynomial to
+dual numbers, one obtains
+\begin{equation}
+    P((a, b)) \equiv P(a + b\epsilon) = P(a) + b P'(a) \epsilon
+\end{equation}
+where $P'(a)$ is the \emph{analytic} derivative of $P(a)$.
+
+\overreact employs a sligthly more complex scheme called
+\emph{backward differentiation}, available through Google's JAX library, that
+is more efficient for functions of many variables.

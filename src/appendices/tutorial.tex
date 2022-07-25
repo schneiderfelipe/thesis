@@ -1,5 +1,100 @@
 \chapter{Practical computational chemistry for the investigation of reaction
-mechanisms}%
+mechanisms and transition state searches}%
 \label{ch:tutorial}
 
-\lipsum[1]
+This appendix is an account of techniques used and hard tested during my PhD.
+Most of them are of practical value and might be useful for other researchers
+to use.
+
+\section{General remarks about transition state structures}
+
+Obtaining transition state structures is not an easy task, at least not as easy
+as optimizing structures to minima.
+One core reason is that, although we have a good understanding about how
+minimum energy structures look like, it is not so easy with transition states,
+as they necessarily are in \emph{between} observed minima (in the sense of
+potential energy surface).
+
+One could imagine that bond lengths, angles and dihedrals be exactly at the
+middle between reactants and products, but reality is more complicated than
+that.
+As suggested by Hammond's postulate (and more generally the Bell-Evans-Polanyi
+principle), a transition state will more closely resemble the reactant
+structure if the reaction is exothermic (early transition state), and more the
+product if endothermic (late transition state).
+
+CITE THE SECTION ABOUT BEP AND HAMMOND.
+
+As such, it is reasonable to assume that the transition state structure can
+only be exactly at the middle if the reaction is thermoneutral, i.e., reactants
+and products sharing the same energy.
+This occurs, for example, in the umbrella effect of amines, or in enantiomeric
+interconversions.
+
+\subsection{Using Hammond's postulate for estimating transition state
+structures}
+
+RELEVANT PAPERS FOR THE DISCUSSION ARE
+\url{https://doi.org/10.19142/rpq.v6i11.152} AND CITATIONS 4-6 THEREIN.
+
+The rate at which the reaction complex changes in the start of a reaction, as
+it walks along the reaction path, is related to the curvature of energy in the
+reaction valley along this path.
+It is worth mentioning that, since reactions tend to go along the least energy
+path, this curvature is most likely to be wide (i.e., less steep) when compared
+with the other directions in the reaction valley.
+The reason is that molecular vibrations that don't led to the reaction are
+normally stiffer than the reaction direction.
+
+Along the lines of Hammond's postulate and the Bell-Evans-Polanyi principle,
+there is evidence (REF 14 OF THE PAPER ABOVE) that the reaction energy is
+proportional to the difference in position between the transition state and the
+exact midpoint of the reaction path.
+Although this requires knowledge of the reaction path and its midpoint
+position, and approximation for the linear path with a single changing degree
+of freedom is useful for guessing the transition state:
+%
+\begin{equation}
+    \Delta E^\circ \propto \Delta s
+        = s_\text{TS} - s_\text{midpoint}
+        \approx d_\text{TS} - \frac{d_\text{P} + d_\text{R}}{2}
+\end{equation}
+%
+where $s$ stands for the actual distance in some respect (e.g., root mean
+squared deviation), $d$ is the distance in a single degree of freedom, and R,
+TS, and P correspond the reactant, transition state and product, respectively.
+We are also setting $d_\text{midpoint}$
+to~$\frac{d_\text{P} + d_\text{R}}{2}$.
+As such, using a linear approximation,
+%
+\begin{equation}
+    d_\text{TS}
+    \approx d_\text{midpoint} + \frac{\Delta E^\circ - b}{a}
+\end{equation}
+%
+where $a$ and $b$ are constants to be determined.
+By making the reasonable assumption that the transition state should be at the
+midpoint for thermoneutral reactions, we learn that $b$ is zero.
+Furthermore, if we consider $\Delta d < 0$ to be an early transition state, we
+determine that $a$ is positive, since the reaction is exothermic
+($\Delta E^\circ < 0$) in this case due to the BEP principle.
+A typical value for $|a|$ is around
+$1.5 \times 10^{-2}$
+$\sqrt{\text{amu}}\cdot\text{Bohr} / \text{kcal$\cdot$mol$^{-1}$}$
+(JUSTIFY???).
+
+Partial evidence for this can be found in the literature on hydrogen
+abstraction reactions (HAA)~\cite{Bim2018}.
+\citeauthor{Bim2018} suggest a relationship between Marcus' reorganization
+energy $\lambda$ and an (a)asynchronicity parameter $\nu$ that can empirically
+rationalize the concertedness of HAA reactions as whether the proton or the
+electron is transferred first.
+The $\nu$ factor is, conceptually, a decomposition between the effective redox
+and effective acidobasic contributions to the reaction.
+A perfectly synchronous HAA reaction would have $\nu = 0$, whereas positive
+values favor electron transfer (ET) and negative values favor proton transfer
+(PT).
+They showed that $\lambda$ reaches its maximum where $|\nu|$ is lowest.
+This implies that, for this particular class of reactions, among systems with
+similar reaction free energies, the highest barrier is to be expected for the
+most synchronous proton-coupled electron transfer~\cite{Bim2018}.

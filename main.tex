@@ -29,10 +29,15 @@ british,           % main language of the document
 \usepackage{microtype}         % typography enhancements
 
 % # Utility packages
-\usepackage{import}  % nestable, locally-scoped import directives (note that it
-                     % is best to use commands (e.g., `subimport{...}{...}` in
-                     % their own lines)
-\usepackage{lipsum}  % TODO: remove this and its usage
+\usepackage{import}             % nestable, locally-scoped import directives (note that
+                                % it is best to use commands (e.g.,
+                                % `subimport{...}{...}`) in their own lines)
+\usepackage{amsmath}            % math commands
+\usepackage{amssymb}            % math symbols
+\usepackage{physics}            % extra utilities for physics notation
+\usepackage[version=4]{mhchem}  % chemical formula rendering
+\usepackage{tikz}               % LaTeX-based graphics
+\usetikzlibrary{cd}             % commutative diagrams
 
 % # Citations
 \usepackage[british,hyperpageref]{backref}   % show where works where cited
@@ -46,6 +51,9 @@ british,           % main language of the document
 \subimport{./src/preamble}{info}     % general information such as title, author, etc.
 
 \makeindex  % compile our index
+
+% shortcuts
+\newcommand{\overreact}{\texttt{overreact}}
 
 \begin{document}
 
