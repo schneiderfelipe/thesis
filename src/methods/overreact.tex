@@ -1,7 +1,7 @@
 \section{Automatic determination of kinetics using \overreact}%
 \label{sec:overreact-methods}
 
-\overreact is an open-source library, software package and command-line
+\overreact{} is an open-source library, software package and command-line
 application for building and analyzing
 homogeneous microkinetic models from first-principles
 calculations~\cite{Schneider2022,overreact2021zenodo}.
@@ -13,8 +13,8 @@ reaction model and calculations provided by the user.
 Simultaneous reactions are easily solved, including parallel and concurrent
 reactions, pre-equilibration and even constant concentration reactants.
 
-Furthermore, \overreact is able to take most of the relevant physics of the problem into
-account in a (semi-)automated fashion.
+Furthermore, \overreact{} is able to take most of the relevant physics of the problem into
+account in a semi-automated fashion.
 This includes concentration effects, symmetries, quantum
 tunneling, standard state corrections, implicit and explicit solvation, proper treatment
 of energy contributions and dispersion corrections.
@@ -96,18 +96,18 @@ are not able to, such as concentrations of species and complex time dynamics.
 
 \subsection{Design}
 
-\overreact is a second iteration on an earlier attempt to build a
+\overreact{} is a second iteration on an earlier attempt to build a
 homogeneous microkinetic analyzer from first-principles
 calculations~\cite{pyrrole2019zenodo}.
 Some things were learned from that first attempt:
-i. data is relatively easy to obtain from computational chemistry calculations,
+i.\ data is relatively easy to obtain from computational chemistry calculations,
 but it is not always in its optimal form;
-ii. solving differential equations is relatively easy in general, but hard to
+ii.\ solving differential equations is relatively easy in general, but hard to
 make it work for a wide range of problems mostly due to stiffness of the
 equations;
-iii. transforming knowledge about chemical structures into knowledge about the
+iii.\ transforming knowledge about chemical structures into knowledge about the
 chemical reactions is hard to be done in an automated fashion;
-iv. having a good pipeline for data processing makes it easy to add new
+iv.\ having a good pipeline for data processing makes it easy to add new
 features to the system.
 
 \subsection{Automatic differentiation}
@@ -135,6 +135,6 @@ dual numbers, one obtains
 \end{equation}
 where $P'(a)$ is the \emph{analytic} derivative of $P(a)$.
 
-\overreact employs a sligthly more complex scheme called
+\overreact{} employs a sligthly more complex scheme called
 \emph{backward differentiation}, available through Google's JAX library, that
 is more efficient for functions of many variables.
