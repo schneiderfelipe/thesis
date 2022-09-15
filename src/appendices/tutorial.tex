@@ -98,3 +98,50 @@ They showed that $\lambda$ reaches its maximum where $|\nu|$ is lowest.
 This implies that, for this particular class of reactions, among systems with
 similar reaction free energies, the highest barrier is to be expected for the
 most synchronous proton-coupled electron transfer~\cite{Bim2018}.
+
+\section{Some methods for obtaining transition states}
+
+The general idea is that the technique will depend on the information you have.
+If you have
+1. only reasonable reactants or only reasonable products, start with conformational search,
+metadynamics and scans. Chemical knowledge can help in finding candidates,
+though.
+2. both reasonable reactants and products, but no idea about the transition state, you can use
+all of the above, plus QST2 and NEB. Chemical knowledge plus simple estimates
+above can help on finding a transition state estimate, though.
+3. reasonable reactants and products, but crude transition state estimate, use QST3, NEB, and the above. The
+goal here is validate your transition state structure candidate as a
+\emph{true} transition state.
+4. reasonable transition state, use an eigenvector following method. Good ones
+provide normal mode projection so that you can better control de optimization
+direction. Furthermore, a good initial hessian is also nice to have.
+
+If have structures for both reactants and products, you can use techniques such
+as quadratic synchronous transit (QST2) or nudge-elastic band (NEB) to obtain a
+good guess on the transition state.
+
+In such calculations, it is normally mandatory that the atom numbering match
+between atoms in both reactants and products.
+
+In case you already have a reasonable guess for the transition state, both
+methods above (QST3 and NEB) can take advantage of that.
+
+\subsection{What if this don't work?}
+
+Sometimes you end up with an unconverged calculation.
+In other words, the calculation has performed some cycles, but then crashed.
+Changes are the final state of the calculation already has a better guess for
+the transition state.
+This structure can be used for further calculations.
+
+\section{What to do once you found a transition state candidate}
+
+Once you got a transition state candidate, both with its structure optimized
+and calculated frequencies, you should check that:
+1. only a single frequency appears, and
+2. that it corresponds to the expected bond breaking and forming.
+
+\section{If you are finding a set of homologous transition states}
+
+Focus on finding the simplest one first, then use it as a template for the
+other ones.
