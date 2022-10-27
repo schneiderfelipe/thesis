@@ -103,18 +103,21 @@ most synchronous proton-coupled electron transfer~\cite{Bim2018}.
 
 The general idea is that the technique will depend on the information you have.
 If you have
-1. only reasonable reactants or only reasonable products, start with conformational search,
+\begin{enumerate}
+    \item only reasonable reactants or only reasonable products, start with conformational search,
 metadynamics and scans. Chemical knowledge can help in finding candidates,
 though.
-2. both reasonable reactants and products, but no idea about the transition state, you can use
-all of the above, plus QST2 and NEB. Chemical knowledge plus simple estimates
+    \item both reasonable reactants and products, but no idea about the transition state, you can use
+all of the above, plus QST2 and NEB\@. Chemical knowledge plus simple estimates
 above can help on finding a transition state estimate, though.
-3. reasonable reactants and products, but crude transition state estimate, use QST3, NEB, and the above. The
+    \item reasonable reactants and products, but crude transition state
+        estimate, use QST3,\ NEB, and the above. The
 goal here is validate your transition state structure candidate as a
 \emph{true} transition state.
-4. reasonable transition state, use an eigenvector following method. Good ones
+    \item reasonable transition state, use an eigenvector following method. Good ones
 provide normal mode projection so that you can better control de optimization
 direction. Furthermore, a good initial hessian is also nice to have.
+\end{enumerate}
 
 If have structures for both reactants and products, you can use techniques such
 as quadratic synchronous transit (QST2) or nudge-elastic band (NEB) to obtain a
