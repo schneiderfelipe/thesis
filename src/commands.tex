@@ -37,7 +37,7 @@ apenas o recuo~\cite[5.3]{NBR10520:2002}.
 \end{verbatim}
 
 O ambiente \texttt{citacao} pode receber como parâmetro opcional um nome de
-idioma previamente carregado nas opções da classe (\autoref{sec:hifenizacao}). Nesse
+idioma previamente carregado nas opções da classe (\cref{sec:hifenizacao}). Nesse
 caso, o texto da citação é automaticamente escrito em itálico e a hifenização é
 ajustada para o idioma selecionado na opção do ambiente. Por exemplo:
 
@@ -71,7 +71,7 @@ o expoente, sem espaço entre elas e com fonte menor~\citeonline[5.2.1]{NBR14724
 
 
 \section{Tabelas}%
-\index{tabelas}A~\autoref{tab:nivinv} é um exemplo de tabela construída em
+\index{tabelas}A~\cref{tab:nivinv} é um exemplo de tabela construída em
 \LaTeX.
 
 \begin{table}[htb]
@@ -94,7 +94,7 @@ o expoente, sem espaço entre elas e com fonte menor~\citeonline[5.2.1]{NBR14724
 \legend{Fonte:~\citeonline{van86}}
 \end{table}
 
-Já a~\autoref{tab:ibge} apresenta uma tabela criada conforme o padrão do~\citeonline{ibge1993} requerido pelas normas da ABNT para documentos técnicos e
+Já a~\cref{tab:ibge} apresenta uma tabela criada conforme o padrão do~\citeonline{ibge1993} requerido pelas normas da ABNT para documentos técnicos e
 acadêmicos.
 
 \begin{table}[htb]
@@ -126,7 +126,7 @@ acadêmicos.
 
 \section{Figuras}%
 \index{figuras}Figuras podem ser criadas diretamente em \LaTeX,
-como o exemplo da~\autoref{fig:circulo}.
+como o exemplo da~\cref{fig:circulo}.
 
 \begin{figure}[htb]
 \caption{%
@@ -165,7 +165,7 @@ como o exemplo da~\autoref{fig:circulo}.
 \end{figure}
 
 Ou então figuras podem ser incorporadas de arquivos externos, como é o caso da
-\autoref{fig:grafico}. Se a figura que for incluída se tratar de um diagrama, um
+\cref{fig:grafico}. Se a figura que for incluída se tratar de um diagrama, um
 gráfico ou uma ilustração que você mesmo produza, priorize o uso de imagens
 vetoriais no formato PDF.\@ Com isso, o tamanho do arquivo final do trabalho será
 menor, e as imagens terão uma apresentação melhor, principalmente quando
@@ -202,7 +202,7 @@ Photoshop%
 
 \emph{Minipages} são usadas para inserir textos ou outros elementos em quadros
 com tamanhos e posições controladas. Veja o exemplo da
-\autoref{fig:minipage_imagem1} e da~\autoref{fig:minipage_grafico2}.
+\cref{fig:minipage_imagem1} e da~\cref{fig:minipage_grafico2}.
 
 \begin{figure}[htb]%
 \label{fig:teste}
@@ -336,7 +336,7 @@ e o início da frase do parágrafo, é definido por:
 \end{verbatim}%
 \index{espaçamento!do primeiro parágrafo}Por padrão, não há espaçamento no
 primeiro parágrafo de cada início de divisão do documento
-(\autoref{sec:divisoes}). Porém, você pode definir que o primeiro parágrafo
+(\cref{sec:divisoes}). Porém, você pode definir que o primeiro parágrafo
 também seja indentado, como é o caso deste documento. Para isso, apenas inclua o
 pacote \textsf{indentfirst} no preâmbulo do documento:
 
@@ -413,26 +413,26 @@ comandos, que devem ser digitados no \emph{Prompt de Comandos} do Windows ou no
 
 \section{Remissões internas}
 
-Ao nomear a~\autoref{tab:nivinv} e a~\autoref{fig:circulo}, apresentamos um
+Ao nomear a~\cref{tab:nivinv} e a~\cref{fig:circulo}, apresentamos um
 exemplo de remissão interna, que também pode ser feita quando indicamos o
-\autoref{ch:exemplos}, que tem o nome \emph{\nameref{ch:exemplos}}. O número
+\cref{ch:exemplos}, que tem o nome \emph{\nameref{ch:exemplos}}. O número
 do capítulo indicado é~\ref{ch:exemplos}, que se inicia à
 \autopageref{ch:exemplos}\footnote{O número da página de uma remissão pode ser
   obtida também assim:~\pageref{ch:exemplos}.}.
-Veja a~\autoref{sec:divisoes} para outros exemplos de remissões internas entre
+Veja a~\cref{sec:divisoes} para outros exemplos de remissões internas entre
 seções, subseções e subsubseções.
 
 O código usado para produzir o texto desta seção é:
 
 \begin{verbatim}
-Ao nomear a~\autoref{tab:nivinv} e a~\autoref{fig:circulo}, apresentamos um
+Ao nomear a~\cref{tab:nivinv} e a~\cref{fig:circulo}, apresentamos um
 exemplo de remissão interna, que também pode ser feita quando indicamos o
-\autoref{ch:exemplos}, que tem o nome \emph{\nameref{ch:exemplos}}. O número
+\cref{ch:exemplos}, que tem o nome \emph{\nameref{ch:exemplos}}. O número
 do capítulo indicado é~\ref{ch:exemplos}, que se inicia à
 \autopageref{ch:exemplos}\footnote{O número da página de uma remissão pode ser
 obtida também assim:
 \pageref{ch:exemplos}.}.
-Veja a~\autoref{sec:divisoes} para outros exemplos de remissões internas entre
+Veja a~\cref{sec:divisoes} para outros exemplos de remissões internas entre
 seções, subseções e subsubseções.
 \end{verbatim}
 
@@ -440,12 +440,12 @@ seções, subseções e subsubseções.
 \label{sec:divisoes}
 
 Esta seção testa o uso de divisões de documentos. Esta é a
-\autoref{sec:divisoes}. Veja a~\autoref{subsec:divisoes}.
+\cref{sec:divisoes}. Veja a~\cref{subsec:divisoes}.
 
 \subsection{Divisões do documento: subseção}%
 \label{subsec:divisoes}
 
-Isto é uma subseção. Veja a~\autoref{subsubsec:divisoes}, que é uma
+Isto é uma subseção. Veja a~\cref{subsubsec:divisoes}, que é uma
 \texttt{subsubsection} do \LaTeX, mas é impressa chamada de ``subseção'' porque
 no Português não temos a palavra ``subsubseção''.
 
@@ -465,7 +465,7 @@ Isto é uma subseção.
 
 \subsubsection{Divisões do documento: subsubseção}
 
-Isto é mais uma subsubseção da~\autoref{subsec:exemplo}.
+Isto é mais uma subsubseção da~\cref{subsec:exemplo}.
 
 
 \subsubsubsection{Esta é uma subseção de quinto nível}%
@@ -596,7 +596,7 @@ Isso altera automaticamente a hifenização e todos os nomes constantes de
 referências do documento para o idioma inglês. Consulte o manual da classe~\cite{abntex2classe} para obter orientações adicionais sobre internacionalização de
 documentos produzidos com \abnTeX.
 
-A~\autoref{sec:citacao} descreve o ambiente \texttt{citacao} que pode receber
+A~\cref{sec:citacao} descreve o ambiente \texttt{citacao} que pode receber
 como parâmetro um idioma a ser usado na citação.
 
 \section{Consulte o manual da classe \textsf{abntex2}}
@@ -623,7 +623,7 @@ sobre como utilizar as referências bibliográficas.
 Normalmente não há problemas em usar caracteres acentuados em arquivos
 bibliográficos (\texttt{*.bib}). Porém, como as regras da ABNT fazem uso quase
 abusivo da conversão para letras maiúsculas, é preciso observar o modo como se
-escreve os nomes dos autores. Na~\autoref{tab:acentos} você encontra alguns
+escreve os nomes dos autores. Na~\cref{tab:acentos} você encontra alguns
 exemplos das conversões mais importantes. Preste atenção especial para `ç' e `í'
 que devem estar envoltos em chaves. A regra geral é sempre usar a acentuação
 neste modo quando houver conversão para letras maiúsculas.

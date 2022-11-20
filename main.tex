@@ -15,7 +15,7 @@
     ngerman,                 % additional hyphenization
     spanish,                 % additional hyphenization
     brazil,                  % additional hyphenization
-    british,                 % main language of the document
+    english,                 % main language of the document
     ]{abntex2}
 
 % # Basic packages
@@ -36,11 +36,12 @@
 \usepackage{amssymb}            % math symbols
 \usepackage{physics}            % extra utilities for physics notation
 \usepackage[version=4]{mhchem}  % chemical formula rendering
+\usepackage{cleveref}
 \usepackage{tikz}               % LaTeX-based graphics
 \usetikzlibrary{cd}             % commutative diagrams
 
 % # Citations
-\usepackage[british,hyperpageref]{backref}   % show where works where cited
+\usepackage[english,hyperpageref]{backref}   % show where works where cited
 \usepackage[num]{abntex2cite}                % cite according to ABNT
 \citebrackets[]
 
@@ -56,7 +57,6 @@
 \newcommand{\overreact}{\texttt{overreact}}
 
 \begin{document}
-
 \subimport{./src}{before}
 
 \textual{}  % textual elements from now on (i.e., the actual work)
