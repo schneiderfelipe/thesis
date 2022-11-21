@@ -22,12 +22,10 @@ In most cases, in particular where solvation effects are weak, results matching
 experimental data are obtained.
 
 It is open source\footnote{Code is available at
-\url{https://github.com/geem-lab/overreact-guide}.}, free of charge, available through the Python Package Index (PyPI) and is
+	\url{https://github.com/geem-lab/overreact-guide}.}, free of charge, available through the Python Package Index (PyPI) and is
 distributed under the MIT license.
 An online user manual is also
 available\footnote{The user guide can be found at \url{https://geem-lab.github.io/overreact-guide/}.}.
-
-
 
 \section{Thermochemical partition functions}
 
@@ -38,20 +36,13 @@ This is routinely achieved by standard computational chemistry packages.
 This data can be used to estimate the thermodynamic properties of molecules and
 whole systems.
 
-
 Não apenas seus autovalores nos permitem checar se uma otimização alcançou de fato um mínimo local, mas importantes funções de estado termodinâmicas são acessíveis através da matriz hessiana, valendo-se da aproximação QRRHO para gases ideais.
 
-
-
 teoria do estado de transição~\cite{TransitionStateTheory}. %(\cref{sec:tst}).
-
-
 
 \section{Why predicting chemical reactions is hard}
 
 DESCRIBE THE EXPONENTIAL ERROR PROBLEM.\@
-
-
 
 \section{``First-principle'' calculations}
 
@@ -61,13 +52,9 @@ application.
 Broadly speaking, the first-principle calculations can be referred to
 wavefunction or density-functional theory (DFT) calculations.
 
-
-
-
 Os perfis reacionais resultantes são suficientes para a predição de parâmetros
 cinéticos e termodinâmicos das reações, que foram comparados aos resultados
 disponíveis na literatura. %(\cref{sec:tst}).
-
 
 \subsection{Quantum tunneling effects}
 
@@ -77,7 +64,6 @@ A particular group therein is the homolysis of \ce{C-H} bonds by strong
 oxidants, which oftentimes the rate-limiting step in many transformations, and
 a particularly key step in the substrate activation by numerous
 metalloenzymes~\cite{Bim2018}.
-
 
 \section{Microkinetic modelling}
 
@@ -91,8 +77,6 @@ The technique can be made first-principle by making use of pure computational
 chemistry predictions.
 It is able to take into account effects that sole use of Gibbs' free energies
 are not able to, such as concentrations of species and complex time dynamics.
-
-
 
 \subsection{Design}
 
@@ -123,15 +107,15 @@ The pair of numbers can be added component-wise, and form a commutative algebra
 by making use of a simple multiplication rule that follows from the property
 $\epsilon^2 = 0$:
 \begin{equation}
-    (a, b) * (c, d)
-    \equiv (a + b\epsilon)(c + d\epsilon)
-    = a c + (a d + b c)\epsilon
-    \equiv (a c, a d + b c)
+	(a, b) * (c, d)
+	\equiv (a + b\epsilon)(c + d\epsilon)
+	= a c + (a d + b c)\epsilon
+	\equiv (a c, a d + b c)
 \end{equation}
 It is not hard to show that, by extending the domain of any real polynomial to
 dual numbers, one obtains
 \begin{equation}
-    P((a, b)) \equiv P(a + b\epsilon) = P(a) + b P'(a) \epsilon
+	P((a, b)) \equiv P(a + b\epsilon) = P(a) + b P'(a) \epsilon
 \end{equation}
 where $P'(a)$ is the \emph{analytic} derivative of $P(a)$.
 

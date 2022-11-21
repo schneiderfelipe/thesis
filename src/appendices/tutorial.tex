@@ -1,5 +1,5 @@
 \chapter{Practical computational chemistry for the investigation of reaction
-mechanisms and transition state searches}%
+  mechanisms and transition state searches}%
 \label{ch:tutorial}
 
 This appendix is an account of techniques used and hard tested during my PhD.
@@ -32,7 +32,7 @@ This occurs, for example, in the umbrella effect of amines, or in enantiomeric
 interconversions.
 
 \subsection{Using Hammond's postulate for estimating transition state
-structures}
+	structures}
 
 RELEVANT PAPERS FOR THE DISCUSSION ARE
 \url{https://doi.org/10.19142/rpq.v6i11.152} AND CITATIONS 4--6 THEREIN.\@
@@ -55,9 +55,9 @@ position, and approximation for the linear path with a single changing degree
 of freedom is useful for guessing the transition state:
 %
 \begin{equation}
-    \Delta E^\circ \propto \Delta s
-        = s_\text{TS} - s_\text{midpoint}
-        \approx d_\text{TS} - \frac{d_\text{P} + d_\text{R}}{2}
+	\Delta E^\circ \propto \Delta s
+	= s_\text{TS} - s_\text{midpoint}
+	\approx d_\text{TS} - \frac{d_\text{P} + d_\text{R}}{2}
 \end{equation}
 %
 where $s$ stands for the actual distance in some respect (e.g., root mean
@@ -68,8 +68,8 @@ to~$\frac{d_\text{P} + d_\text{R}}{2}$.
 As such, using a linear approximation,
 %
 \begin{equation}
-    d_\text{TS}
-    \approx d_\text{midpoint} + \frac{\Delta E^\circ - b}{a}
+	d_\text{TS}
+	\approx d_\text{midpoint} + \frac{\Delta E^\circ - b}{a}
 \end{equation}
 %
 where $a$ and $b$ are constants to be determined.
@@ -104,19 +104,19 @@ most synchronous proton-coupled electron transfer~\cite{Bim2018}.
 The general idea is that the technique will depend on the information you have.
 If you have
 \begin{enumerate}
-    \item only reasonable reactants or only reasonable products, start with conformational search,
-metadynamics and scans. Chemical knowledge can help in finding candidates,
-though.
-    \item both reasonable reactants and products, but no idea about the transition state, you can use
-all of the above, plus QST2 and NEB\@. Chemical knowledge plus simple estimates
-above can help on finding a transition state estimate, though.
-    \item reasonable reactants and products, but crude transition state
-        estimate, use QST3,\ NEB, and the above. The
-goal here is validate your transition state structure candidate as a
-\emph{true} transition state.
-    \item reasonable transition state, use an eigenvector following method. Good ones
-provide normal mode projection so that you can better control de optimization
-direction. Furthermore, a good initial hessian is also nice to have.
+	\item only reasonable reactants or only reasonable products, start with conformational search,
+	      metadynamics and scans. Chemical knowledge can help in finding candidates,
+	      though.
+	\item both reasonable reactants and products, but no idea about the transition state, you can use
+	      all of the above, plus QST2 and NEB\@. Chemical knowledge plus simple estimates
+	      above can help on finding a transition state estimate, though.
+	\item reasonable reactants and products, but crude transition state
+	      estimate, use QST3,\ NEB, and the above. The
+	      goal here is validate your transition state structure candidate as a
+	      \emph{true} transition state.
+	\item reasonable transition state, use an eigenvector following method. Good ones
+	      provide normal mode projection so that you can better control de optimization
+	      direction. Furthermore, a good initial hessian is also nice to have.
 \end{enumerate}
 
 If have structures for both reactants and products, you can use techniques such
@@ -143,8 +143,8 @@ Once you got a transition state candidate, both with its structure optimized
 and calculated frequencies, you should check that:
 %
 \begin{itemize}
-    \item only a single frequency appears, and
-    \item that it corresponds to the expected bond breaking and forming.
+	\item only a single frequency appears, and
+	\item that it corresponds to the expected bond breaking and forming.
 \end{itemize}
 
 \subsection{If you are finding a set of homologous transition states}

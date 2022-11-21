@@ -1,7 +1,6 @@
 \section{Theoretical Background}%
 \label{sec:background-methods}
 
-
 Each of the steps in a proposed reaction mechanism is computational modelled
 by optimizing reactant, product and transition states.
 While the first two are minima on the potential energy surface, transition
@@ -26,12 +25,12 @@ details~\cite{Hohenberg_1964,Kohn_1965}.
 The main equation used in the DFT is the following (\cref{eq:KS}):
 %
 \begin{equation}
-  \left(-\frac{1}{2} \laplacian
-  + v_\text{ext}
-  + v_\text{eff}
-  \right) \psi_i
-  = \epsilon_i \psi_i
-  \label{eq:KS}
+	\left(-\frac{1}{2} \laplacian
+	+ v_\text{ext}
+	+ v_\text{eff}
+	\right) \psi_i
+	= \epsilon_i \psi_i
+	\label{eq:KS}
 \end{equation}
 %
 where $\psi_i$ is $i$th molecular orbital, $v_\text{ext}$ is the external
@@ -135,8 +134,8 @@ first because it is impossible to do electronic calculations for a zero-electron
 system~\cite{Ding_2009,Sumon_2012}.
 %
 \begin{equation}
-  \ce{HB (aq) <=>[$\emph{pKa} (\ce{HB})$] B^- (aq) + H^+ (aq)}\text{.}
-  \label{eq:pKa-equilibrium}
+	\ce{HB (aq) <=>[$\emph{pKa} (\ce{HB})$] B^- (aq) + H^+ (aq)}\text{.}
+	\label{eq:pKa-equilibrium}
 \end{equation}
 %
 Second, due to the covalent nature of the interaction between the \ce{H^+} ion
@@ -160,8 +159,8 @@ by calculating the associated problem of proton exchange with a known reference
 acid, such as acetic acid~\cite{Goldberg_2002}:
 %
 \begin{equation}
-  \ce{HA (aq) + B^- (aq) <=>[$\Delta{} G$] HB (aq) + A^- (aq)}\text{.}
-  \label{eq:pKa-indireto}
+	\ce{HA (aq) + B^- (aq) <=>[$\Delta{} G$] HB (aq) + A^- (aq)}\text{.}
+	\label{eq:pKa-indireto}
 \end{equation}
 %
 Since both sides of the~\cref{eq:pKa-indireto}
@@ -172,7 +171,7 @@ The $\emph{pKa}(\ce{HA})$
 can thus be written as a function of $\emph{pKa}(\ce{HB}, \text{exp.})$:
 %
 \begin{equation}
-  \emph{pKa}(\ce{HA})~=~\emph{pKa}(\ce{HB}, \text{exp.}) + \frac{\Delta G}{\ln(10) R T}\text{.}
+	\emph{pKa}(\ce{HA})~=~\emph{pKa}(\ce{HB}, \text{exp.}) + \frac{\Delta G}{\ln(10) R T}\text{.}
 \end{equation}
 %
 It is customary that the error obtained by this method to be less than 1 \emph{pKa}
