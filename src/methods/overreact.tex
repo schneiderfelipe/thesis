@@ -1,7 +1,7 @@
 \section{Automatic determination of kinetics using \overreact}%
 \label{sec:overreact-methods}
 
-\overreact{} is an open-source library, software package and command-line
+\overreact is an open-source library, software package and command-line
 application for building and analyzing
 homogeneous microkinetic models from first-principles
 calculations~\cite{Schneider2022,overreact2021zenodo}.
@@ -13,7 +13,7 @@ reaction model and calculations provided by the user.
 Simultaneous reactions are easily solved, including parallel and concurrent
 reactions, pre-equilibration and even constant concentration reactants.
 
-Furthermore, \overreact{} is able to take most of the relevant physics of the problem into
+Furthermore, \overreact is able to take most of the relevant physics of the problem into
 account in a semi-automated fashion.
 This includes concentration effects, symmetries, quantum
 tunneling, standard state corrections, implicit and explicit solvation, proper treatment
@@ -42,7 +42,57 @@ teoria do estado de transição~\cite{TransitionStateTheory}. %(\cref{sec:tst}).
 
 \section{Why predicting chemical reactions is hard}
 
-DESCRIBE THE EXPONENTIAL ERROR PROBLEM.\@
+Perfect prediction of chemical reactions is an unforgiving problem.
+Since reaction rate constants depend exponentially on the activation Gibbs' free energy,
+small deviations on the latter exponentally increase errors on the latter.
+As such, given an activation energy estimate $\Delta G^\ddagger$
+on the true value $\Delta \widehat{G}^\ddagger$
+with error $\epsilon$,
+%
+\begin{equation}
+	k = \kappa \frac{k_B T}{h} e^\frac{- \Delta G^\ddagger}{R T}
+	= \kappa \frac{k_B T}{h} e^\frac{- \left(\Delta \widehat{G}^\ddagger + \epsilon\right)}{R T}
+	% = \kappa \frac{k_B T}{h} e^\frac{- \Delta \widehat{G}^\ddagger}{R T}
+	% e^\frac{- \epsilon}{R T}
+	= \widehat{k} e^\frac{- \epsilon}{R T}
+\end{equation}
+%
+where $k$ and $\widehat{k}$ are the predicted and true chemical reaction constants, respectively.
+Thus, at room temperature, an error of 1.36--2.73~\kcalmol gives rise to 10--100$\times$ error
+in the reaction rate constant, with larger errors found in lower temperatures.
+This is particularly important, as popular DFT methods commonly achieve accuracies of
+2--3~\kcalmol for many molecules~\cite{Becke_2014,Bogojeski_2020}.
+Moreover, an error of 0.41~\kcalmol produces a twofold error in the constant.
+This goes to show that the so called ``quantum chemical accuracy'' of
+$<$1~\kcalmol~\cite{Bogojeski_2020}
+is not enough for the prediction of chemical reactions on par with experimental results.
+It goes without saying that this gives rise not only to a demand
+for more precise quantum chemical methods,
+but also for methods aiming at mitigating the effect of such errors
+in computational predictions of chemical reactions.
+
+One might go one step further and investigate how this error in the reaction rate constant
+is related to individual errors in activation enthalpy and entropy errors.
+%
+\begin{equation}
+	k = \kappa \frac{k_B T}{h} e^\frac{- \Delta H^\ddagger}{R T}
+	e^\frac{  \Delta S^\ddagger}{R}
+	= \kappa \frac{k_B T}{h} e^\frac{- \left(\Delta \widehat{H}^\ddagger + \chi\right)}{R T}
+	e^\frac{        \left(\Delta \widehat{S}^\ddagger + \sigma\right)}{R}
+	% = \kappa \frac{k_B T}{h} e^\frac{- \Delta \widehat{H}^\ddagger}{R T}
+	% e^\frac{  \Delta \widehat{S}^\ddagger}{R}
+	% e^\frac{- \chi}{R T}
+	% e^\frac{  \sigma}{R}
+	= \widehat{k}
+	e^\frac{- \chi}{R T}
+	e^\frac{  \sigma}{R}
+\end{equation}
+%
+The above suggests that, all things equal,
+errors in the predicted activation entropy dominate at high temperatures,
+while being less significant
+than activation enthalpy errors at low temperatures.
+The balance between the two will on the other hand depend on the actual reaction at hand.
 
 \section{``First-principle'' calculations}
 
@@ -80,7 +130,7 @@ are not able to, such as concentrations of species and complex time dynamics.
 
 \subsection{Design}
 
-\overreact{} is a second iteration on an earlier attempt to build a
+\overreact is a second iteration on an earlier attempt to build a
 homogeneous microkinetic analyzer from first-principles
 calculations~\cite{pyrrole2019zenodo}.
 Some things were learned from that first attempt:
@@ -119,6 +169,6 @@ dual numbers, one obtains
 \end{equation}
 where $P'(a)$ is the \emph{analytic} derivative of $P(a)$.
 
-\overreact{} employs a sligthly more complex scheme called
+\overreact employs a sligthly more complex scheme called
 \emph{backward differentiation}, available through Google's JAX library, that
 is more efficient for functions of many variables.

@@ -19,14 +19,15 @@
 ]{abntex2}
 
 % # Basic packages
-\usepackage{lmodern}           % Latin Modern font
-\usepackage[T1]{fontenc}       % font encoding
-\usepackage[utf8]{inputenc}    % document encoding (e.g., required for diacritics)
-\usepackage{indentfirst}       % indent the first paragraph of each section
-\usepackage{color}             % color control
-\usepackage{graphicx}          % include graphics
-\usepackage{pdfpages}          % include PDFs
-\usepackage{microtype}         % typography enhancements
+\usepackage{lmodern}        % Latin Modern font
+\usepackage[T1]{fontenc}    % font encoding
+\usepackage[utf8]{inputenc} % document encoding (e.g., required for diacritics)
+\usepackage{indentfirst}    % indent the first paragraph of each section
+\usepackage{color}          % color control
+\usepackage{graphicx}       % include graphics
+\usepackage{pdfpages}       % include PDFs
+\usepackage{microtype}      % typography enhancements
+\usepackage{xspace}         % smart spaces
 
 % # Utility packages
 \usepackage{import}             % nestable, locally-scoped import directives (note that
@@ -54,7 +55,8 @@
 \makeindex  % compile our index
 
 % shortcuts
-\newcommand{\overreact}{\texttt{overreact}}
+\newcommand{\overreact}{\texttt{overreact}\xspace}
+\newcommand{\kcalmol}{kcal$\cdot$mol$^{-1}$\xspace}
 
 \begin{document}
 \subimport{./src}{before}
