@@ -1,24 +1,36 @@
 \chapter{Methods and techniques}%
 \label{ch:methods}
 
-The works described in~\cref{ch:paper1,ch:paper2,ch:paper3} consist of contributions related to the computational
-elucidation of reaction mechanisms.
-As such, computational methods were used to investigate the mechanisms by
-modelling the chemical reactions and comparing hypotheses to each other,
-to the literature and to the available experimental data.
-
-This chapter presents an account of the relevant computational methods and
-techniques used in the works.
-Basic background on computational chemistry is given in~\cref{sec:background-methods}.
+Since the works described in~\cref{ch:paper1,ch:paper2,ch:paper3} consist
+of contributions related to the computational elucidation of reaction mechanisms,
+this chapter presents an account of the relevant computational methods and
+techniques used in the investigations, with background and context given
+for the various topics where appropriate.
+A basic background on computational chemistry applied
+to mechanistic elucidation is given in~\cref{sec:background-methods}.
 Details about the methods used in the development of the \overreact software
 package are given in~\cref{sec:overreact-methods}.
 
 \subimport{.}{methods/background}
-\subimport{.}{methods/overreact}
 
 \section{Chemical reaction mechanisms}
 
-SOME OF THOSE THINGS MIGHT GO INTO THE METHODS.\@
+Hypothetical reaction mechanisms consist of
+the interpretation of the available data for a chemical reaction
+in terms of a model that is self-consistent.
+Proposals for reaction mechanisms must be compared
+with each other
+and with the available experimental data.
+Many different hypotheses for the same reaction can exist,
+and, after pruning the ones in disagreement with the available data,
+it is still possible to have several different plausible models at hand.
+Computational modelling of chemical reactions
+provides one with a way of
+formulating,
+analyzing and
+comparing hypotheses to each other,
+to the literature and to the available experimental data.
+This way, one is able to come up with a ``most probable'' one.
 
 \subsection{Bell-Evans-Polanyi principle}
 
@@ -32,21 +44,22 @@ But since the largest contribution is the electronic energy, it is reasonably
 safe to apply the BEP principle (and Hammer's postulate, as we will see later)
 using electronic energies in the context of quantum chemistry calculations.
 
+IN THE NOTES.\@
 CITATION.\@
 
 \subsection{Hammond's postulate}
 
+IN THE NOTES.\@
 CITATION.\@
 
-\subsection{Effects worth investigating}
+% TODO: those topics are interesting but may not go to the thesis.
+% \subsection{Effects worth investigating}
 
-\subsubsection{Some Pd and Pd chemistry}
+% \subsubsection{Organocatalysis}
+% \subsubsection{Organometallic chemistry}
+% \subsubsection{Some Pd and Pd chemistry}
 
-\subsubsection{Organometallic chemistry}
-
-\subsubsection{Organocatalysis}
-
-\subsubsection{Outersphere effects}
+% \subsubsection{Outersphere effects}
 
 \section{Intramolecular and substitutional effects:
   a key step to understand enzyme-like catalysis}
@@ -96,11 +109,12 @@ related processes in simpler systems.~\cite{Kirby_1972}.
 
 We have studied some of these effects.
 
-PAPER 1 => is peptide-like/enzyme-like? is intramolecular/substitutional?
-
-PAPER 2 => is peptide-like/enzyme-like? is intramolecular/substitutional?
-
-PAPER 3 => is peptide-like/enzyme-like? is intramolecular/substitutional?
-=> \emph{\ce{N}}-alkyl substituted maleamic acids
+% TODO: concatenate the results with those remarks.
+% PAPER 1 => is peptide-like/enzyme-like? is intramolecular/substitutional?
+% PAPER 2 => is peptide-like/enzyme-like? is intramolecular/substitutional?
+% PAPER 3 => is peptide-like/enzyme-like? is intramolecular/substitutional?
+% => \emph{\ce{N}}-alkyl substituted maleamic acids
 Particular details concerning the intramolecular effects of geminal and
 vicinal disubstitutions can be found in~\cref{ch:gem-vic-disubstitions}.
+
+\subimport{.}{methods/overreact}
