@@ -42,9 +42,14 @@
 \usetikzlibrary{cd}             % commutative diagrams
 
 % # Citations
-\usepackage[english,hyperpageref]{backref}   % show where works where cited
-\usepackage[num]{abntex2cite}                % cite according to ABNT
-\citebrackets[]
+\usepackage[
+	style=abnt-numeric,
+	citestyle=numeric-comp,
+	sorting=none,
+	backref,
+	giveninits,
+]{biblatex}                % cite according to ABNT
+\addbibresource{references.bib}
 
 % # Preamble
 \subimport{./src/preamble}{config}   % configuration of packages
@@ -76,9 +81,6 @@
 
 \subimport{./src}{papers}
 
-% This is to be removed at a later time!
-% \subimport{./src}{abntex-stuff}
-
 % ----------------------------------------------------------
 % Finaliza a parte no bookmark do PDF
 % para que se inicie o bookmark na raiz
@@ -92,7 +94,7 @@
 
 % adding the bibliography to ./src/after.tex leads to compilation issues
 % that have to do with the import package
-\bibliography{references}
+\printbibliography
 \subimport{./src}{after}
 
 \end{document}
