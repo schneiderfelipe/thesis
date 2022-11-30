@@ -17,22 +17,63 @@ contributions that have taken place during the course of the PhD, see~\cref{ch:a
 Lessons learned from this first iteration, as well as the methodology
 underlying \overreact, can be found in~\cref{sec:overreact-methods}.
 
-% TODO:
-% HOW IS THE RESEARCH DESIGNED?\@
-% WHY IT IS DESIGNED THIS WAY?\@
-% WHAT DOES THE LITERATURE SAY ABOUT THIS?\@
-% IS THE LITERATURE WELL STABLISHED?\@
-% IS IT DIVIDED?\@
-% HOW DOES THE RESEARCH FIT THE BIGGER PICTURE?\@
-% HOW DOES THE RESEARCH CONTRIBUTE SOMETHING ORIGINAL?\@
-% HOW DOES THE METHODOLOGY OF PREVIOUS STUDIES HELP YOU DEVELOP YOUR OWN?\@
-% WHY IS THIS WORTH INVESTIGATING?\@
-% HOW IMPORTANT IS THIS?\@
-% HOW IS THIS ORIGINAL?\@
-% WHAT WERE MY RESEARCH AIMS?\@
-% WHAT IS THE SCOPE OF MY STUDY?\@
-% WHAT I COVERED AND DIDN'T COVER?\@
-% WHICH METHODS WERE USED?\@
+The methology was developed such that as much as possible of the physics of the problem could be included,
+while still making the whole process manageable from the computational point of view.
+This means choosing the use of classical transition state theory,
+whose requirement of having transition state structures is attainable
+using simply available computational chemistry packages of today, in contrast to other theories
+such as variational transition state theory.
+Although limiting, this way of doing things is accurate to a wide variety of chemical phenomena.
+% TODO: CITATION FOR THE PHRASE ABOVE!
+
+The literature is well-stablished in most of this regard.
+For instance, CITE SUCH AND SUCH, theories of transition state, etc.
+RRKM, Marcus theory, VTST, etc.
+On other aspects, such as solvation entropy, it is actually divided CITE.\@
+
+Regarding the emergent need for mechanistic elucidation, the research shows promissing
+results in terms of doing semiautomatic hypothesis test in terms of which reactions are feasible
+in a given context.
+As far as we known, this is the first system that is able to produce kinetic reaction profiles
+automatically from simple computational chemistry outputs and still take into account most of the physics of the problem.
+
+% TODO: get that from the paper!
+But many contributions came earlier, for instance SUCH AS SUCH.\@
+Polyrate, EyringPy, MKMCXX, etc.
+CITE Emílio Martínez?
+
+It is important to do this investigation, as the demand has considerably increased throughout the years.
+One can not expect to produce excellent catalytic processes without knowning how they work,
+especially if there is need to \emph{systematically} and \emph{consistently} design them for various applications.
+This is extremelly important in today's economy and ongoing climate crisis.
+
+Relatedly, health applications are of utmost importance, as the world's population gets steadily older.
+In this respect, cancer therapies are very important as well.
+
+Allowing rapid rational design and investigation in those areas where understanding how reactions work is important
+is a crucial effort of this work.
+
+We aimed towards making it extremelly easy for computational discoveries in the elucidation of reaction mechanisms
+to be compared with experimental data.
+In this scope, one restrained the set of approachable systems to ones
+being specifically investigable with today's availability of computational chemistry packages.
+Although reasonably general, the method does not cover surface reactions,
+some condensed state effects such as solvation entropy,
+pressure-dependent reactions,
+very fast reactions,
+diffusion-controlled reactions,
+reactions that transit between potential energy surfaces such as photochemical ones, and more.
+Fully covered are room-temperature reactions in gas and solvated phases in the infinite dilution approximation.
+
+A variety of methods were employed.
+We get energies from computational chemistry packages,
+together with vibrational frequencies.
+Together with the molecular structure,
+one is able to calculate the molecular partition function for such systems.
+This allows one to calculate Gibbs' free energies and, together with reaction hypotheses,
+activation free energies for such reactions.
+This, together with tunneling approximations, one is able to produce accurate reaction rate constants.
+% TODO: things missing for above: symmetries, etc., Grimme's stuff, etc.
 
 % TODO:
 % \section{Background and motivation}
