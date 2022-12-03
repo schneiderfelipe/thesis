@@ -1,6 +1,12 @@
 \chapter{Introduction}%
 \label{ch:introduction}
 
+% TODO:
+% Detailed chemical kinetic modelling of catalytic processes is an emerging area of research.
+% It provides a significantly improved understanding of the reaction mechanisms underlying the manufacture of valuable chemical products.
+% It provides the basis for process improvement and the optimised design of new processes.
+% Relevant in the design of novel, compact and highly integrated chemical processes of the future.
+
 Given the advent of environmental and energetic challenges~\cite{Bertozzi_2016},
 chemical reaction rational design is more important than ever.
 And today's economy demands fast chemical reactions:
@@ -12,19 +18,17 @@ with an annual share in the global economy estimated to be worth US\$~10
 trillion~\cite{GlobalCatalystMarket}.
 
 As such, there has been a global urgency for precise prediction of chemical reactions from first principles~\cite{Kitchin_2012}.
-Various techniques have been applied for this purpose~\cite{Chin_2022,Cao2022}.
+Various techniques have been applied for this purpose~\cite{Houk_2014,Chin_2022,Cao2022}.
 Computer-aided strategies, such as density functional theory (DFT),
 provide theoretical models for mapping out even complex reaction pathways from initial starting material~\cite{Maeda_2011,Simm_2017,Rappoport_2019}.
 Additionally, electronic structure calculations of the transition state (TS) or intermediates can be used to determine the reaction rate constants,
 which are key in the interpretation of experimental data~\cite{Plata_2015,Santoro_2016,Coelho_2019,Oliveira_2020}.
-
-% TODO: this should be reworded, but the idea is very good.
 Recent studies have also explored the use of machine learning algorithms
 to predict chemical reaction rate constants, providing a useful tool for
-accelerating reaction catalyst design~\cite{MLPredictKinetics}.
+accelerating reaction catalyst design (CITATION).
 Finally, quantum mechanics and statistical mechanics techniques,
 such as molecular dynamics and Monte Carlo methods,
-can be employed to obtain thermodynamic and kinetic information for many reactions~\cite{MolecularDynamics,montecarlo}.
+can be employed to obtain thermodynamic and kinetic information for many reactions~\cite{Wang_2014}.
 
 But there is natural room for improvement:
 despite the recent great efforts~\cite{Peng_2016}, currently industrially-employed catalysts do
@@ -39,13 +43,6 @@ diagrams and consider important aspects of complex chemical reaction networks
 such as concentrations, quantum tunneling, diffusion effects and others.
 % TODO: INSERT CITATIONS AND TALK ABOUT EFFORTS TOWARDS THIS GOAL.\@
 
-% TODO:
-% THIS INTRODUCTORY SECTION SEEMS SUPERFICIAL AND DOES NOT PROVIDE AN IDEA OF THE
-% STATE OF THE ART THAT THE SUBJECT DEMANDS.\@
-% IT NEEDS TO BE EXPANDED, HIGHLIGHTING THE IMPACTS, ACHIEVEMENTS AND GAPS YET TO
-% BE FILLED.\@
-% IT NECESSARILY CONVERSES WITH THE ABOVE, AS WE NEED TO FILL THE GAP WITH THIS THESIS,
-% SO FILL THE ABOVE FIRST.\@
 The present part presents an overview of methods for predicting chemical
 kinetics and thermodynamics from first principles.
 It starts with a brief introduction to the general state of the art in quantum
@@ -55,34 +52,6 @@ It then goes on to describe the methods employed in
 package for predicting chemical kinetics and simulating microkinetics
 automatically from first principles.
 
-% TODO:
-% REWRITE %
-% Detailed chemical kinetic modelling of catalytic processes is an emerging area of research. It provides a significantly improved understanding of the reaction mechanisms underlying the manufacture of valuable chemical products. It provides the basis for process improvement and the optimised design of new processes.
-% REWRITE %
-% kinetic modelling
-% Relevant in the design of novel, compact and highly integrated chemical processes of the future.
-
-% TODO:
-% EVEN EXTRA
-%%% MICKI %%%
-% Furthermore, it is possible to probe the sensitivity of the model to individual model parameters, such as rate constants, equilibrium coefficients, and individual adsorbate binding energies. This sensitivity analysis gives information about which steps are rate-limiting and potential descriptors for finding more active or more selective catalysts.
-% Additionally, Micki allows the user to probe the sensitivity of the model using a built-in sensitivity analysis module.
-%%% MICKI %%%
-
-% TODO:
-% In the future we want to implement the automatic calculation of Marcus theory rate constants, useful in the modelling or hydride transfers~\cite{Nikbin_2012}, and diffusion-controlled rates.
-% We also want to add automatic kinetic isotope effect calculations.
-
-% TODO:
-%  EVEN EVEN MORE FUTURE
-% Anharmonicity are also envisioned in the future.
-% Other stuff for the future (already partially or totally implemented but not tested):
-% diffusion controlled reactions and low-lying energy states (through TD-DFT).
-
-% TODO:
-% In the future:
-% detect host-guest complexes and account for their individual symmetries.
-% We currently detect reaction symmetries but not for weakly-bound complexes~\cite{Gilson_2010}.
-% We want to support in the future not only quantum chemistry, but other tools such as molecular dynamics or even experimentally (in a laboratory) determined data.
-% We pursue a method with which the chemical machines of the future can be efficiently designed, modelled and understood.
-% Such a tool would allow truly first-principles microkinetic simulations, by taking into account all reasonably relevant effects for chemical reactions in homogeneous media and room or body temperature.
+We pursue a method with which the chemical machines of the future can be efficiently designed, modelled and understood.
+Such a tool would allow truly first-principles microkinetic simulations,
+by taking into account all reasonably relevant effects for chemical reactions in homogeneous media and room or body temperature.

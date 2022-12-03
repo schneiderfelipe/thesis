@@ -1,6 +1,14 @@
 \chapter{Concluding remarks and closing}%
 \label{ch:conclusion}
 
+The most important contributions presented in this thesis can be summarized as follows:
+
+1. Methods such as density functional theory (DFT), electronic structure calculations of the transition state (TS) or intermediates have been applied to predict chemical reactions from first principles~\cite{Coelho_2019,Oliveira_2020}.
+
+2. The \overreact~software package has been developed for predicting chemical kinetics and simulating microkinetics automatically from first principles~\cite{Schneider2022}.
+
+MY TEXT BELOW.
+
 The present thesis described approaches to the elucidation of reaction
 mechanisms in general and the elucidation of specific reaction mechanisms in
 particular.
@@ -22,13 +30,21 @@ The limitations of the contributions are related to
 (iii) imprecisions due to methodological errors, such as the ones coming from DFT or classical transition state theory.
 Those will have to be addressed in future publications.
 
-% TODO:
-% EXTRA FROM THE CONCLUSIONS
-% REMOVED BUT SEPARATED AS A ``FUTURES'' LIST BELOW.\@
+% FUTURE WORK
+Future work is proposed to further develop the \overreact~software package to include the automatic calculation of Marcus theory rate constants,
+the use of diffusion-controlled rates,
+and automatic kinetic isotope effect calculations.
+Additionally, we envision enhance the symmetry module to detect host-guest complexes
+and account for their individual symmetries.
 
-One could inspect steady-state conditions, in which the concentrations and rates have converged to some final value, search for the most predominant species under catalytic conditions, computationally estimate the overall turn-over frequency, an essential measure of catalytic activity, and understand selectivity of a catalysts towards particular products.
-Not only it provides insight into concentration dependencies and comparison with experiment, such framework would serve as a benchmark for hypothesis testing, allowing the prediction of chemical behaviour in a computationally affordable and precise way.
-Kinetic models in such a framework can be progressively constructed, with a single pathway added at a time until a match with the experiment, simplifying the workflow, easing the computational burden and increasing efficiency, as was recommended elsewhere~\cite{Jara_z_2019}.
-Such an incremental modeling protocol is arguably maximally efficient, as a
-minimal set of reactions lead to more easily rationalisable and
-``probably less wrong'' models~\cite{Blackmond_2015,Jara_z_2019}.
+MY TEXT BELOW.
+
+In the future, we want to implement (i) the automatic calculation of Marcus theory rate constants,
+useful in the modelling or hydride transfers~\cite{Nikbin_2012},
+and (ii) diffusion-controlled rates.
+We also want to add automatic kinetic isotope effect calculations.
+
+Other future work is envisioned in the symmetry module.
+For instance, detect host-guest complexes and account for their individual symmetries.
+We currently detect reaction symmetries but not for weakly-bound complexes~\cite{Gilson_2010}.
+
