@@ -2,15 +2,31 @@
 \label{sec:background-methods}
 
 Each of the steps in a proposed reaction mechanism is computational modelled
-by optimizing reactant, product and transition states.
+by optimizing the structures of reactants, transition states, intermediates, and products.
 While the first two are minima on the potential energy surface, transition
 states represent a local maximum on the potential energy surface connecting
 reactants and products.
 This characterizes transition states as saddle points and, therefore, requires
 a different method of optimization than the other structures.
+The potential energy surface can be regarded as a function from atomic coordinates to potential energy and,
+as such, its existence is a result of the Born-Oppenheimer approximation,
+where the electronic energy and wavefunction depends on the nucleus coordinates
+only parametrically.
+CITE BORN-OPPENHEIMER.\@
+In this sense, nuclei are treated classically in this scheme, which is reasonable for most problems of interest in chemistry.
+In contrast, other methods exist, where the nuclei are treated quantum mechanically as well,
+but they are much more expensive.
+
 In any case, optimization methods require an estimate of energies and gradients
-of the potential energy surface and the works presented in this thesis made use
-of the density functional theory (DFT)
+of the potential energy surface.
+There are many techniques available to accomplish that,
+ranging from simple and low-cost semiempirical methods,
+all the way throught highly accurate and expensive multideterminantal wavefunction calculations.
+CITE, JACOB'S LADDER, HIERARCHY OF MODELS, ETC.\@
+Most of these techniques require self-consistent field approximations, at least initially.
+
+The works presented in this thesis made use of the most popular technique nowadays,
+the density functional theory (DFT)
 method~\cite{Hohenberg_1964,Kohn_1965,Perdew_2014,Kryachko_2014,Yu_2016} for
 that.
 A brief discussion of the theory can be found in~\cref{sec:dft}.
@@ -56,11 +72,16 @@ The literature on basis set functions is extensive~\cite{Ditchfield_1971,Hehre_1
 We invite the interested reader to the references on each work for more about
 the levels of theory used in each case.
 
+IMPACTS OF DFT APPROXIMATIONS ON THE PES?\@
+
+% TODO: check that citations follow the short compact convention e.g. [18-25]
+
 \subsection{Single-molecule property predictions}\label{sec:optimizations}
 
 \cref{eq:KS} allows us to obtain energy and gradient estimates (required for
 the prediction of geometrical, thermochemical and kinetic properties) with a
 reasonably good cost-effectiveness.
+WHY, HOW, SUPPORT WITH WHAT?\@ CITATIONS!\@
 
 The most basic property required for any computational study is the molecular
 geometry.
@@ -69,14 +90,20 @@ Commonly used and powerful family of optimization methods employed in the
 literature is the quasi-Newton method, where energies and gradients are
 computed, while an approximation to the second-derivative matrix (also known as
 a Hessian matrix) is updated at each step~\cite{Banerjee_1985,Schlegel_1987}.
+CRUCIAL EQUATIONS SHOULD BE HIGHLIGHTED!\@
 
 An approximation to the second-derivative matrix is employed in the algorithm
 for efficiency, but the actual matrix can be computed after the minimization is
 complete.
 This matrix provides important information about the region in the potential
 energy surface where the energy is minimum as we will see in the following.
+EVERYTHING IS MISSING, EITHER REMOVE STUFF OR SHOW STUFF.\@
+ALSO, CITATIONS ARE LACKING!\@
+DON'T APPROACH THIS TANGENTIALLY.\@
 
 \subsubsection{Transition state optimizations}\label{sec:ts-optimizations}
+% TODO: the logical sequence is talk about ground-state optimizations first.
+% Then move to transition state optimizations.
 
 A structure to be a minimum on the potential energy surface means that any
 displacement of the structure will result in an increase in the potential
@@ -89,6 +116,7 @@ direction.
 Displacement in this particular direction leads to a decrease in the potential
 energy and is associated with a single negative eigenvalue of the
 second-derivative matrix.
+ADD A GRAPHICAL SCHEME TO SHOW THIS!\@
 By calculating the second-derivative matrix, we can determine whether a structure
 is a minimum, saddle point or otherwise.
 
@@ -103,6 +131,8 @@ It consists in obtaining an estimate of the transition state from the known
 structures of reactants and products (QST2).
 An associated method allows the use of a custom guess for the transition state
 (QST3).
+% TODO: one has to list the main characteristics of each method, advantages and disadvantages, etc.
+% It is nice to have equations and/or schemes to highlight the most important things and is mandatory.
 The method is useful since
 i.\ knowledge of the transition state is optional,
 ii.\ it avoids calculating the second-derivative matrix for each step.
@@ -120,13 +150,20 @@ is based on the idea that the reactant ground state complex is in equilibrium
 with the transition state structure~\cite{TransitionStateTheory}.
 It is summarized by the Eyring equation.
 
+HAS TO BE REWRITTEN, BUT ONLY THE ESSENTIALS.\@
+
 \subsection{When things go wrong:
 	bulk effects}
 
 Here are some situations where predictions become poor due to the fact that our
 calculations are too small.
 
+FLOATING PARAGRAPH!\@
+
 \subsubsection{Determining \emph{pKa}s}\label{sec:pka}
+
+WHY?\@
+THIS MAKES THE TEXT NOT FOLLOW A CONCATENATED CHAIN OF THOUGHT.\@
 
 In the computational prediction of \emph{pKa} values,
 the direct dissociation approach (\cref{eq:pKa-equilibrium})
