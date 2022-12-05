@@ -1,56 +1,188 @@
-\chapter{Introduction}%
+\chapter*{Introduction}%
 \label{ch:introduction}
 
-% TODO:
-% Detailed chemical kinetic modelling of catalytic processes is an emerging area of research.
-% It provides a significantly improved understanding of the reaction mechanisms underlying the manufacture of valuable chemical products.
-% It provides the basis for process improvement and the optimised design of new processes.
-% Relevant in the design of novel, compact and highly integrated chemical processes of the future.
+The development of catalysis in general, and fine-tuned control of chemical reactions in particular,
+has truly shaped the world we live in today.
+A striking example is the development of the Haber-Bosch process,
+a ``synthesis of ammonia from its elements''~\cite{Nobel_1918},
+which Otto~Haber had developed in the early 1900s~\cite{Erisman_2008,Lewis_2015},
+receiving the Nobel Prize for it in 1918~\cite{Nobel_1918}.
+Carl Bosch later improved the industrial reaction through high pressure methods,
+which awarded him the Nobel Prize in 1931~\cite{Nobel_1931}.
+Together, development and precise control were so impactful that it is often used
+as an example of the geological impact of human actions, a key defining milestone for
+the era we live in, the Anthropocene~\cite{Smil_1999,Canfield_2010,Lewis_2015}.
+%
+\begin{citacao}
+	Human activity profoundly affects the environment,
+	from Earth’s major biogeochemical cycles to the evolution of life.
+	For example, the early-twentieth-century invention of the Haber-Bosch process,
+	which allows the conversion of atmospheric nitrogen to ammonia for use as fertilizer,
+	has altered the global nitrogen cycle so fundamentally
+	that the nearest suggested geological comparison refers to events
+	about~2.5~billion~years~ago~\cite{Lewis_2015}.
+\end{citacao}
 
-Given the advent of environmental and energetic challenges~\cite{Bertozzi_2016},
-the rational design of chemical reactions is more important than ever.
-And today's economy demands fast and efficient chemical reactions:
+More than a century later,
+with the advent of climate change and other environmental and energetic challenges~\cite{Bertozzi_2016},
+the rational design of chemical reactions is more important than ever before.
+This is not only due to the impact of human actions,
+but also \emph{precisely} because of it:
+humans have the decision power to start making positive impact on the environment we live in
+by transitioning to a greener economy.
+On the other hand, today's economy demands fast and efficient chemical reactions:
 catalysts are employed in the production of over 80\% of all chemical
 goods of industrial
-importance~\cite{Breakthrough_Catalyst,GlobalCatalystMarket}.
+importance~\cite{Breakthrough_Catalyst,GlobalCatalystMarket},
+and make up a considerable piece of human activity.
 In fact, the 2014 global market share of catalysts was evaluated in US\$~33.5 billion,
 with an annual share in the global economy estimated to be worth US\$~10
 trillion~\cite{GlobalCatalystMarket}.
-As such, there has been a global urgency for precise prediction of chemical reactions from first principles~\cite{Kitchin_2012}.
 
-Various techniques have been applied for this purpose~\cite{Houk_2014,Chin_2022,Cao2022}.
-Computer-aided strategies, such as density functional theory (DFT),
+The apparent conflict between these two requirements can be reconciled by
+the rational design of green,
+fast and efficient chemical transformations and catalysts,
+in particular, with precise prediction of chemical reactions from first principles~\cite{Kitchin_2012}.
+The ability to accurately predict and account for the kinetics and thermodynamics associated
+with chemical procedures remains an immense challenge,
+yet a central objective in various scientific sectors,
+with broad implications for the future.
+Since complex reaction networks can critically inform our interpretation of experimental results,
+and enable the design of efficient chemical production processes,
+a broad interest in efficient modelling of the corresponding prediction methods exists.
+Such rational modelling provides the basis for process improvement and the optimised design of new processes
+that is demanded today.
+
+Various techniques have been applied for this purpose~\cite{Houk_2014,Chew_2020,Chin_2022,Cao2022}.
+Computer-aided strategies,
+such as density functional theory (DFT),
 provide theoretical models for mapping out even complex reaction pathways from initial starting material~\cite{Maeda_2011,Simm_2017,Rappoport_2019}.
-Additionally, electronic structure calculations of the transition state (TS) or intermediates can be used to determine the reaction rate constants,
+Additionally,
+electronic structure calculations of the transition state (TS) or intermediates can be used to determine the reaction rate constants,
 which are key in the interpretation of experimental data~\cite{Plata_2015,Santoro_2016,Coelho_2019,Oliveira_2020}.
 Recent studies have also explored the use of machine learning algorithms
-to predict chemical reaction rate constants, providing a useful tool for
-accelerating reaction catalyst design (CITATION).
-Finally, quantum mechanics and statistical mechanics techniques,
+to predict chemical reaction rate constants,
+providing a useful tool for
+accelerating reaction catalyst design~\cite{Komp_2022,Tu_2022}.
+Finally,
+quantum mechanics and statistical mechanics techniques,
 such as molecular dynamics and Monte Carlo methods,
 can be employed to obtain thermodynamic and kinetic information for many reactions~\cite{Wang_2014}.
 
 But there is natural room for improvement:
-despite the recent great efforts~\cite{Peng_2016}, currently industrially-employed catalysts do
-not reach near the throughput, atomic economy, selectivity and efficiency that
+despite the recent great efforts~\cite{Peng_2016},
+currently industrially-employed catalysts do
+not reach near the throughput,
+atomic economy,
+selectivity and efficiency that
 are so frequently attained by natural
 enzymes~\cite{Catalysis_in_Chemistry_and_Enzymology}.
-If are to rationally design chemical reactions on par with natural enzymes' billion years worth of evolution,
+If we are to rationally design chemical reactions on par with natural enzymes' billion years worth of evolution,
 we need to be able to predict chemical reactions from first principles with a
 high degree of accuracy.
 Such predictions must go beyond simple Gibbs' free energy
 diagrams and consider important aspects of complex chemical reaction networks
-such as concentrations, quantum tunneling, diffusion effects and others~\cite{Besora_2018}.
+such as concentrations,
+quantum tunnelling,
+diffusion effects and others~\cite{Besora_2018}.
+Such modelling provides a significantly improved understanding of the reaction mechanisms underlying the manufacture of valuable chemical products.
 
-The present part presents an overview of methods for predicting chemical
+Although much of the chemical and industrial breakthroughs were serendipitous,
+and they were largely based on inspiration, intuition and empirical testing,
+definition of rational principles of design have involved an increasing amount of computational
+chemistry~\cite{Kitchin_2012}.
+Indeed, nowadays, the role of computational chemistry for industrial applications can
+hardly be replaced by any other means,
+as it is often used to boost experimental efforts.
+Understanding what the global energy landscape of the reaction network looks like,
+and how it depends on the reaction conditions is thus instrumental in providing a guiding hand towards making efficient,
+industrially-viable improvements.
+Detailed chemical kinetic modelling of catalytic processes is an emerging area of research and key stepping stone for the future.
+
+\section*{Scope}%
+\label{sec:scope}
+
+This thesis attempts to formalize a review of methods for predicting chemical
 kinetics and thermodynamics from first principles.
 It starts with a brief introduction to the general state of the art in quantum
-chemistry and its applications to the study of chemical reactions.
+chemistry and state-of-the-art applications to the study of chemical reactions.
 It then goes on to describe the methods employed in
-\overreact~\cite{Schneider2022}, a software
+\overreact~\cite{Schneider2022},
+a software
 package for predicting chemical kinetics and simulating microkinetics
 automatically from first principles.
 
-We pursue a method with which the chemical machines of the future can be efficiently designed, modelled and understood.
-Such a tool would allow truly first-principles microkinetic simulations,
-by taking into account all reasonably relevant effects for chemical reactions in homogeneous media and room or body temperature.
+We pursue methods for predicting and designing reaction mechanisms
+and equilibrium schemes for the chemical machines of the future,
+with the aim to provide an efficient way to design, understand, evaluate and optimize reactions and their conditions.
+The focus is in methods and techniques that both aid experimental work and can be validated by it.
+Such framework allows first-principles microkinetic simulations,
+by predicting the reaction mechanism from first principles,
+taking into account most relevant effects influencing
+chemical reactions in homogeneous media at both room and body temperatures,
+impacting the design of novel,
+compact and highly integrated future chemical processes.
+
+\section*{Outline}%
+\label{sec:outline}
+
+The present thesis is organized in two parts.
+\cref{part:art-theory}
+encompasses a brief overview of the current state of the art in the area of
+computational elucidation of reaction mechanisms.
+\cref{part:publications} is divided into three chapters, each of which
+presents an application or development to certain problems in the field.
+
+The chapters in~\cref{part:art-theory} provide a detailed account of the
+field.
+\cref{ch:lit-review} summarizes the broad theme of reaction mechanism
+elucidation by computational means and its promising applications.
+\cref{ch:methods} describes the methods available to computationally
+investigate reaction mechanisms and, in particular, the methods used in the
+present thesis.
+In~\cref{sec:overreact-methods}, attention is paid to the design
+of \overreact~\cite{Schneider2022,overreact2021zenodo}, a software package developed by the
+author for the purpose of automating the investigation of reaction mechanisms
+in general.
+
+The chapters in~\cref{part:publications} revolve around papers that have
+been published in the field and co-authored by the author.
+The applications are intertwined in the sense
+that they contribute to the elucidation of more complex reaction mechanisms.
+\cref{ch:paper1} deals with
+computational-experimental collaboration on the elucidation
+of the Palladium(II)-mediated uncaging reaction of propargylic substrates,
+with applications to the activation of prodrug molecules.\@
+It was published in
+\emph{\fullcite{Coelho_2019}}.
+\cref{ch:paper2} provides an account of
+another computational-experimental collaboration on prodrug activation,
+this time on the Platinum(II)-triggered bond-cleavage
+of pentynoyl amide and \ce{N}-propargyl handles.\@
+The relevant publication is
+\emph{\fullcite{Oliveira_2020}}.
+Finally,~\cref{ch:paper3} introduces the
+\overreact{} package, a software that performs microkinetic simulations
+from first principles in an automated way.\@
+It was published under
+\emph{\fullcite{Schneider2022}}.
+In all three chapters, the papers are presented in full text.
+These encompass what the author believes to be his most relevant
+contributions to the field, as detailed in~\cref{sec:major-contributions}.
+Other minor contributions that tangentially relate to the field are commented
+on in the text (see~\cref{sec:minor-contributions}).
+Furthermore, works not directly related to the
+field, but were nevertheless published during the course of the thesis are
+presented in~\cref{ch:all-works}.
+
+A brief, closing perspective is given in~\cref{ch:conclusion}, where
+the author concludes the thesis with an eye on what he believes to be the
+future of the field.
+Finally, the present thesis contains two appendices.
+Together with the already mentioned~\cref{ch:all-works}, which lists all
+the contributions co-authored,~\cref{ch:tutorial} provides a practical but
+short walkthrough over technical issues and methodologies developed during the
+thesis in the context of the main field, but that are rarely mentioned in the
+literature.
+Since most of the computational work in obtaining transition state geometries
+is still performed by trial and error, the author believes that~\cref{ch:tutorial} is an important contribution to the field as well.
