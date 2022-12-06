@@ -1,50 +1,97 @@
 \chapter{Concluding remarks and closing}%
 \label{ch:conclusion}
 
-The most important contributions presented in this thesis can be summarized as follows:
+% CONTRIBUTIONS
 
-1. Methods such as density functional theory (DFT), electronic structure calculations of the transition state (TS) or intermediates have been applied to predict chemical reactions from first principles~\cite{Coelho_2019,Oliveira_2020}.
+The most important contributions presented in the present thesis,
+from the scientific and technological points of view, can be summarized as follows:
 
-2. The \overreact~software package has been developed for predicting chemical kinetics and simulating microkinetics automatically from first principles~\cite{Schneider2022}.
+\begin{itemize}
+	\item \textbf{Electronic structure calculations of the transition state (TS)
+		      and/or intermediates have been applied
+		      in the elucidation of chemical reactions~\cite{Coelho_2019,Oliveira_2020}}.
 
-MY TEXT BELOW.
+	      Approaches to reaction mechanism elucidation were described in general.
+	      Computational-experimental collaborative elucidation of two specific reaction mechanisms was described more explicitly,
+	      using density functional theory (DFT) calculations~\cite{Coelho_2019,Oliveira_2020}.
 
-The present thesis described approaches to the elucidation of reaction
-mechanisms in general and the elucidation of specific reaction mechanisms in
-particular.
-Two computational-experimental collaborations have been presented and a third
-purely computational publication detailed the development of an open-source
-library and command-line application for automating the investigation of
-reaction mechanisms.
+	\item \textbf{The~\overreact{}~software package has been developed for predicting chemical reaction kinetics
+		      and simulating microkinetics automatically from first principles~\cite{Schneider2022}}.
 
-Answering in original research questions posited, we provided contributions
-to the elucidation of complex reaction mechanisms employing a variety of methodologies,
-including the production of a software package for semiautonomous generation of kinetic profiles.
-The implications of the contributions are twofold:
-(i) facilitate the elucidation of reaction mechanisms in the future, and
-(ii) provide ways of making such elucidations faster and more precise.
+	      A third purely computational publication has been included,
+	      reporting the development of an open-source library
+	      and command-line application for automating the investigation
+	      of reaction mechanisms.
+	      The package was then applied to a series of different reactions
+	      in gas and solvated phases~\cite{Schneider2022}.
+\end{itemize}
 
-The limitations of the contributions are related to
-(i) effects not taken into account (e.g., solvation entropies),
-(ii) bias towards intuitive and well-known reaction motifs, and
-(iii) imprecisions due to methodological errors, such as the ones coming from DFT or classical transition state theory.
-Those will have to be addressed in future publications.
+% ANSWERS TO THE ORIGINAL RESEARCH QUESTIONS
+
+We hope that the original scientific articles published from the work done
+during the course of the present thesis provided
+interesting and noteworthy insights in the elucidation of chemical reaction mechanisms,
+bridging the gap between classical mechanism elucidation
+and modern electronic structure calculations using a variety of methodologies,
+including the production of a software package for semiautonomous generation
+of kinetic profiles~\cite{Schneider2022}.
+The implications of such contributions are twofold:
+%
+\begin{itemize*}
+	\item the potential to facilitate the elucidation of chemical reaction mechanisms in the future, and
+	\item ways of strongly automating such elucidations.
+\end{itemize*}
+
+% LIMITATIONS
+
+In terms of limitations, observations should be made regarding
+\begin{itemize*}
+	\item effects that have not been taken into account in none of the reactions here,
+	      such as free-volume solvation entropies, conformational entropies, and others,
+	\item screening and explorative bias towards intuitive and well-known reaction motifs,
+	      as all pathways were conceived by the authors' chemical intuition, and
+	\item imprecisions due to methodological errors, such as potential deficiencies in density functional theory,
+	      whose implications can were lightly touched on in the~\overreact{}~article~\cite{Schneider2022},
+	\item limitations of classical transition state theory \emph{per se},
+	      which could in principle be overcome by other theories such as variational transition state theory,
+	      although with an increased computational cost,
+	\item limitations of the applied classical transition state theory \emph{corrections},
+	      such as quantum tunnelling approximations
+	      and the \emph{quasi}-rigid rotor-harmonic oscillator approximation.
+\end{itemize*}
 
 % FUTURE WORK
-Future work is proposed to further develop the \overreact~software package to include the automatic calculation of Marcus theory rate constants,
-the use of diffusion-controlled rates,
-and automatic kinetic isotope effect calculations.
-Additionally, we envision enhance the symmetry module to detect host-guest complexes
-and account for their individual symmetries.
 
-MY TEXT BELOW.
+The contributions posed here put in motion a new generation
+of models for the elucidation of complex route and emergent reaction mechanisms
+based on atomistic simulations and electronic structure calculations,
+which in future advancements may introduce the consideration of other effects into the picture
+while reducing the limitations listed above.
+There is a consensus that such methodological limitations need
+to be considered if the outcome of calculations is to be further explored
+and their limitations and consequences are to be correctly investigated.
+Future work is proposed to include and tackle the following issues:
+%
+\begin{itemize}
+	\item the inclusion of free-volume solvation entropies, for instance
+	      by implementing the approach in~\citeauthor{Garza_2019}~\cite{Garza_2019},
+	      and conformational entropies, by using results provided by a fast method such as \texttt{xTB}~\cite{Bannwarth_2020},
+	\item automatic screening and exploration of chemical reaction pathways
+	      by means of machine learning algorithms that have no or minimal inherent human bias,
+	\item development of methods for estimating the systematic methodological errors in energies
+	      by direct comparison with experimental data, so that a correction be made for similar reactions of interest,
+	\item incorporate the numerical calculation of rate constants using different theories,
+	      in particular, ones that broaden the applicability of the software,
+	      such as Marcus' theory~\cite{Miller_1984,Nobel_1992,Nikbin_2012},
+	      necessary in the modelling of reactions
+	      such as electron~\cite{Miller_1984} and hydride~\cite{Nikbin_2012} transfers,
+	\item adjustment of reaction rate constants for diffusion-controlled regimes,
+	\item use of improved quantum tunnelling corrections based on the shape of the calculated potential energy surface.
+\end{itemize}
 
-In the future, we want to implement (i) the automatic calculation of Marcus theory rate constants,
-useful in the modelling or hydride transfers~\cite{Nikbin_2012},
-and (ii) diffusion-controlled rates.
-We also want to add automatic kinetic isotope effect calculations.
-
-Other future work is envisioned in the symmetry module.
-For instance, detect host-guest complexes and account for their individual symmetries.
-We currently detect reaction symmetries but not for weakly-bound complexes~\cite{Gilson_2010}.
-
+Finally, two further features are envisioned for addition in~\overreact{},~but don't necessarily mitigate the issues described above.
+The first is the automatic calculation of kinetic isotope effects in general.
+The other is the extension of the symmetry module to more complicated host-guest complexes
+in order to account for their individual symmetries:
+we currently detect point-group and reaction symmetries but not internal symmetries
+of weakly-bound complexes~\cite{Gilson_2010}.
