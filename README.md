@@ -3,4 +3,4 @@
 
 # thesis
 
-My PhD thesis
+PhD thesis.
