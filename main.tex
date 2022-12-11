@@ -34,9 +34,7 @@
 \usepackage{placeins}       % placement control
 
 % # Utility packages
-\usepackage{import}             % nestable, locally-scoped import directives (note that
-% it is best to use commands (e.g.,
-% `subimport{...}{...}`) in their own lines)
+\usepackage{import}             % nestable, locally scoped import directives (note that it is best to use commands (e.g., `subimport{}{}`) in their own lines)
 \usepackage{amsmath}            % math commands
 \usepackage{amssymb}            % math symbols
 \usepackage{physics}            % extra utilities for physics notation
@@ -58,7 +56,7 @@
 % # Preamble
 \subimport{./src/preamble}{config}   % configuration of packages
 \subimport{./src/preamble}{spacing}  % spacing and placement of elements
-\subimport{./src/preamble}{quadros}  % definition of schemes ("quadros")
+\subimport{./src/preamble}{quadros}  % definition of schemes (called quadros)
 \subimport{./src/preamble}{info}     % general information such as title, author, etc.
 
 \makeindex  % compile our index
