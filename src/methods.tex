@@ -5,25 +5,27 @@
 
 As we shall see later,
 good levels of theory for kinetics
-require producing
+must produce
 \begin{enumerate*}
-	\item good energies,
-	\item good geometries,
+	\item energies,
+	\item geometries,
 	      and
-	\item good vibrational frequencies.
+	\item vibrational frequencies
 \end{enumerate*}
+of suitable quality.
 Those three requirements have different demands.
-
 One needs to choose a computational level of theory to calculate
 molecular properties with accuracy.
 It is important to choose a good method for the job at hand.
 Many reviews are available to help one make a good decision~\cite{Goerigk_2011,Goerigk_2019,Mardirossian_2017,Morgante_2020,Bursch_2022}.
+% TODO: don't talk only about overreact!
 \overreact{} works with a variety of methods,
 as long as the data is parseable by \texttt{cclib}~\cite{O_boyle_2008}.
 It is also possible to use a combination of different levels of theory,
 such as calculating geometries and frequencies with one method,
 but use single-point energies with a more costly and precise one.
 
+% TODO: this paragraph does not connect with the previous one.
 \citeauthor{Goerigk_2011} compared the performance of 47 density functionals
 in many different applications
 within the GMTKN30 dataset,
@@ -82,6 +84,9 @@ for the initial search for transition states,
 lower-level methods such as hybrid-based composite methods (such as PBEh-3c~\cite{Grimme_2015}) or semi-empirical methods can be used.
 Further refinement can then be performed afterwards.
 
+% TODO: it is important to report on the intrplay between computational
+% economy and property quality achieved.
+% As it stands, it is very tangential.
 Finally,
 in terms of electronic energies,
 one can employ DLPNO-CCSD(T)~\cite{Riplinger_2013,Riplinger_2016}
@@ -91,6 +96,8 @@ as good as CCSD(T).
 
 \section{Molecular thermodynamics}
 
+% TODO: this is specific to overreact, not a general approach.
+% Should be changed.
 In order to perform its calculations,
 \overreact{} requires the absolute Gibbs' free energies from each compound at a given temperature.
 This value is calculated from
