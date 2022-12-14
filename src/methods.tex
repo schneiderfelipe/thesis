@@ -3,78 +3,27 @@
 
 Since the works described in~\cref{ch:paper1,ch:paper2,ch:paper3} consist
 of contributions related to the computational elucidation of reaction mechanisms,
-this chapter presents an account of the relevant computational methods and
+the present chapter provides an account of the relevant computational methods and
 techniques used in the investigations,
 with background and context given
 for the various topics where appropriate.
 A basic background on computational chemistry applied
-to mechanistic elucidation is given in~\cref{sec:background-methods}.
-Details about the methods used in the development of the \overreact software
-package are given in~\cref{sec:overreact-methods}.
+to mechanistic elucidation is given in~\cref{sec:background-methods},
+with special emphasis on the proper choice of computational method~(\cref{sec:choice-of-method}).
+A detailed account on molecular thermodynamics is given in~\cref{sec:mol-thermo},
+covering both QRRHO (\cref{sec:qrrho}) and \emph{quasi}-QRRHO models (\cref{sec:quasi-qrrho}).
+A general representation for chemical kinetic equations is given in~\cref{sec:kin-repr}
+(with special treatment for equilibria in~\cref{sec:kin-repr-equi}),
+and its role in the calculation of reaction and activation Gibbs' free energies is
+exposed in~\cref{sec:reaction-energies}.
+A treatment of reaction rate constants is done in~\cref{sec:rates},
+with special care to systematic errors (\cref{sec:rates-error-prop,sec:rates-error-prop-adj}),
+as well as approximations to quantum tunneling transmission coefficients (\cref{sec:tunneling}).
+Finally, details about solving the differential equations
+in the context of microkinetic modelling is given in~\cref{sec:microkinetic},
+with a simple account on concentration constraints (\cref{sec:microkinetic-constraints}).
 
-\section{Why predicting chemical reactions is hard}
-
-Perfect prediction of chemical reactions is an unforgiving problem.
-Since reaction rate constants depend exponentially on the activation Gibbs' free energy,
-small deviations on the latter exponentally increase errors on the latter.
-As such,
-given an activation energy estimate $\Delta G^\ddagger$
-on the true value $\Delta \widehat{G}^\ddagger$
-with error $\epsilon$,
-%
-\begin{equation}
-	k = \kappa \frac{k_B T}{h} e^\frac{- \Delta G^\ddagger}{R T}
-	= \kappa \frac{k_B T}{h} e^\frac{- \left(\Delta \widehat{G}^\ddagger + \epsilon\right)}{R T}
-	% = \kappa \frac{k_B T}{h} e^\frac{- \Delta \widehat{G}^\ddagger}{R T}
-	% e^\frac{- \epsilon}{R T}
-	= \widehat{k} e^\frac{- \epsilon}{R T}
-\end{equation}
-%
-where $k$ and $\widehat{k}$ are the predicted and true chemical reaction constants,
-respectively.
-Thus,
-at room temperature,
-an error of 1.36--2.73~\kcalmol gives rise to 10--100$\times$ error
-in the reaction rate constant,
-with larger errors found in lower temperatures.
-This is particularly important,
-as popular DFT methods commonly achieve accuracies of
-2--3~\kcalmol for many molecules~\cite{Becke_2014,Bogojeski_2020}.
-Moreover,
-an error of 0.41~\kcalmol produces a twofold error in the constant.
-This goes to show that the so called ``quantum chemical accuracy'' of
-$<$1~\kcalmol~\cite{Bogojeski_2020}
-is not enough for the prediction of chemical reactions on par with experimental results.
-This gives rise not only to a demand
-for more precise quantum chemical methods,
-but also for methods aiming at mitigating the effect of such errors
-in computational predictions of chemical reactions.
-
-One might go one step further and investigate how this error in the reaction rate constant
-is related to individual errors in activation enthalpy and entropy errors.
-%
-\begin{equation}
-	k = \kappa \frac{k_B T}{h} e^\frac{- \Delta H^\ddagger}{R T}
-	e^\frac{  \Delta S^\ddagger}{R}
-	= \kappa \frac{k_B T}{h} e^\frac{- \left(\Delta \widehat{H}^\ddagger + \chi\right)}{R T}
-	e^\frac{        \left(\Delta \widehat{S}^\ddagger + \sigma\right)}{R}
-	% = \kappa \frac{k_B T}{h} e^\frac{- \Delta \widehat{H}^\ddagger}{R T}
-	% e^\frac{  \Delta \widehat{S}^\ddagger}{R}
-	% e^\frac{- \chi}{R T}
-	% e^\frac{  \sigma}{R}
-	= \widehat{k}
-	e^\frac{- \chi}{R T}
-	e^\frac{  \sigma}{R}
-\end{equation}
-%
-The above suggests that,
-all things equal,
-errors in the predicted activation entropy dominate at high temperatures,
-while being less significant
-than activation enthalpy errors at low temperatures.
-The balance between the two will on the other hand depend on the actual reaction at hand.
-
-\section{Theoretical Background}%
+\section{Practical theoretical background}%
 \label{sec:background-methods}
 
 Strictly speaking,
@@ -127,7 +76,8 @@ potential additive terms such as solvation approximations~\cite{Marenich_2009,Ma
 atom-centered basis sets~\cite{Ditchfield_1971,Hehre_1972,Hariharan_1973,Hariharan_1974,Gordon_1980,Francl_1982,Clark_1983,Frisch_1984,Binning_1990,Szabo_1996,Helgaker_1997,Blaudeau_1997,Rassolov_1998,Rassolov_2001,Jensen_2012,Hill_2012},
 and quantum chemistry packages~\cite{g09}. % TODO: add orca
 
-\section{Choice of computational method}
+\subsection{Choice of computational method}%
+\label{sec:choice-of-method}
 
 As we shall see later,
 good levels of theory for kinetics
@@ -182,7 +132,7 @@ acceptably small in general~\cite{Minenkov_2012}.
 \citeauthor{Sirianni_2018} compared DFT geometries of bimolecular van der Waals complexes using
 double-zeta basis sets against reference geometries at CCSD(T)/CBS
 and reported that all functionals analyzed produced
-geometries within $\pm$0.1~\AA in terms
+geometries within $\pm$0.1~\AA{} in terms
 of root-mean-squared displacements.
 All this leads us to conclude that,
 in general,
@@ -225,7 +175,7 @@ benchmark with 200 density functionals and the MGCDB84 dataset
 consisting of nearly 5000 data points~\cite{Mardirossian_2017},
 obtained similar results.
 
-These observations reflect on the choice of method when using DFT.
+These observations reflect on the choice of method when using DFT.\@
 \citeauthor{Bursch_2022} have assembled a series of best-practices in choosing functionals for a variety of applications~\cite{Bursch_2022}.
 Molecular structures can be calculated with triple-zeta basis sets (def2-TZVP)
 or even well-balanced double-zeta basis sets (def2-SVP).
@@ -280,7 +230,8 @@ outside the chemical accuracy threshold of 1~\kcalmol,
 but
 much smaller than the ones expected from density functionals~\cite{Sandler_2021}.
 
-\section{Molecular thermodynamics}
+\section{Molecular thermodynamics}%
+\label{sec:mol-thermo}
 
 % TODO: this is specific to overreact,
 % not a general approach.
@@ -306,7 +257,8 @@ where each entry is an absolute Gibbs energy for that particular compound.
 Absolute Gibbs energies are processed through the usual gas-phase partition-function treatment,
 as explained in the subsection below.
 
-\subsection{Thermochemical partition functions}
+\subsection{Thermochemical partition functions}%
+\label{sec:qrrho}
 
 It is possible to make use of computational calculations to obtain
 thermochemical data and,
@@ -485,13 +437,30 @@ which eventually includes all contributions such as dispersion and continuum sol
 
 Further details and other treatments are detailed below.
 
-\paragraph{Corrections to low-frequency vibrational modes}
+\subsubsection{Low-lying imaginary frequencies}
+
+It is not unusual to observe one or two imaginary frequencies of small magnitude in vibrational analyses,
+as they are especially susceptible to numerical noise~\cite{Jensen_2015}.
+This is particularly common in calculations for host-guest complexes,
+weakly interacting molecules,
+and other structures with flat PESs.
+They can often be removed by tightening grid sizes and convergence criteria for geometry and electronic energy minimisation procedures.
+In case of failure,
+it is advised to consider such frequencies as real and use the corresponding thermodynamical contributions,
+since excluding low-lying frequencies can result in errors as large as 2~kcal~mol$^{-1}$ at room temperature~\cite{Jensen_2015}.
+As such,
+\overreact{} highlights imaginary frequencies of small magnitude ($< 50$~cm$^{-1}$) in its output,
+and makes use of their absolute value,
+warning the user in the process.
+
+\subsubsection{Corrections to low-frequency vibrational modes}%
+\label{sec:quasi-qrrho}
 
 Frequencies below 150~cm$^{-1}$ strongly contribute to entropy and must be carefully treated,
 as they are known to be inaccurately treated under the RRHO approximation,
 and shifts of a few wave numbers further impact the performance of the model~\cite{Ribeiro_2011,Grimme_2012,Jensen_2015,Ryu_2018}.
 In order to mitigate this effect,
-\overreact employs the \emph{quasi}-RRHO (QRRHO) model of~\citeauthor{Grimme_2012}~\cite{Grimme_2012},
+\overreact{} employs the \emph{quasi}-RRHO (QRRHO) model of~\citeauthor{Grimme_2012}~\cite{Grimme_2012},
 which treats low-frequency modes as \emph{quasi}-rotations in the calculation of entropies.
 In this treatment,
 contributions of low-lying modes to the entropy are replaced by an interpolation between the original vibrational contributions and a corresponding rotational entropy with the moment of inertia computed for a free-rotor with reduced frequency.
@@ -549,30 +518,14 @@ Both treatments for entropies and enthalpies were tested against published resul
 They are used by default by \overreact,
 but can be deactivated by the user.
 
-\paragraph{Low-lying imaginary frequencies}
-
-It is not unusual to observe one or two imaginary frequencies of small magnitude in vibrational analyses,
-as they are especially susceptible to numerical noise~\cite{Jensen_2015}.
-This is particularly common in calculations for host-guest complexes,
-weakly interacting molecules,
-and other structures with flat PESs.
-They can often be removed by tightening grid sizes and convergence criteria for geometry and electronic energy minimisation procedures.
-In case of failure,
-it is advised to consider such frequencies as real and use the corresponding thermodynamical contributions,
-since excluding low-lying frequencies can result in errors as large as 2~kcal~mol$^{-1}$ at room temperature~\cite{Jensen_2015}.
-As such,
-\overreact highlights imaginary frequencies of small magnitude ($< 50$~cm$^{-1}$) in its output,
-and makes use of their absolute value,
-warning the user in the process.
-
 \subsection{Molecular symmetries}%
 \label{sec:mol-sym}
 
 In order to calculate absolute Gibbs energies,
-\overreact requires only the electronic energies,
+\overreact{} requires only the electronic energies,
 geometries and frequencies for each species in the reaction model.
 
-Molecular point-group symmetries are automatically detected by \overreact using a specially designed algorithm
+Molecular point-group symmetries are automatically detected by \overreact{} using a specially designed algorithm
 % (manuscript in preparation)
 and corrections are employed accordingly.
 In practice,
@@ -598,7 +551,7 @@ On the other hand,
 first-principle calculation results are reported for the gas phase,
 whose standard state is 1~atm.
 As such,
-\overreact automatically detects (by reading the model input file)
+\overreact{} automatically detects (by reading the model input file)
 the required standard state correction to absolute Gibbs energies
 and applies it~(detailed input specification in available in the guide~\cite{overreactguideinput2022}),
 % 
@@ -609,29 +562,10 @@ and applies it~(detailed input specification in available in the guide~\cite{ove
 % 
 where $c_f =$~1~M and $c_i$ is the concentration of an ideal gas at the given temperature and pressure.
 
-\subsection{Adjustment of systematic errors}
+\section{General representation of chemical kinetic equations}%
+\label{sec:kin-repr}
 
-Used energy correction of 3.2~kcal~mol$^{-1}$ for RMSE of 4.97~mM;\@
-additional approximations (Eckart,
-\emph{quasi}-rigid rotor-harmonic oscillator) applied.
-
-First-principles microkinetic modelling is powerful and can produce meaningful and qualitatively correct results.
-This is in part due to the systematic characteristic of DFT errors~\cite{P_rez_Soto_2020}.
-As such,
-good levels of theory often guarantee quantitative results for unimolecular reactions,
-where some error cancelation is expected,
-but errors can deeply affect predictions for bimolecular reactions~\cite{P_rez_Soto_2020}.
-In such cases,
-further adjustments can be necessary calculations of microkinetic models to be comparable to experimental results.
-\overreact allows the user to adjust systematic energy errors,
-which was shown to be sufficient in many cases,
-when data is available~\cite{Ahn_2019,P_rez_Soto_2020}.
-In particular,~\citeauthor{Schneider_2022} presents a reproduction~\cite{Schneider_2022} of the numerical results of~\citeauthor{P_rez_Soto_2020}~\cite{P_rez_Soto_2020} using \overreact,
-which encompasses a well-studied imine formation reaction.
-
-\section{Chemical kinetic equations: automatic generation}
-
-\overreact is a second iteration on an earlier attempt to build a
+\overreact{} is a second iteration on an earlier attempt to build a
 homogeneous microkinetic analyzer from first-principles
 calculations~\cite{pyrrole2019zenodo}.
 Some things were learned from that first attempt:
@@ -665,7 +599,7 @@ to the literature and to the available experimental data.
 This way,
 one is able to come up with a ``most probable'' one.
 
-\overreact is an open-source library,
+\overreact{} is an open-source library,
 software package and command-line
 application for building and analyzing
 homogeneous microkinetic models from first-principles
@@ -681,7 +615,7 @@ reactions,
 pre-equilibration and even constant concentration reactants.
 
 Furthermore,
-\overreact is able to take most of the relevant physics of the problem into
+\overreact{} is able to take most of the relevant physics of the problem into
 account in a semi-automated fashion.
 This includes concentration effects,
 symmetries,
@@ -761,11 +695,12 @@ since \ce{C_2$^{\ddagger}$} and \ce{C_4$^{\ddagger}$} are the respective transit
 
 Matrices $A$ and $B$ store all the information required for subsequent analyses.
 Internally,
-\overreact produce those matrices from a directed graph,
+\overreact{} produce those matrices from a directed graph,
 which is an idea that has proven useful in catalysis before~\cite{Kozuch_2006,Kozuch_2015,Solel_2019}.
 The graph is built during input parsing in a straightforward way and both matrices $A$ and $B$ are used to generate reaction and activation Gibbs energies.
 
-\paragraph{Equilibria}
+\subsection{Equilibria}%
+\label{sec:kin-repr-equi}
 
 Equilibria are treated as special forward and backward reactions obeying the equilibrium relation,
 but whose reaction rate constants are always much faster than the other reactions (see~\cref{sec:rates} below).
@@ -784,7 +719,7 @@ A post-treatment multiplies all half-equilibria rate constants by a reasonable c
 so that they are always faster than the other reactions in the system (see below).
 
 As such,
-\overreact does not require transition states to model equilibria,
+\overreact{} does not require transition states to model equilibria,
 but they are always assumed to be fast in that case.
 The decision of which processes are in rapid equilibrium constitutes part of the modelling and is left to the user.
 In any case,
@@ -796,7 +731,8 @@ by providing complimentary equilibria,
 complex reaction mechanisms can be properly modelled,
 and many phenomena in kinetics such as pH dependencies and effects of conformations can be accounted for as simple equilibria.
 
-\section{Reaction and activation Gibbs' free energies}
+\subsection{Reaction and activation Gibbs' free energies}%
+\label{sec:reaction-energies}
 
 Reaction and activated Gibbs energies can be easily generated from matrices $A$ and $B$ using the $G$ vector of absolute Gibbs energies,
 % 
@@ -811,9 +747,9 @@ where $\Delta G$ and $\Delta G^\ddagger$ are vectors of length $n$ of reaction a
 respectively,
 and $^T$ denote matrix transposition.
 
-\subsection{Reaction symmetries}
+\subsubsection{Reaction symmetries}
 
-\overreact accounts for extra entropy contributions due to participating species being indistinguishable in a reaction.
+\overreact{} accounts for extra entropy contributions due to participating species being indistinguishable in a reaction.
 This occurs whenever it is possible to interchangeably translate molecules of identical configurations~\cite{Fern_ndez_Ramos_2007,Gilson_2010}.
 This is particularly important,
 for instance,
@@ -859,7 +795,92 @@ after all reaction rate constants have been calculated,
 all half-equilibrium reaction rates are multiplied by a factor,
 such that the slowest equilibrium is at least eight times faster than the fastest non-equilibrium reaction in the model.
 
-\subsection{Quantum tunnelling transmission coefficients}
+\subsection{Error propagation with respect to energies}%
+\label{sec:rates-error-prop}
+
+Perfect prediction of chemical reactions is an unforgiving problem.
+Since reaction rate constants depend exponentially on the activation Gibbs' free energy,
+small deviations on the latter exponentally increase errors on the latter.
+As such,
+given an activation energy estimate $\Delta G^\ddagger$
+on the true value $\Delta \widehat{G}^\ddagger$
+with error $\epsilon$,
+%
+\begin{equation}
+	k = \kappa \frac{k_B T}{h} e^\frac{- \Delta G^\ddagger}{R T}
+	= \kappa \frac{k_B T}{h} e^\frac{- \left(\Delta \widehat{G}^\ddagger + \epsilon\right)}{R T}
+	% = \kappa \frac{k_B T}{h} e^\frac{- \Delta \widehat{G}^\ddagger}{R T}
+	% e^\frac{- \epsilon}{R T}
+	= \widehat{k} e^\frac{- \epsilon}{R T}
+\end{equation}
+%
+where $k$ and $\widehat{k}$ are the predicted and true chemical reaction constants,
+respectively.
+Thus,
+at room temperature,
+an error of 1.36--2.73~\kcalmol gives rise to 10--100$\times$ error
+in the reaction rate constant,
+with larger errors found in lower temperatures.
+This is particularly important,
+as popular DFT methods commonly achieve accuracies of
+2--3~\kcalmol for many molecules~\cite{Becke_2014,Bogojeski_2020}.
+Moreover,
+an error of 0.41~\kcalmol produces a twofold error in the constant.
+This goes to show that the so called ``quantum chemical accuracy'' of
+$<$1~\kcalmol~\cite{Bogojeski_2020}
+is not enough for the prediction of chemical reactions on par with experimental results.
+This gives rise not only to a demand
+for more precise quantum chemical methods,
+but also for methods aiming at mitigating the effect of such errors
+in computational predictions of chemical reactions.
+
+One might go one step further and investigate how this error in the reaction rate constant
+is related to individual errors in activation enthalpy and entropy errors.
+%
+\begin{equation}
+	k = \kappa \frac{k_B T}{h} e^\frac{- \Delta H^\ddagger}{R T}
+	e^\frac{  \Delta S^\ddagger}{R}
+	= \kappa \frac{k_B T}{h} e^\frac{- \left(\Delta \widehat{H}^\ddagger + \chi\right)}{R T}
+	e^\frac{        \left(\Delta \widehat{S}^\ddagger + \sigma\right)}{R}
+	% = \kappa \frac{k_B T}{h} e^\frac{- \Delta \widehat{H}^\ddagger}{R T}
+	% e^\frac{  \Delta \widehat{S}^\ddagger}{R}
+	% e^\frac{- \chi}{R T}
+	% e^\frac{  \sigma}{R}
+	= \widehat{k}
+	e^\frac{- \chi}{R T}
+	e^\frac{  \sigma}{R}
+\end{equation}
+%
+The above suggests that,
+all things equal,
+errors in the predicted activation entropy dominate at high temperatures,
+while being less significant
+than activation enthalpy errors at low temperatures.
+The balance between the two will on the other hand depend on the actual reaction at hand.
+
+\subsection{Adjustment of systematic errors with respect to energies}%
+\label{sec:rates-error-prop-adj}
+
+Used energy correction of 3.2~kcal~mol$^{-1}$ for RMSE of 4.97~mM;\@
+additional approximations (Eckart,
+\emph{quasi}-rigid rotor-harmonic oscillator) applied.
+
+First-principles microkinetic modelling is powerful and can produce meaningful and qualitatively correct results.
+This is in part due to the systematic characteristic of DFT errors~\cite{P_rez_Soto_2020}.
+As such,
+good levels of theory often guarantee quantitative results for unimolecular reactions,
+where some error cancelation is expected,
+but errors can deeply affect predictions for bimolecular reactions~\cite{P_rez_Soto_2020}.
+In such cases,
+further adjustments can be necessary calculations of microkinetic models to be comparable to experimental results.
+\overreact{} allows the user to adjust systematic energy errors,
+which was shown to be sufficient in many cases,
+when data is available~\cite{Ahn_2019,P_rez_Soto_2020}.
+In particular,~\citeauthor{Schneider_2022} presents a reproduction~\cite{Schneider_2022} of the numerical results of~\citeauthor{P_rez_Soto_2020}~\cite{P_rez_Soto_2020} using \overreact,
+which encompasses a well-studied imine formation reaction.
+
+\subsection{Approximations for quantum tunnelling transmission coefficients}%
+\label{sec:tunneling}
 
 Hydrogen abstraction reactions (HAA) comprise a class of reactions where
 quantum tunneling is often important~\cite{Bim2018}.
@@ -974,7 +995,8 @@ but the user can choose Wigner or disabled it completely (in which case $\kappa_
 from the command-line~(using the \texttt{--tunneling} flag,
 see a detailed description of the command-line interface in the official guide~\cite{overreactguidecli2022}).
 
-\section{Microkinetic modelling}
+\section{Microkinetic modelling}%
+\label{sec:microkinetic}
 
 Microkinetic modelling is a technique used to predict the outcome of complex
 chemical reactions.
@@ -1071,13 +1093,14 @@ one obtains
 \end{equation}
 where $P'(a)$ is the \emph{analytic} derivative of $P(a)$.
 
-\overreact employs a sligthly more complex scheme called
+\overreact{} employs a sligthly more complex scheme called
 \emph{backward differentiation},
 available through Google's JAX library,
 that
 is more efficient for functions of many variables.
 
-\subsubsection{Concentration constraints}
+\subsubsection{Concentration constraints}%
+\label{sec:microkinetic-constraints}
 
 Within the well-mixed condition approximation,
 concentration effects are always included in microkinetic simulations.
@@ -1085,7 +1108,7 @@ However,
 in many situations,
 almost constant concentration effects are important,
 such as when reactants are used neat or when there is active participation of the solvent~\cite{Ryu_2018}.
-\overreact allows for fixing the concentration of an arbitrary number of compounds,
+\overreact{} allows for fixing the concentration of an arbitrary number of compounds,
 allowing for simulations of neat reactions,
 pseudo-first order conditions,
 pH buffering effects,
@@ -1093,7 +1116,7 @@ controlled ionic strengths,
 and more.
 Some of those applications are highlighted in~\citeauthor{Schneider_2022}~\cite{Schneider_2022}.
 
-\subsubsubsection{Determining pK$_a$s}%
+\subsubsubsection{Application: improved acid-base equilibria}%
 \label{sec:pka}
 
 % TODO: move pKa to pKa
@@ -1276,10 +1299,10 @@ along with provided initial concentrations of the species,
 are used to calculate the concentrations of all species over time.
 
 PAPER III (2)
-- B97-3c is a simple model that can be used at the beginning of a study.
+- B97--3c is a simple model that can be used at the beginning of a study.
 - Tunneling coefficients can be calculated either using Eckart or Wigner.
 - UMP2 is a higher level of theory already.
-- Better Pople basis sets are 6-311G(d,p) and even better 6-311G(3df,3pd),
+- Better Pople basis sets are 6--311G(d,p) and even better 6--311G(3df,3pd),
 but Pople basis sets are not recommended anymore (too much bias CITE NON-PLANAR BENZENE).
 - It is my experience that,
 for unimolecular reactions,
@@ -1325,7 +1348,7 @@ strong electron correlations,
 spin changes,
 etc.
 This applies to non-unimolecular reactions as well.
-- Kinetic equations are stiff,
+- Chemical kinetic equations are stiff,
 so we use proper measure to ensure they get the right treatment
 - One can use equilibria together with rates when using \overreact{},
 which is useful to model more complex systems.
