@@ -1,27 +1,20 @@
 \chapter{Methods and techniques}%
 \label{ch:methods}
 
-Since the works described in~\cref{ch:paper1,ch:paper2,ch:paper3} consist
-of contributions related to the computational elucidation of reaction mechanisms,
-the present chapter provides an account of the relevant computational methods and
-techniques used in the investigations,
-with background and context given
-for the various topics where appropriate.
-A basic background on computational chemistry applied
-to mechanistic elucidation is given in~\cref{sec:background-methods},
-with special emphasis on the proper choice of computational method~(\cref{sec:choice-of-method}).
+This chapter of the dissertation provides detailed information about the computational methodologies that are applied in the research contributions described in~\cref{ch:paper1,ch:paper2,ch:paper3} to elucidate reaction mechanisms and insights into fundamental concepts of theoretical and computational chemistry.
+A basic background on computational chemistry applied to mechanistic elucidation is given in~\cref{sec:background-methods},
+with special emphasis on the proper choice of a computational method~(\cref{sec:choice-of-method}).
 A detailed account on molecular thermodynamics is given in~\cref{sec:mol-thermo},
-covering both QRRHO (\cref{sec:qrrho}) and \emph{quasi}-QRRHO models (\cref{sec:quasi-qrrho}).
-A general representation for chemical kinetic equations is given in~\cref{sec:kin-repr}
-(with special treatment for equilibria in~\cref{sec:kin-repr-equi}),
-and its role in the calculation of reaction and activation Gibbs' free energies is
-exposed in~\cref{sec:reaction-energies}.
+covering both the rigid-rotor harmonic oscillator approximation (RRHO,~\cref{sec:rrho}) and \emph{quasi}-RRHO models (\cref{sec:quasi-rrho}).
+We provide a general representation for chemical kinetic equations in~\cref{sec:kin-repr} (with special treatment for equilibria in~\cref{sec:kin-repr-equi}),
+and its role in the calculation of reaction and activation Gibbs' free energies in~\cref{sec:reaction-energies}.
 A treatment of reaction rate constants is done in~\cref{sec:rates},
-with special care to systematic errors (\cref{sec:rates-error-prop,sec:rates-error-prop-adj}),
+with a special account for systematic error propagation (\cref{sec:rates-error-prop,sec:rates-error-prop-adj}),
 as well as approximations to quantum tunneling transmission coefficients (\cref{sec:tunneling}).
-Finally, details about solving the differential equations
-in the context of microkinetic modelling is given in~\cref{sec:microkinetic},
-with a simple account on concentration constraints (\cref{sec:microkinetic-constraints}).
+Finally,
+details about solving the differential equations of microkinetic models is given in~\cref{sec:microkinetic},
+including a simple account on concentration constraints (\cref{sec:microkinetic-constraints}).
+The exposition of all presented formulae follows a standard approach and closely references the pertinent literature.
 
 \section{Practical theoretical background}%
 \label{sec:background-methods}
@@ -71,10 +64,12 @@ and a thorough comparison of them is out of the scope of this presentation.
 The interested reader is invited to explore
 references on density functional theory~\cite{Hohenberg_1964,Kohn_1965,Perdew_1996,Perdew_1997,Ernzerhof_1999,Adamo_1999,Chai_2008a,Chai_2008b,Goerigk_2011,Arago_2011,Salzner_2011,Burns_2011,Minenkov_2012,Perdew_2014,Kryachko_2014,Yu_2016,DFT2016_poll},
 Hartree-Fock-based methods~\cite{Szabo_1996},
-semi-empirical methods~\cite{MOPAC}, % TODO: add xtb
+semi-empirical methods~\cite{MOPAC},
+% TODO: add xtb
 potential additive terms such as solvation approximations~\cite{Marenich_2009,Marenich_2012},
 atom-centered basis sets~\cite{Ditchfield_1971,Hehre_1972,Hariharan_1973,Hariharan_1974,Gordon_1980,Francl_1982,Clark_1983,Frisch_1984,Binning_1990,Szabo_1996,Helgaker_1997,Blaudeau_1997,Rassolov_1998,Rassolov_2001,Jensen_2012,Hill_2012},
-and quantum chemistry packages~\cite{g09}. % TODO: add orca
+and quantum chemistry packages~\cite{g09}.
+% TODO: add orca
 
 \subsection{Choice of computational method}%
 \label{sec:choice-of-method}
@@ -258,7 +253,7 @@ Absolute Gibbs energies are processed through the usual gas-phase partition-func
 as explained in the subsection below.
 
 \subsection{Thermochemical partition functions}%
-\label{sec:qrrho}
+\label{sec:rrho}
 
 It is possible to make use of computational calculations to obtain
 thermochemical data and,
@@ -271,7 +266,7 @@ whole systems.
 
 Not only their eigenvalues allow us to check whether an optimization indeed reached a local minimum,
 but important thermodynamic state functions are accessible through the Hessian matrix,
-by making use of the QRRHO ideal gas approximation.
+by making use of the RRHO ideal gas approximation.
 
 As employed as standard in most computational chemistry packages,
 the canonical gas-phase partition-function,
@@ -454,7 +449,7 @@ and makes use of their absolute value,
 warning the user in the process.
 
 \subsubsection{Corrections to low-frequency vibrational modes}%
-\label{sec:quasi-qrrho}
+\label{sec:quasi-rrho}
 
 Frequencies below 150~cm$^{-1}$ strongly contribute to entropy and must be carefully treated,
 as they are known to be inaccurately treated under the RRHO approximation,
@@ -776,7 +771,8 @@ where $\kappa_i$ is the quantum tunnelling transmission coefficient of the $i$-t
 $k_B$ is Boltzmann's constant,
 $h$ is Planck's constant,
 $T$ is the chosen temperature and $R$ is the ideal gas constant.
-The Eyring equation is the key equation of transition state theory, which is based
+The Eyring equation is the key equation of transition state theory,
+which is based
 on the idea that the reactant ground state complex is in equilibrium
 with the transition state structure~\cite{TransitionStateTheory}.
 
@@ -1139,8 +1135,11 @@ Optimizations and frequencies for \ce{AcOH(aq)} system performed concluding with
 % TODO: transform in a methodology highlight only
 
 One practical application of constraint concentrations in \overreact{} is simulating reactions at given pH values.
-This requires properly estimating the acid-base equilibrum constants, or its log-scaled counterpart, the pK$_a$ values.
-Here is a short account on the methods employed in one of the publications. % TODO: which one? paper3.
+This requires properly estimating the acid-base equilibrum constants,
+or its log-scaled counterpart,
+the pK$_a$ values.
+Here is a short account on the methods employed in one of the publications.
+% TODO: which one? paper3.
 In the computational prediction of pK$_a$ values,
 the direct dissociation approach (\cref{eq:pKa-equilibrium})
 leads to problems in the evaluation of the solvated proton,
