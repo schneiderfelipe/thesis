@@ -8,19 +8,19 @@
 
 	% one chapter per appendix
 	\subimport{.}{./appendices/all_works}
-	\subimport{.}{./appendices/tutorial}
-	\subimport{.}{./appendices/gem-vic-disubstitutions}
+	% \subimport{.}{./appendices/tutorial}
+	% \subimport{.}{./appendices/gem-vic-disubstitutions}
 \end{apendicesenv}
 
-% % # Annexes
-% \begin{anexosenv}
-%   \partanexos{}
+% # Annexes
+\begin{anexosenv}
+	\partanexos{}
 
-% % one chapter per annex
-% \chapter{Morbi ultrices rutrum lorem.}
-% \lipsum[30]
-
-% \end{anexosenv}
+	% one chapter per annex
+	\subimport{./annexes}{rights1}
+	\subimport{./annexes}{rights2}
+	\subimport{./annexes}{rights3}
+\end{anexosenv}
 
 \phantompart{}
 \printindex  % the index at the end
