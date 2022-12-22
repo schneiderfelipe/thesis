@@ -1,22 +1,15 @@
 \chapter{Methods and techniques}%
 \label{ch:methods}
 
-This chapter of the thesis provides detailed information about the computational methodologies
-that are applied in the research contributions described in~\cref{ch:paper1,ch:paper2,ch:paper3}
-to elucidate reaction mechanisms and insights into fundamental concepts of theoretical and computational chemistry.
-A basic background on computational chemistry applied to mechanistic elucidation is given in~\cref{sec:background-methods},
-with special emphasis on the proper choice of a computational method (\cref{sec:choice-of-method}).
-A detailed account on molecular thermodynamics is given in~\cref{sec:mol-thermo},
-covering both the rigid-rotor harmonic oscillator approximation (RRHO,~\cref{sec:rrho}) and~\emph{quasi}-RRHO models (\cref{sec:quasi-rrho}).
-We provide a general representation for chemical kinetic equations in~\cref{sec:kin-repr} (with special treatment for equilibria in~\cref{sec:kin-repr-equi}),
-and its role in the calculation of reaction and activation Gibbs' free energies in~\cref{sec:reaction-energies}.
-A treatment of reaction rate constants is done in~\cref{sec:rates},
-with a special account for systematic error propagation (\cref{sec:rates-error-prop,sec:rates-error-prop-adj}),
-as well as approximations to quantum tunneling transmission coefficients (\cref{sec:tunneling}).
-Finally,
-details about solving the differential equations of microkinetic models is given in~\cref{sec:microkinetic},
-including a simple account on concentration constraints (\cref{sec:microkinetic-constraints}).
+This chapter provides detailed information about the computational methodologies that are applied in the research contributions described in~\cref{ch:paper1,ch:paper2,ch:paper3} to elucidate reaction mechanisms,
+as well as insights into relevant fundamental concepts of theoretical and computational chemistry.
 The exposition of all presented formulae follows a standard approach and closely references the pertinent literature.
+A basic background on computational chemistry applied to mechanistic elucidation is given in~\cref{sec:background-methods} with special emphasis on the proper choice of computational methods (\cref{sec:choice-of-method}).
+A detailed account on molecular thermodynamics is given in~\cref{sec:mol-thermo} covering both the rigid-rotor harmonic oscillator approximation (RRHO,~\cref{sec:rrho}) and~\emph{quasi}-RRHO models (\cref{sec:quasi-rrho}).
+We provide a general representation for chemical kinetic~equations in~\cref{sec:kin-repr} (with special treatment for equilibria in~\cref{sec:kin-repr-equi}) and its role in the systematic calculation of reaction and activation Gibbs' free energies in~\cref{sec:reaction-energies}.
+A treatment on reaction rate constants is done in~\cref{sec:rates} with a special account on error propagation (\cref{sec:rates-error-prop,sec:rates-error-prop-adj}) as well as approximations to quantum tunnelling transmission coefficients (\cref{sec:tunnelling}).
+Finally,
+details about solving the differential~equations of microkinetic models are given in~\cref{sec:microkinetic} including a simple account on concentration constraints (\cref{sec:microkinetic-constraints}).
 
 \section{Practical theoretical background}%
 \label{sec:background-methods}
@@ -27,27 +20,20 @@ The conceptual information of interest is stored as a potential energy surface (
 which can be regarded as a function from the atomic coordinates to molecular potential energy,
 i.e.,
 using the Born-Oppenheimer (BO) approximation,
-the electronic properties of a molecule depend on the nuclear coordinates
-only parametrically~\cite{Born_1927}.
+the electronic properties of a molecule depend on the nuclear coordinates only parametrically~\cite{Born_1927}.
 In this sense,
 the model treats nuclei as classical particles,
 which is reasonable for most problems of interest in chemistry.
-This limitation is mostly relevant to chemical kinetics when we discuss quantum tunneling effects (\cref{sec:tunneling}).
+This limitation is mostly relevant to chemical kinetics when we discuss quantum tunnelling effects (\cref{sec:tunnelling}).
 
-Modelling of a reaction mechanism is performed
-by first optimizing the structures of the reactants,
+Modelling of a reaction mechanism is performed by first optimizing the structures of the reactants,
 transition states (TSs),
 intermediates,
-and
-products.
-While the first two and last are minima on the potential energy surface,
-transition states represent saddle points and
-special methods must be used
-to find them~\cite{Banerjee_1985,Schlegel_1987,Peng_1993,Peng_1996,Henkelman_2000a,Henkelman_2000b,Henkelman_2002,Mauro_2005,Sheppard_2008,Zimmerman_2013a,Zimmerman_2013b,Zimmerman_2015,Jafari_2017}.
+and products.
+While the first one and the last two are minima on the potential energy surface,
+transition states represent saddle points and special methods must be used to find them~\cite{Banerjee_1985,Schlegel_1987,Peng_1993,Peng_1996,Henkelman_2000a,Henkelman_2000b,Henkelman_2002,Mauro_2005,Sheppard_2008,Zimmerman_2013a,Zimmerman_2013b,Zimmerman_2015,Jafari_2017}.
 Once properly optimized structures are obtained,
-the region around them on the potential energy surface holds
-all the information needed
-for the prediction of chemical reaction kinetics and thermodynamics (\cref{sec:mol-thermo,sec:rates}).
+the region around them on the potential energy surface holds all the information needed for the prediction of chemical reaction kinetics and thermodynamics (\cref{sec:mol-thermo,sec:rates}).
 
 In any case,
 one needs a potential energy surface.
@@ -57,9 +43,8 @@ all the way through highly accurate and expensive multideterminantal wavefunctio
 Most of these techniques consist of self-consistent field approximations,
 and a thorough comparison of them is out of the scope of this presentation.
 In~\cref{sec:choice-of-method},
-an account on the choice of method is given specifically
-for the problem of computational chemical kinetics.
-The interested reader is invited to explore references
+an account on the choice of method is given specifically for the problem of computational chemical kinetics.
+The interested reader is invited to explore references:
 on density functional theory~\cite{Hohenberg_1964,Kohn_1965,Perdew_1996,Perdew_1997,Ernzerhof_1999,Adamo_1999,Chai_2008a,Chai_2008b,Goerigk_2011,Arago_2011,Salzner_2011,Burns_2011,Minenkov_2012,Perdew_2014,Kryachko_2014,Yu_2016,DFT2016_poll},
 wavefunction methods~\cite{Szabo_1996,Riplinger_2013,Riplinger_2016},
 semi-empirical methods~\cite{MOPAC,Bannwarth_2020},
@@ -93,7 +78,7 @@ It is important to choose a good method for the job at hand.
 Many reviews are available to help one make a good decision~\cite{Goerigk_2011,Goerigk_2019,Mardirossian_2017,Morgante_2020,Bursch_2022}.
 It is also plausible to use a combination of different levels of theory,
 such as calculating geometries and vibrational frequencies with one method,
-but use single-point energies with a more costly and precise one;
+then using single-point energies with a more costly and precise one;
 this is performed the works presented in~\cref{ch:paper1,ch:paper2,ch:paper3}.
 Reviewing geometry optimization techniques is out of scope in the present
 thesis,
@@ -112,7 +97,7 @@ a brief discussion on the choice of density functional is warranted.
 
 Geometries obtained using good density functionals are good enough
 for most purposes.
-For instance,~\citeauthor{Bühl_2006} observed typical deviations around~$\pm$1.6~pm~for
+For instance,~\citeauthor{Bühl_2006} observed typical deviations around~$\pm$~1.6~pm~for
 metal-ligand bond lengths for 50 transition metal complexes for which precise gas-phase geometries
 are known from electron diffraction or microwave spectroscopy,
 when using double- or tripe-zeta basis sets~\cite{Bühl_2006}.
@@ -125,7 +110,7 @@ acceptably small in general~\cite{Minenkov_2012}.
 \citeauthor{Sirianni_2018} compared DFT geometries of bimolecular van der Waals complexes using
 double-zeta basis sets against reference geometries at CCSD(T)/CBS
 and reported that all functionals analyzed produced
-geometries within~$\pm$0.1~\AA{}~in terms
+geometries within~$\pm$~0.1~\AA{}~in terms
 of root-mean-squared displacements.
 All this leads us to conclude that,
 in general,
@@ -134,7 +119,7 @@ density functionals deliver molecular geometries of reasonable quality.
 % TODO: comment on the choice of level of theory of the works
 
 In terms of vibrational frequencies,~\citeauthor{Katari_2017} showed that most density functionals
-predict wavenumbers within~$\pm$10--20~cm$^{-1}$~on average for
+predict wavenumbers within~$\pm$~10--20~cm$^{-1}$~on average for
 an experimental database of organometallic complexes~\cite{Katari_2017}.
 Similar deviations were found by~\citeauthor{Howard_2015}
 when comparing against reference CCSD(T)/CBS calculations on
@@ -154,16 +139,15 @@ In general,
 LDAs perform worse of all in all applications,
 and won't be discussed further here.
 Overall,
-GGAs showed errors around~5.3$\pm$0.8\kcalmol,~with meta-GGAs presenting~4.4$\pm$0.6\kcalmol.
-Conventional hybrid functionals performed 3.4$\pm$0.8\kcalmol,~with Minnesota hybrids following with~3.1$\pm$0.9\kcalmol,~and range-separated hybrids showing~3.3$\pm$0.5\kcalmol.
+GGAs showed errors around~5.3~$\pm$~0.8~\kcalmol,~with meta-GGAs presenting~4.4~$\pm$~0.6~\kcalmol.
+Conventional hybrid functionals performed 3.4~$\pm$~0.8~\kcalmol,~with Minnesota hybrids following with~3.1~$\pm$~0.9~\kcalmol,~and range-separated hybrids showing~3.3~$\pm$~0.5~\kcalmol.
 Double hybrids presented errors
-\linebreak
-around~1.7$\pm$0.2\kcalmol.
+around~1.7~$\pm$~0.2~\kcalmol.
 All calculations were performed at essentially complete basis set
 ((aug-)def2-QZVP).
 For comparison,
 different variations of MP2
-presented errors around~3.5$\pm$0.4\kcalmol.
+presented errors around~3.5~$\pm$~0.4~\kcalmol.
 \citeauthor{Mardirossian_2017} performed a similar
 benchmark with 200 density functionals and the MGCDB84 dataset
 consisting of nearly 5000 data points~\cite{Mardirossian_2017},
@@ -177,7 +161,7 @@ Geometric counterpoise (gCP,
 for mitigating BSSE) and dispersion corrections are recommended in all cases (D3 or D4).
 (m)GGAs are typically adequate.
 Vibrational frequencies have similar demands,
-as the calculation has to be performed with an optimized geometry.
+as calculation has to be performed with an already optimized geometry.
 
 When modelling reactions,
 one is often interested in reaction barrier heights.
@@ -201,7 +185,8 @@ basis sets should be chosen carefully (oftentimes requiring triple-
 and quadruple-zeta basis sets) and the London dispersion energy should be taken into account~\cite{Bursch_2022}.
 Finally,
 for the initial search for transition states,
-lower-level methods such as hybrid-based composite methods (such as PBEh-3c~\cite{Grimme_2015}) or semi-empirical methods can be used.
+lower-level methods such as hybrid-based composite methods (e.g.,
+PBEh-3c~\cite{Grimme_2015}) or semi-empirical methods can be used.
 Further refinement can then be performed afterwards.
 
 Finally,
@@ -241,12 +226,11 @@ Those values are calculated from
 	      and
 	\item vibrational frequencies
 \end{enumerate*}
-of each species.
+of each chemical species.
 
 The~\overreact{}~software,
 described in~\cref{ch:paper3},
-automatically obtains those quantities
-by parsing computational chemistry output files,
+automatically obtains those quantities by parsing computational chemistry output files,
 using the excellent~\cclib{}~library~\cite{O_boyle_2008}.
 Internally,
 the~\overreact{}~assigns a natural number for each of the~$m$ chemical species,
@@ -285,7 +269,7 @@ the rigid-rotor harmonic oscillator (RRHO) ideal gas approximation is used,
 where energy levels can be decomposed into translational,
 rotational,
 vibrational and electronic contributions~\cite{McQuarrie_1997},
-% 
+%
 \begin{equation}
 	q(V,
 	T) = \sum_j^\text{states} \exp \left( \frac{\epsilon_j}{k_B T} \right)
@@ -294,7 +278,7 @@ vibrational and electronic contributions~\cite{McQuarrie_1997},
 	q_\text{vib}
 	q_\text{elec}
 \end{equation}
-% 
+%
 where~$\epsilon_j$ is an energy state,
 $k_B$ is Boltzmann's constant,
 $V$ is the volume,
@@ -302,7 +286,7 @@ $T$ is the temperature,
 and~$q_\text{trans}$,
 $q_\text{rot}$,
 $q_\text{vib}$ and~$q_\text{elec}$ are the aforementioned total partition function contributions (with~$\omega_0$ denoting spin multiplicity),
-% 
+%
 \begin{equation}
 	\begin{split}
 		q_\text{trans}
@@ -350,9 +334,9 @@ $q_\text{vib}$ and~$q_\text{elec}$ are the aforementioned total partition functi
 		&= \omega_0
 	\end{split}
 \end{equation}
-% 
+%
 Observe that,
-in the equations above,
+in the~equations above,
 molecular symmetry is not included.
 They will be discussed separately below (\cref{sec:mol-sym}).
 
@@ -363,15 +347,15 @@ In practice,
 vectors~$U$,
 $H$ and~$S$,
 of length~$m$,
-are constructed to store contributions to each species,
-% 
+are constructed to store contributions for each species,
+%
 \begin{equation}
 	\begin{split}
 		H_i &= U_i + p V \\
 		G_i & = H_i - T S_i
 	\end{split}
 \end{equation}
-% 
+%
 The exact contributions are given below,
 
 \begin{subequations}
@@ -432,11 +416,11 @@ The exact contributions are given below,
 			\right]
 	\end{align}
 \end{subequations}
-% 
+%
 where~$\epsilon_{elec}$ stands for the final electronic energy as obtained from the output files,
 which eventually includes all contributions such as dispersion and continuum solvation free energy corrections.
 
-The big advantage of performing such calculations oneself is the complete control over variations of it.
+The big advantage of performing such calculations oneself is the complete control over variations of them.
 Such further refinements,
 details and other treatments are detailed in the following.
 
@@ -449,17 +433,14 @@ weakly interacting molecules,
 and other structures with flat PESs.
 They can often be removed by tightening grid sizes and convergence criteria for geometry and electronic energy minimisation procedures.
 In case of failure,
-it is advised to consider such vibrational frequencies as real and use the corresponding thermodynamical contributions,
-since excluding low-lying vibrational frequencies effectively discards whole degrees of freedom
-and can result in errors as large as 2~kcal~mol$^{-1}$ at room temperature~\cite{Jensen_2015}.
+it is advisable to consider the absolute value of such vibrational frequencies and use the corresponding thermodynamical contributions,
+since excluding low-lying vibrational frequencies effectively discards whole degrees of freedom and can result in errors as large as 2~\kcalmol at room temperature~\cite{Jensen_2015}.
 In order to avoid this pitfall,
-it is thus advisable to
-makes use of their absolute value,
-with is oftentimes small,
-and proceeding normally.
+it is thus advisable to make use of their absolute value,
+which is oftentimes small,
+and proceed normally.
 As such,
-the automatic software described in~\cref{ch:paper3}
-highlights imaginary vibrational frequencies of small magnitude ($< 50$~cm$^{-1}$) in its output,
+the automatic software described in~\cref{ch:paper3} highlights imaginary vibrational frequencies of small magnitude ($< 50$~cm$^{-1}$) in its output,
 warning the user in the process that their absolute values are being taken.
 
 \subsubsection{Corrections to low-frequency vibrational modes}%
@@ -472,13 +453,11 @@ This is due to the breakdown of separability between vibrational and rotational 
 an assumption of the RRHO model.
 In order to mitigate this effect,
 \overreact{}~employs the~\emph{quasi}-RRHO (QRRHO) model of~\citeauthor{Grimme_2012}~\cite{Grimme_2012},
-which treats low-frequency vibrational modes as~\emph{quasi}-rotations in the calculation of entropies.
+which effectively considers low-frequency vibrational modes as~\emph{quasi}-rotations when calculating entropies.
 In this treatment,
-contributions of low-lying modes to the entropy are replaced by an interpolation
-between the original vibrational contributions and a corresponding rotational entropy
-with the moment of inertia computed for a free-rotor with reduced frequency.
+contributions of low-lying modes to the entropy are replaced by an interpolation between the original vibrational contributions and a corresponding rotational entropy with the moment of inertia computed for a free-rotor with reduced frequency.
 The interpolation is calculated using the Head-Gordon damping function~\cite{Chai_2008},
-% 
+%
 \begin{equation}
 	\begin{split}
 		S_\text{rot-vib,
@@ -504,12 +483,12 @@ The interpolation is calculated using the Head-Gordon damping function~\cite{Cha
 		B_\text{av} = 10^{-44} \text{ kg m}^2
 	\end{split}
 \end{equation}
-% 
+%
 A similar QRRHO treatment is also available for enthalpies~\cite{Li_2015},
 where the same interpolation is employed to calculate the equivalent contribution.
 For the development of~\overreact{} (\cref{ch:paper3}),
 both treatments for entropies and enthalpies were tested against published results (see~\cref{fig:qrrho}).
-% 
+%
 \begin{figure}[hbtp]
 	\centering
 	\begin{subfigure}[c]{0.5\textwidth}
@@ -533,77 +512,64 @@ both treatments for entropies and enthalpies were tested against published resul
 		Compare to Figures~2 and~7 of~\citeauthor{Grimme_2012}~\cite{Grimme_2012} and~\citeauthor{Li_2015}~\cite{Li_2015},
 		respectively.}\label{fig:qrrho}
 \end{figure}
-% 
+%
 Both QRRHO approximations for enthalpy and entropy are used by default by~\overreact{},
 but can be deactivated by the user~\cite{overreactguideinput2022}.
 
 \subsection{Molecular symmetries}%
 \label{sec:mol-sym}
 
-Molecular point-group symmetries are required for the calculations mentioned above,
-but automatically determining point groups for molecules of arbitrary size is error prone due
-to small perturbations of the molecular coordinates affecting angles more intensely
-the farther an atom is from the molecular center of mass.
+Molecular point-group symmetries are required for the calculations mentioned above.
+However,
+automatically determining point groups for molecules of arbitrary size is error prone due to small perturbations of the molecular coordinates affecting angles more intensely the farther an atom is from the molecular center of mass.
 As such,
 standard quantum chemistry packages often require the user to manually indicate point-group symmetries.
-Our software~\overreact{} (\cref{ch:paper3}) does automatic point group detection by using a specially designed,
-robust algorithm
-% (manuscript in preparation)
-based on clustering of equivalent atoms and rigid rotor classification,
+Our software~\overreact{} (\cref{ch:paper3}) does automatic point group detection by using a especially designed,
+robust algorithm based on clustering of equivalent atoms and rigid rotor classification,
 which is less sensitive to perturbation of molecular coordinates.
 
 In practice,
-a vector~$\sigma$ of length~$m$ is constructed consisting of the symmetry numbers~\cite{Fern_ndez_Ramos_2007,Gilson_2010}
-for all compounds,
+a vector~$\sigma$ of length~$m$ is constructed consisting of the symmetry numbers~\cite{Fern_ndez_Ramos_2007,Gilson_2010} for all compounds,
 and this vector is used to update all entropies separately,
-% 
+%
 \begin{equation}
 	S_i^\text{sym}
 	= S_i - R \ln{\left( \sigma_i \right)}
 \end{equation}
-% 
+%
 In any case,
 extra symmetries other than the detected ones can be informed in the input by the user.
 The user guide describes the detailed~\overreact{}~input specification~\cite{overreactguideinput2022}.
 This can be useful for,
 e.g.,
-undetected symmetries of weakly bound complexes~\cite{Gilson_2010}
-and uncommon reaction path degeneracies~\cite{Fern_ndez_Ramos_2007}.
+undetected symmetries of weakly bound complexes~\cite{Gilson_2010} and uncommon reaction path degeneracies~\cite{Fern_ndez_Ramos_2007}.
 
 \subsection{Standard state corrections}
 
-Quantum thermochemical quantities are usually indicated in standard states,
-which means 1~M for the solution phase.
-On the other hand,
-first-principle calculation results are reported
+Quantum thermochemical quantities are usually reported in standard states,
+which means 1~M for the solution phase,
+while first-principle calculation results are reported
 by standard quantum chemistry packages for the gas phase,
-whose standard state reference is the ideal gas concentration at 1~atm.
-As such,
-it is necessary to adjust the absolute Gibbs' free energies accordingly.
-Again,
-the software described in~\cref{ch:paper3} automatically detects
+whose standard state reference is the ideal gas concentration at 1~atm
+and thus requires a standard state correction.
+The software described in~\cref{ch:paper3} automatically detects
 (by reading the model input file~\cite{overreactguideinput2022})
-the required standard state correction to absolute Gibbs' energies
-and applies it,
-% 
+the required standard state correction to absolute Gibbs' energies,
+%
 \begin{equation}
 	S^\text{1~M} = S^\text{1~atm}
 	- R \ln{\left( \frac{c_f}{c_i} \right)}
 \end{equation}
-% 
-where~$c_f =$~1~M and~$c_i$ is the concentration of an ideal gas at the given temperature and pressure.
+%
+where~$c_f =$~1~M and~$c_i$ is the concentration of an ideal gas at the given temperature and pressure,
+and applies it.
 
-\section{General representation of chemical kinetic equations}%
+\section{General representation of chemical kinetic~equations}%
 \label{sec:kin-repr}
 
-Hypothetical reaction mechanisms consist of
-the interpretation of the available data for chemical reactions
-in terms of a model that is self-consistent.
+Hypothetical reaction mechanisms consist of the interpretation of the available data for chemical reactions in terms of a model that is self-consistent.
 After being proposed,
-reaction mechanisms normally do not stay still:
-they must be compared
-with each other
-and with available experimental data.
+reaction mechanisms normally do not stay still: they must be compared with each other and with available experimental data.
 Furthermore,
 many different hypotheses for the same reaction can exist,
 and,
@@ -611,28 +577,25 @@ after pruning the ones in disagreement with the available data,
 it is still possible to have several different plausible models at hand.
 In sum,
 such proposed mechanisms pass through a series of transformations,
-amendments and refining.
+amendments,
+and refining.
 Although simple for small chemical reaction networks,
 this can be overwhelming for complex ones,
 with dozens of species and reactions,
 like some presented in~\cref{ch:paper1,ch:paper2,ch:paper3}.
 As such,
-it is specially useful to build a mathematical framework with which
-chemical reaction networks of arbitrary size can be defined and manipulated.
+it is especially useful to build a mathematical framework with which chemical reaction networks of arbitrary size can be defined and manipulated.
 This is not yet common practice in the field,
 though,
 as can be seen,
 e.g.,
-in the work of~\citeauthor{P_rez_Soto_2020}
-whose work represent one of the first
-complex chemical reaction networks in the literature
-modelled using first-principles computational chemistry data~\cite{P_rez_Soto_2020},
+in the work of~\citeauthor{P_rez_Soto_2020} whose work represents one of the first complex chemical reaction networks in the literature modelled using first-principles computational chemistry data~\cite{P_rez_Soto_2020},
 but employs an \emph{ad hoc} representation,
-with over 20 equations hard-coded in a Python script.
+with over 20~equations hard-coded in a Python script.
 As such,
 we present in this section a general framework that can be employed in an automatic fashion.
 
-The problem of generally representing arbitrary chemical kinetic equations can be reduced to the definition of two matrices.
+The problem of generally representing arbitrary chemical kinetic~equations can be reduced to the definition of two matrices.
 A general reaction scheme can be represented as a pair of integer-valued~$m \times n$-matrices~$A$ and~$B$,
 where~$n$ is the number of reactions and~$m$ the number of species,
 including transition states.
@@ -643,8 +606,10 @@ Both matrices~$A$ and~$B$ store stoichiometric coefficients for reactants,
 but only~$A$ stores information about products,
 while only~$B$ stores information about transition states.
 For example,
-the following system of chemical equations translate into the following matrices:
-% 
+the following system of chemical~equations,
+with two reactions and five species,
+translate into the following matrices:
+%
 \begin{equation}
 	\begin{split}
 		\ce{C_1 &-> C_2^{\ddagger} -> C_3} \\
@@ -667,10 +632,12 @@ the following system of chemical equations translate into the following matrices
 		0  & 0
 	\end{bmatrix}
 \end{equation}
-% 
+%
 In this scheme,
 each matrix column represents a single reaction,
 while compounds are indicated by row indices.
+As such,
+matrices are of size $5 \times 2$.
 For instance,
 $A_{11} = A_{12} = -1$,
 since~\ce{C_1} is a reactant in both reactions.
@@ -687,6 +654,9 @@ $B$ stores information about transition states,
 such that~$B_{21} = 1$ and~$B_{42} = 1$,
 since~\ce{C_2$^{\ddagger}$} and~\ce{C_4$^{\ddagger}$} are transition states of reactions one and two,
 respectively.
+Observe that rows two and four in $A$ are full of zeros,
+while rows three and five in $B$ are full of zeros,
+as expected.
 
 Essentially,
 this is equivalent of representing a special purpose directed graph,
@@ -706,18 +676,15 @@ In this scheme,
 it is possible to represent both common reactions,
 whose transition states are explicitly taken into account,
 and equilibria,
-represented by pairs of reactions indicating interconvertible reactants
-and products with no explicit indication of transition states.
+represented by pairs of reactions indicating interconvertible reactants and products with no explicit indication of transition states.
 Having a representation that supports both scenarios is important,
-as many chemical reaction mechanism proposals
-encompass rapid equilibria and key reactions of interest,
-such as the arquetypical Michaelis-Menten model~\cite{Michaelis_1913,Johnson_2011,Srinivasan_2020,Srinivasan_2021},
-where it is assumed that equilibria are always much faster than the other chemical reactions.
-This allows phenomena in chemical kinetics such as pH dependencies and equilibrium between conformations
-to be accounted for in a simple and elegant manner.
+as many chemical reaction mechanism proposals encompass rapid equilibria and key reactions of interest,
+such as the archetypal Michaelis-Menten model~\cite{Michaelis_1913,Johnson_2011,Srinivasan_2020,Srinivasan_2021},
+where it is assumed that equilibria are much faster than the other chemical reactions.
+This allows phenomena in chemical kinetics such as pH dependencies and equilibrium between conformations to be accounted for in a simple and elegant manner.
 
 In terms of matrix representation,
-each forward and backward equilibrium half-reaction gives rise to~two columns in matrices~$A$ and~$B$.
+each forward and backward equilibrium half-reaction gives rise to~two columns in matrix~$A$ and two columns in matrix~$B$.
 Notwithstanding,
 while the respective columns in matrix~$A$ have the expected form,
 matrix~$B$ holds the same columns as~$A$,
@@ -725,44 +692,37 @@ except for the backward reaction,
 which is filled with zeroes.
 As we shall see later,
 this allows us to use the same machinery for calculating reaction rate constants described below,
-since backward rate constants will always be unity,
+since backward rate constants will be unity,
 while the forward constant will be numerically the same as the equilibrium constant (see~\cref{sec:rates} below).
-In order to guarantee
-that equilibria are always faster than the other reactions in the system,
-one can multiply all half-equilibria rate constants by a reasonable constant afterwards,
+In order to guarantee that equilibria are faster than the other reactions in the system,
+one can multiply all equilibrium half-reaction rate constants by a reasonable constant afterwards,
 without disturbing the equilibrium relations.
 
 \subsection{Reaction and activation Gibbs' free energies}%
 \label{sec:reaction-energies}
 
-Reaction and activated Gibbs' energies can be easily generated from matrices~$A$ and~$B$ using
-the~$G$ vector of absolute Gibbs' energies,
-introduced in~\cref{sec:mol-thermo},
-as
-% 
+Reaction and activation Gibbs' energies can be easily generated from matrices~$A$ and~$B$ using
+the~$G$ vector of absolute Gibbs' energies introduced in~\cref{sec:mol-thermo} as
+%
 \begin{equation}
 	\begin{split}
 		\Delta G &= A^T G \\
 		\Delta G^\ddagger &= B^T G
 	\end{split}
 \end{equation}
-% 
+%
 where~$\Delta G$ and~$\Delta G^\ddagger$ are vectors of length~$n$ of reaction and activation Gibbs' energies,
 respectively,
 and~$X^T$ denotes the transposition of the matrix $X$.
-Observe that,
-for an equilibrium forward half-reaction,
-this produces an ``effective'' activation Gibbs' free energy that is numerically identical
-to the reaction Gibbs' free energy,
-while the effective activation Gibbs' free energy for the associated backward reaction will always be numerically equal to zero.
+Observe that for an equilibrium forward half-reaction,
+this produces an ``effective'' activation Gibbs' free energy that is numerically identical to the reaction Gibbs' free energy,
+while the effective activation Gibbs' free energy for the associated backward reaction will be numerically equal to zero.
 
-\subsubsection{Reaction symmetries}
+\subsubsection{Reaction symmetry}
 
 In some cases,
-it is necessary to account
-for extra entropy contributions due to participating species being indistinguishable in a reaction.
-This occurs whenever it is possible
-to interchangeably translate molecules of identical configurations~\cite{Fern_ndez_Ramos_2007,Gilson_2010}.
+it is necessary to account for extra entropy contributions due to participating species being indistinguishable in a reaction.
+This occurs whenever it is possible to interchangeably translate molecules of identical configurations~\cite{Fern_ndez_Ramos_2007,Gilson_2010}.
 This is particularly important,
 for instance,
 when two identical molecules react with each other~\cite{Fern_ndez_Ramos_2007,Gilson_2010},
@@ -771,8 +731,7 @@ when modelling the formation of a water cluster,
 one side of the reaction would contain~$n$ indistinguishable,
 infinitely separated water molecules)~\cite{Jensen_2015}.
 In such cases,
-an extra term~$-R \ln{\left( n! \right)}$ should be added to the total entropy
-of reactants for reactions such as~$\ce{n A -> products}$.
+an extra term~$-R \ln{\left( n! \right)}$ should be added to the total entropy of reactants for reactions such as~$\ce{n A -> products}$.
 As it is arguably non-intuitive and often neglected,
 \overreact{} (\cref{ch:paper3}) detects such cases and applies the correction automatically.
 
@@ -781,48 +740,44 @@ As it is arguably non-intuitive and often neglected,
 
 Once the vector~$\Delta G^\ddagger$ of activation Gibbs' free energies is constructed (\cref{sec:reaction-energies}),
 it can be used to calculate a~$n$-vector~$k$ of reaction rate constants,
-using the Eyring-Evans-Polanyi equation~\cite{Eyring_1935,Evans_1935,TransitionStateTheory},
-the key equation of transition state theory~\cite{TransitionStateTheory},
-% 
+using the Eyring-Evans-Polanyi~equation~\cite{Eyring_1935,Evans_1935,TransitionStateTheory},
+the key~equation of transition state theory~\cite{TransitionStateTheory},
+%
 \begin{equation}\label{eq:rate-consts}
 	k_i = \kappa_i \frac{k_B T}{h}
 	\exp \left(-\frac{\Delta G_i^\ddagger}{R T} \right)
 \end{equation}
-% 
-where~$\kappa_i$ is the quantum tunnelling transmission coefficient of the~$i$-th reaction (see below in~\cref{sec:tunneling}),
+%
+where~$\kappa_i$ is the quantum tunnelling transmission coefficient of the~$i$-th reaction (see below in~\cref{sec:tunnelling}),
 $k_B$ is Boltzmann's constant,
 $h$ is Planck's constant,
 $T$ is the chosen temperature and~$R$ is the ideal gas constant.
-The transition state theory is based
-on the idea that the reactant ground state complex is in equilibrium
-with the transition state structure~\cite{TransitionStateTheory}.
+The transition state theory is based on the idea that the reactant ground state complex is in equilibrium with the transition state structure~\cite{TransitionStateTheory}.
 
-Half-equilibrium reactions can be assigned forward and reverse rate constants such that equilibria are ensured,
-% 
+Equilibrium half-reactions can be assigned forward and reverse rate constants such that equilibria are ensured,
+%
 \begin{equation}
 	K_\text{eq}
 	% = \frac{[B]^{n_b}}{[A]^{n_a}}
 	= \frac{k_i^\text{forward}}{k_{i + 1}^\text{reverse}}
 	= \exp \left(-\frac{\Delta G_i}{R T} \right)
 \end{equation}
-% 
-The slowest half-equilibrium is initially assigned unitary rate constant (as commented above in~\cref{sec:kin-repr-equi}).
+%
+The slowest equilibrium half-reaction is initially assigned unitary rate constant (as commented above in~\cref{sec:kin-repr-equi}).
 Later,
-after all reaction rate constants have been calculated,
-all half-equilibrium reaction rates can be multiplied by a factor,
+when all reaction rate constants have been calculated,
+all equilibrium half-reaction rates can be multiplied by a positive factor greater than one,
 such that the slowest equilibrium is safely faster than the fastest non-equilibrium reaction in the model.
-This is important for properly modelling proposed chemical reaction mechanisms (\cref{sec:microkinetic}).
+This is important for properly modelling chemical reaction mechanisms as intended by the proposer (\cref{sec:microkinetic}).
 
 \subsection{Error propagation with respect to energies}%
 \label{sec:rates-error-prop}
 
-Prediction of chemical reactions is an unforgiving problem.
+The prediction of chemical reactions is an unforgiving problem.
 Since reaction rate constants depend exponentially on the activation Gibbs' free energies,
 small deviations on the latter exponentally increase errors on the former.
 As such,
-given an activation energy estimate~$\Delta G^\ddagger$
-on the true value~$\Delta \widehat{G}^\ddagger$
-with error~$\epsilon$,
+given an activation energy estimate~$\Delta G^\ddagger$ on the true value~$\Delta \widehat{G}^\ddagger$ with error~$\epsilon$,
 %
 \begin{equation}
 	k = \kappa \frac{k_B T}{h} e^\frac{- \Delta G^\ddagger}{R T}
@@ -836,25 +791,18 @@ where~$k$ and~$\widehat{k}$ are the predicted and true chemical reaction constan
 respectively.
 Thus,
 at room temperature,
-errors in the order of~10--100$\times$
-in reaction rate constants
-are produced by
-energy deviations of~1.36--2.73~\kcalmol,~with larger errors in reaction rate constants found in lower temperatures.
+errors in the order of~10--100$\times$ in reaction rate constants are produced by energy deviations of~1.36--2.73~\kcalmol,
+with larger errors in reaction rate constants found in lower temperatures.
 This is particularly important,
 as popular DFT methods commonly achieve accuracies of~2--3~\kcalmol for many molecules~\cite{Becke_2014,Bogojeski_2020} (more in~\cref{sec:choice-of-method} above).
 In fact,
 an error as small as 0.41~\kcalmol gives rise to a twofold deviation in the reaction rate constant.
-This goes to show that the so called ``quantum chemical accuracy'' of
-$<$1~\kcalmol~\cite{Bogojeski_2020}
-is not enough for the prediction of chemical reactions on par with experimental results.
-This not only increases the demand
-for more precise quantum chemical methods,
-but also for methods aiming at mitigating the effects of such errors
-in computational predictions of chemical reactions.
+This goes to show that the so called ``quantum chemical accuracy'' of $<$1~\kcalmol~\cite{Bogojeski_2020} is not enough for the prediction of chemical reactions on par with experimental results.
+This not only increases the demand for more precise quantum chemical methods,
+but also for methods aiming at mitigating the effects of such errors in computational predictions of chemical reactions.
 
 Going one step further,
-errors in reaction rate constants
-have different relationships to individual errors in activation enthalpies and entropies,
+errors in reaction rate constants have different relationships to individual errors in activation enthalpies and entropies,
 %
 \begin{equation}
 	k = \kappa \frac{k_B T}{h} e^\frac{- \Delta H^\ddagger}{R T}
@@ -872,13 +820,9 @@ have different relationships to individual errors in activation enthalpies and e
 %
 The above suggests that,
 all things equal,
-errors in the predicted activation entropy dominate at high temperatures,
-while being less significant
-than activation enthalpy errors at low temperatures.
+errors in the predicted activation entropy (enthalpy) dominate at high (low) temperatures.
 The balance between the two will on the other hand depend on the actual reaction at hand.
-These relationships are crucial for actually controlling and mitigating errors
-when making computational quantitative predictions
-for chemical reaction networks.
+These relationships are crucial for actually controlling and mitigating errors when making computational quantitative predictions for chemical reaction networks.
 
 \subsection{Adjustment of systematic errors with respect to energies}%
 \label{sec:rates-error-prop-adj}
@@ -888,7 +832,7 @@ This is in part due to the nature of DFT errors,
 which tend to be systematic~\cite{P_rez_Soto_2020}.
 As such,
 good levels of theory often guarantee quantitative results for unimolecular reactions,
-where error cancelation is expected,
+where error cancellation is expected,
 but errors can deeply affect predictions for bimolecular reactions~\cite{P_rez_Soto_2020}.
 In such cases,
 further adjustments can be necessary for calculations of microkinetic models to be comparable to experimental results.
@@ -896,31 +840,27 @@ By shifting absolute Gibbs' free energies by a fixed amount,
 it is possible to mitigate systematic energy errors,
 which was shown to be adequate in many cases~\cite{Ahn_2019,P_rez_Soto_2020}.
 In particular,
-in~\cref{ch:paper3} we present a reproduction~\cite{Schneider_2022} of the numerical results
-of~\citeauthor{P_rez_Soto_2020}~\cite{P_rez_Soto_2020} using~\overreact{},
+in~\cref{ch:paper3} we present a reproduction~\cite{Schneider_2022} of the numerical results of~\citeauthor{P_rez_Soto_2020}~\cite{P_rez_Soto_2020} using~\overreact{},
 which encompasses a well-studied and validated imine formation reaction,
-taking into account a systematic error of~3.2~kcal~mol$^{-1}$.
+taking into account a systematic error of~3.2~\kcalmol.
 Using this technique,
 results on par with the available experimental data are obtained.
 
 \subsection{Approximations for quantum tunnelling transmission coefficients}%
-\label{sec:tunneling}
+\label{sec:tunnelling}
 
-Quantum tunneling effects are often important,
-in particular for reactions where
-hydrogen abstractions take place~\cite{Bim2018},
-such as the homolysis of~\ce{C-H} bonds by strong
-oxidants,
-in which case it is oftentimes the rate-limiting step.
+Quantum tunnelling effects are often important,
+in particular for reactions where hydrogen abstractions take place~\cite{Bim2018},
+such as the homolysis of~\ce{C-H} bonds by strong oxidants,
+in which case it is often the rate-limiting step.
 Notwithstanding,
-it is hardly known \emph{a priori} whether an elementary step
-will present quantum tunnelling effects,
-so it is reasonable to apply approximate quantum tunnelling corrections to all steps in a chemical reaction network.
+it is hardly known \emph{a priori} whether an elementary step will present quantum tunnelling effects,
+so it is reasonable to apply approximate quantum tunnelling corrections to all steps in a chemical reaction network
+to account for this possibility.
 
-Two particularly simple approximations that can be readily applied to any standard computational chemical reaction investigation
-are the Wigner~\cite{Wigner_1932} and Eckart~\cite{Eckart_1930} quantum tunnelling corrections.
-Wigner correction is the simplest of the two and assumes that most of the tunnelling happens at the top of the reaction barrier,
-% 
+Two particularly simple approximations that can be readily applied to any standard computational chemical reaction investigation are the Wigner~\cite{Wigner_1932} and Eckart~\cite{Eckart_1930} quantum tunnelling corrections.
+The Wigner correction is the simplest of the two and assumes that most of the tunnelling happens at the top of the reaction barrier,
+%
 \begin{equation}
 	\kappa_i^\text{Wigner}
 	= 1 + \frac{1}{24}
@@ -930,13 +870,13 @@ Wigner correction is the simplest of the two and assumes that most of the tunnel
 	}{k_B T}
 	\right)^2
 \end{equation}
-% 
+%
 where~$\nu^\ddagger$,
 the imaginary vibrational frequency at the transition state,
 is the only information required.
 
-The unsymmetrical Eckart correction uses information about the shape of the barrier as well,
-% 
+The unsymmetrical Eckart correction uses information about the shape of the barrier as well
+%
 \begin{equation}
 	\begin{split}
 		\kappa_i^\text{Eckart}
@@ -1010,7 +950,7 @@ The unsymmetrical Eckart correction uses information about the shape of the barr
 		}
 	\end{split}
 \end{equation}
-% 
+%
 where~$\Delta H^{\ddagger,
 			0 K}_f$ and~$\Delta H^{\ddagger,
 			0 K}_r$ are the activation enthalpies at 0~K for the forward and reverse reactions,
@@ -1026,11 +966,8 @@ from the command-line (see a detailed description of the command-line interface 
 \section{First-principles microkinetic modelling}%
 \label{sec:microkinetic}
 
-Microkinetic modelling is a technique used to predict the outcome of complex
-chemical reactions.
-It can be used to investigate the catalytic transformations of molecules by
-propagating a system of ordinary differential equations that model the chemical
-reaction network.
+Microkinetic modelling is a technique used to predict the outcome of complex chemical reactions.
+It can be used to investigate the catalytic transformations of molecules by propagating a system of ordinary~differential~equations that model the chemical reaction network.
 
 The technique can be made first-principle by making use of pure computational
 chemistry predictions.
@@ -1038,42 +975,41 @@ It is able to take into account effects that the sole use of Gibbs' free energie
 are not able to,
 such as concentrations of species and relatively complex time dynamics.
 In order to perform microkinetic modelling,
-a system of ordinary differential equations must be first derived,
+a system of ordinary~differential~equations must be first derived,
 for which a general representation of chemical reaction networks is most helpful (\cref{sec:kin-repr}),
 and then solved over time from starting concentrations.
 
-\subsection{Representation and solution of the chemical kinetic ordinary differential equations}
+\subsection{Representation and solution of the chemical kinetic ordinary~differential~equations}
 
-This section briefly introduces the representation and solution of the system of differential equations,
-which consists of
-time-propagating the~$m$-vector~$y(t)$ of species concentrations (in mol/L) as follows.
+This section briefly introduces the representation and solution of the system of differential~equations,
+which consists of time-propagating the~$m$-vector~$y(t)$ of species concentrations (in mol/L) as follows.
 First,
 a~$n$-vector of reaction rates~$r(y)$,
 which in general depends on~$y$,
 can be defined,
 component-wise,
 as
-% 
+%
 \begin{equation}
 	r_j
 	= k_j \prod_i^\text{reactants}
 	y_i^{-A_{ij}}
 \end{equation}
-% 
+%
 where the negative sign in~$A_{ij}$ is due to the reactant stoichiometric coefficients being stored as negative integers (\cref{sec:kin-repr}).
 With this definition,
 the time derivative of the concentration vector,
 $\dot{y}$,
 is given as
-% 
+%
 \begin{equation}\label{eq:master-equation}
 	\dot{y} = A r(y)
 \end{equation}
-% 
+%
 where matrix multiplication is implied.
 
 \Cref{eq:master-equation} describes the entire reaction network dynamics
-as a set of ordinary differential equations (ODEs) expressing the rate of change of concentration of each species in the given model
+as a set of ordinary~differential~equations (ODEs) expressing the rate of change of concentration of each species in the given model
 as a function of the instantaneous concentration of all chemical species.
 The ODE system above can be solved using any standard methodology widely available in the literature.
 Notwithstanding,
@@ -1083,14 +1019,14 @@ First,
 the system above is only linear if all reactions in the model are unimolecular.
 Second,
 it is not unusual to encounter chemical kinetic problems
-encompassing
-simultaneous phenomena with different time scales,
+consisting of
+phenomena with different time scales,
 which is especially relevant for models containing equilibria.
-As such,
+By definition,
 such problems are oftentimes stiff and the use of solvers purposely built  for stiff systems is warranted~\cite{Curtiss_1952,Hairer_1991,Petzold_1983}.
 The implicit Runge-Kutta method of Radau IIA family (of order five)~\cite{Hairer_1996} is used by default in~\overreact{},
 but any solver supported by the~\texttt{SciPy} library~\cite{Virtanen_2020} can be employed.
-Furthermore,~\overreact{}~leverages Google's~\texttt{JAX} library~\cite{jax2018github}
+Furthermore, \overreact{}~leverages Google's~\texttt{JAX} library~\cite{jax2018github}
 in order to
 obtained an analytic Jacobian of the system in~\cref{eq:master-equation} \emph{via} automatic differentiation,
 which further increases the robustness and efficiency of the scheme,
@@ -1100,7 +1036,7 @@ as no numerical differentiation is required throughout the microkinetic simulati
 \label{sec:microkinetic-constraints}
 
 Within the well-mixed condition approximation,
-concentration effects are always included in microkinetic simulations.
+concentration effects are included in microkinetic simulations.
 However,
 in many situations,
 constant concentration effects are important,
@@ -1112,56 +1048,48 @@ pH buffering effects (see below),
 controlled ionic strengths,
 and more (\cref{ch:paper3}).
 
-\subsubsubsection{Application: acid-base equilibria}%
+\subsubsubsection{Application:~acid-base equilibria}%
 \label{sec:pka}
 
-One practical application of constrained concentrations is simulating reactions at buffered pH values.
-This requires properly estimating acid-base equilibrum constants or,
+One practical application of constrained concentrations is simulating reactions at buffered pH values,
+which requires properly estimating acid-base equilibrium constants or,
 equivalently,
-its log-scaled counterpart,
+their log-scaled counterpart,
 the pK$_a$ values.
-This section presents a short account on the method employed in~\cref{ch:paper3}
-for mitigating errors in such estimates.
+This section presents a short account of the method employed in~\cref{ch:paper3} for mitigating errors in such estimates.
 
 When computationally estimating pK$_a$ values,
-a direct dissociation approach (\cref{eq:pKa-equilibrium})
-leads to issues in the evaluation of the solvated proton.
+a direct dissociation approach (\cref{eq:pKa-equilibrium}) is often used.
+However,
+this approach leads to issues in the evaluation of the solvated proton.
 First,
-conventional electronic calculations are not possible for a zero-electron
-systems such as a proton~\cite{Ding_2009,Sumon_2012}.
+conventional electronic calculations are not possible for a zero-electron systems such as a proton~\cite{Ding_2009,Sumon_2012},
+and second,
+due to the covalent nature of the interaction between the~\ce{H^+} ion and the surrounding aqueous environment,
+clusters such as~\ce{H3O+},
+\ce{H5O2+},
+etc.
+are formed~\cite{Sumon_2012},
+which further complicates the problem.
 %
 \begin{equation}
 	\ce{HB (aq) <=>[$\text{pK}_a (\ce{HB})$] B^- (aq) + H^+ (aq)}\text{.}
 	\label{eq:pKa-equilibrium}
 \end{equation}
 %
-Second,
-due to the covalent nature of the interaction between the~\ce{H^+} ion
-and the surrounding aqueous environment,
-clusters such
-as~\ce{H3O+},
-\ce{H5O2+},
-etc.
-are formed~\cite{Sumon_2012},
-which further complicates the problem.
-
 A tentative solution is to employ the experimental proton solvation free energy
-($-$1104.5~$\pm$~0.3~kJ/mol~\cite{Tissandier_1998,Marenich_2009}) in a
-semi-empirical fashion,
-but the trustworthiness of this method is highly
-debatable~\cite{Yang_2013}.
+\linebreak
+($-$1104.5~$\pm$~0.3~kJ$\cdot$mol$^{-1}$~\cite{Tissandier_1998,Marenich_2009}) in a semi-empirical fashion,
+but the trustworthiness of this method is debatable~\cite{Yang_2013}.
 In fact,
-this often produces pK$_a$ values that are far from the expected
-for simple carboxylic acids,
+this often produces pK$_a$ values that are far from the expected for simple carboxylic acids,
 for instance.
-Errors in the order of~7 pK$_a$ units are not unheard of,
+Errors in the order of~7 pK$_a$ units are not uncommon,
 and can be found in the literature~\cite{Pliego_2002,Ding_2009}.
-It has been pointed out that the major source of error can be attributed to the lack of explicit
-solute-solvent interactions~\cite{Pliego_2002}.
+It has been pointed out that a major source of error can be attributed to the lack of explicit solute-solvent interactions~\cite{Pliego_2002}.
 
 An improved approach is to use a relative determination method~\cite{Ding_2009}.
-This avoids the problems associated with the direct dissociation approach of~\cref{eq:pKa-equilibrium}
-by calculating the auxiliary problem of a proton exchange with a known reference
+This avoids the problems associated with the direct dissociation approach of~\cref{eq:pKa-equilibrium} by calculating the auxiliary problem of a proton exchange with a known reference
 acid,
 such as acetic acid~\cite{Goldberg_2002}:
 %
@@ -1171,11 +1099,8 @@ such as acetic acid~\cite{Goldberg_2002}:
 \end{equation}
 %
 Contrary to~\cref{eq:pKa-equilibrium},
-both sides of~\cref{eq:pKa-indireto}
-have the same net charge
-and likely similar interactions with the solvent,
-leading to favorable error cancelations
-in the calculated Gibbs' free energy ($\Delta G$).
+both sides of~\cref{eq:pKa-indireto} have the same net charge and likely similar interactions with the solvent,
+leading to favorable error cancellation in the calculated Gibbs' free energy ($\Delta G$).
 The~$\text{pK}_a(\ce{HA})$ in this scheme
 can thus be written as a function of~$\text{pK}_a(\ce{HB},
 	\text{exp.})$:
@@ -1235,13 +1160,13 @@ unit for many solutes and solvents~\cite{Ding_2009}.
 % PAPER II (SI)
 % - It is nice to start calculations with GGAs.
 % They might even be good enough for the whole process.
-% - Dispersion corrections are always needed.
+% - Dispersion corrections are needed.
 % - Triple-zeta basis sets are default.
 % - Correct energies with DLPNO-CCSD(T) whenever possible.
 % - gCP is cheap to use and correct BSSE.
 % - Use cheap methods to get initial structures,
 % such as xTB.
-% - Conformations are always useful,
+% - Conformations are useful,
 % Crest is good.
 % - NEB is a life saver if you only have reactants and products,
 % or you have a mild guess at the TS.
@@ -1259,10 +1184,10 @@ unit for many solutes and solvents~\cite{Ding_2009}.
 % Metadynamics is an accelerated flavor of it that
 % helps learning how flexible a structure is prior to reaction.
 % You can even infer labilities from that.
-% - Eckart is always better than
+% - Eckart is better than
 % Wigner ($1 + \frac{1}{24} \left( \frac{h |\nu|}{R T} \right)^2$),
 % in my experience,
-% but Wigner is better than no tunneling.
+% but Wigner is better than no tunnelling.
 
 % PAPER III (1)
 % - \overreact{}~takes data from computational chemistry logfiles by parsing using~\cclib{}.
@@ -1271,30 +1196,30 @@ unit for many solutes and solvents~\cite{Ding_2009}.
 % one can then calculate thermodynamic and chemical kinetic properties of the reactions,
 % such as reaction rate constants.
 % - With the reactions and rate constants,
-% we build a system of ordinary differential equations
+% we build a system of ordinary~differential~equations
 % modelling the whole system.
-% - These equations,
+% - These~equations,
 % along with provided initial concentrations of the species,
 % are used to calculate the concentrations of all species over time.
 
 % PAPER III (2)
 % - B97--3c is a simple model that can be used at the beginning of a study.
-% - Tunneling coefficients can be calculated either using Eckart or Wigner.
+% - Tunnelling coefficients can be calculated either using Eckart or Wigner.
 % - UMP2 is a higher level of theory already.
 % - Better Pople basis sets are 6--311G(d,p) and even better 6--311G(3df,3pd),
 % but Pople basis sets are not recommended anymore (too much bias CITE NON-PLANAR BENZENE).
 % - It is my experience that,
 % for unimolecular reactions,
 % one can expect errors of around
-% $\pm 2 \times$ the correct reaction rate constant if using adequate levels of theory,
-% specially if
-% the quantum tunneling effects are mild.
+% $~\pm~2 \times$ the correct reaction rate constant if using adequate levels of theory,
+% especially if
+% the quantum tunnelling effects are mild.
 % - def2 basis set are more recommended in general than Pople.
-% - For stronger quantum tunneling effects,
+% - For stronger quantum tunnelling effects,
 % even for unimolecular reactions,
 % one can have larger errors
-% ($\pm$ one order of magnitude than the correct value,
-% even two in pathological cases) if the available quantum tunneling corrections are not suitable
+% ($\pm$~one order of magnitude than the correct value,
+% even two in pathological cases) if the available quantum tunnelling corrections are not suitable
 % for the given reaction,
 % such as if they strongly deviate from a straight line on the potential energy surface
 % (which is the case for ammonia umbrella inversion).
@@ -1303,7 +1228,7 @@ unit for many solutes and solvents~\cite{Ding_2009}.
 % If you have an unimolecular reaction
 % and results don't systematically improve by increasing the level of theory,
 % you might be experiencing this,
-% specially if the tunning effect is non-trivial (over two times or more).
+% especially if the tunning effect is non-trivial (over two times or more).
 % Non-unimolecular reactions can have different diagnostics.
 % - Due to favourable error cancellations and the fact that
 % Eckart and Wigner often underestimate the quantum effects,
@@ -1327,7 +1252,7 @@ unit for many solutes and solvents~\cite{Ding_2009}.
 % spin changes,
 % etc.
 % This applies to non-unimolecular reactions as well.
-% - Chemical kinetic equations are stiff,
+% - Chemical kinetic~equations are stiff,
 % so we use proper measure to ensure they get the right treatment
 % - One can use equilibria together with rates when using~\overreact{},
 % which is useful to model more complex systems.
@@ -1344,7 +1269,7 @@ unit for many solutes and solvents~\cite{Ding_2009}.
 % aromatic systems break or form
 % - One also benefits from diffuse functions when modelling charged systems
 % - It is wise to use dispersion corrections whenever possible.
-% And it is always possible.
+% And it is possible.
 % - Non-unimolecular reactions should be treated with care
 % as some sources of error do not cancel gracefully,
 % which can lead to systematic errors.
@@ -1363,7 +1288,7 @@ unit for many solutes and solvents~\cite{Ding_2009}.
 % - Long-range separated functionals are good for weakly bound structures
 % or ones with weird steric effects.
 % - It is OK for~\overreact{}~to model many mechanisms at the same time.
-% - Tunneling effects can be important even for reactions for
+% - Tunnelling effects can be important even for reactions for
 % which intuition would say otherwise.
 % - Solvent molecules should be included when it is appropriate.
 
