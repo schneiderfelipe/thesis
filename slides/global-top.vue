@@ -1,7 +1,7 @@
 <template>
   <header
-    v-if="$slidev.nav.currentPage > 1"
-    class="absolute top-0 right-0 p-2 text-xs">
+    v-if="1 < $slidev.nav.currentPage && $slidev.nav.currentPage < $slidev.nav.total"
+    class="absolute top-6px right-10px text-xs">
     <SlideCurrentNo />
     /
     <SlidesTotal />

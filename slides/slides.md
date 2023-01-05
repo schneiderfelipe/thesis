@@ -1,16 +1,14 @@
 # Contribuções quantitativas <br /> para a elucidação de <br /> mecanismos de reação
 
 [Me. Felipe S. S. Schneider](https://schneiderfelipe.github.io/)
-<br />
-<br />
+<br /><br />
 Supervisor: Prof. Dr. Giovanni F. Caramori
 <br />
-Co-supervisor: Prof. Faruk J. N. Aguilera (_in memoriam_)
-<br />
+Co--supervisor: Prof. Faruk J. N. Aguilera (_in memoriam_)
 
-<p class="text-sm">
-  06/01/2023
-</p>
+<div class="text-sm mt-8">
+  06 / 01 / 2023
+</div>
 
 <!-- prettier-ignore-start -->
 
@@ -115,9 +113,9 @@ layout: cover
 
 # Results and discussion
 
-- _ACS Catalysis_ **2019**, 9 (5), 3792–3799. [10.1021/acscatal.9b00210](https://doi.org/10.1021/acscatal.9b00210).
-- _Journal of the American Chemical Society_ **2020**, 142 (24), 10869–10880. [10.1021/jacs.0c01622](https://doi.org/10.1021/jacs.0c01622).
-- _Journal of Computational Chemistry_ **2022**, 44 (3), 209–217. [10.1002/jcc.26861](https://doi.org/10.1002/jcc.26861).
+- _ACS Catalysis_ **2019**, 9 (5), 3792--3799. [10.1021/acscatal.9b00210](https://doi.org/10.1021/acscatal.9b00210).
+- _Journal of the American Chemical Society_ **2020**, 142 (24), 10869--10880. [10.1021/jacs.0c01622](https://doi.org/10.1021/jacs.0c01622).
+- _Journal of Computational Chemistry_ **2022**, 44 (3), 209--217. [10.1002/jcc.26861](https://doi.org/10.1002/jcc.26861).
 
 <!--
 List of papers,
@@ -126,21 +124,15 @@ products.
 
 ---
 
-# Mechanism of $\ce{Pd(II)}$-Mediated Uncaging Reactions of Propargylic Substrates
+# Mechanism of $\ce{Pd(II)}$--Mediated Uncaging Reactions of Propargylic Substrates
 
 ## Method
 
 - <span v-click=1>ORCA 4.0.1.2</span>
-- <span v-click=4>RIJCOSX</span>-<span v-click=2>PBE0-D3(BJ)</span>/<span v-click=3>ma-def2-TZVP(-f)</span>/<span v-click=5>SMD(water)</span>
-- <span v-click=6>Small imaginary frequencies ($< 34 i \text{ cm}^{-1}$)</span>
-- <span v-click=8>DLPNO–CCSD(T)</span>-<span v-click=9>gCP</span>/<span v-click=7>ma-def2-TZVP(-f)</span>
+- <span v-click=4>RIJCOSX</span>--<span v-click=2>PBE0--D3(BJ)</span>/<span v-click=3>ma--def2--TZVP(-f)</span>/<span v-click=5>SMD(water)</span>
+- <span v-click=6>Small imaginary frequencies ($<34 i \text{ cm}^{-1}$)</span>
+- <span v-click=8>DLPNO--CCSD(T)</span>--<span v-click=9>gCP</span>/<span v-click=7>ma--def2-TZVP(-f)</span>
 - <span v-click=10>$G_{1 \text{M}} = G_{1 \text{atm}} + R T \ln{V}$ at 298.15 K and 1 atm</span>
-
-<style>
-.slidev-vclick-hidden {
-  opacity: 0.15 !important;
-}
-</style>
 
 <!--
 $R T \ln{V} = 2.1984 \text{kcal/mol}$
@@ -154,26 +146,20 @@ clicks: 9
 
 <!-- prettier-ignore-end -->
 
-# $\ce{Pt}$-Triggered Bond-Cleavage of Pentynoyl Amide and $\ce{N}$-Propargyl Handles for Drug-Activation
+# $\ce{Pt}$--Triggered Bond--Cleavage of Pentynoyl Amide and $\ce{N}$--Propargyl Handles for Drug--Activation
 
 ## Method
 
-- <span v-click=1>rev-PBE0-D4</span>-<span v-click=3>gCP</span>/<span v-click=1>def2-TZVP</span>
-- <span v-click=2>DLPNO–CCSD(T)</span>-<span v-click=3>gCP</span>/<span v-click=2>def2-TZVP</span>/<span v-click=2>SMD(water)</span>
+- <span v-click=1>rev--PBE0--D4</span>--<span v-click=3>gCP</span>/<span v-click=1>def2--TZVP</span>
+- <span v-click=2>DLPNO--CCSD(T)</span>--<span v-click=3>gCP</span>/<span v-click=2>def2--TZVP</span>/<span v-click=2>SMD(water)</span>
 - <span v-click=4>ORCA 4.2.1</span>
-- <span v-click=5>Crest/GFN2-xTB (xtb 6.3.0)</span>
+- <span v-click=5>Crest/GFN2--xTB (xtb 6.3.0)</span>
 - <span v-click=6>NEB/GFN2-xTB (ORCA 4.2.1, xtb 6.3.0)</span>
 - <span v-click=7>Metadynamic simulation ($\ce{Pt(II)}\cdots$triple bond for $\ce{X} = \ce{C}$, movie)</span>
 - <span v-click=8>Thermodynamics at 298.15 K and 1 M</span>
 <!-- $G_{1 \text{M}} = G_{1 \text{atm}} + R T \ln{V}$ at 298.15 K and 1 atm -->
 - <span v-click=9>Wigner tunneling transmission coefficients ($\kappa = 1 + \frac{1}{24} \left( \frac{h |\nu|}{R T} \right)^2$)</span>
-<!-- - Small imaginary frequencies ($< 34 i \text{ cm}^{-1}$) -->
-
-<style>
-.slidev-vclick-hidden {
-  opacity: 0.15 !important;
-}
-</style>
+<!-- - Small imaginary frequencies ($<34 i \text{ cm}^{-1}$) -->
 
 <!--
 $R T \ln{V} = 2.1984 \text{kcal/mol}$
@@ -181,16 +167,13 @@ $R T \ln{V} = 2.1984 \text{kcal/mol}$
 
 ---
 
-# Overreact, an in Silico Lab: Automative Quantum Chemical Microkinetic Simulations for Complex Chemical Reactions
+# **Overreact**, an _in silico_ lab
 
-<br />
+Automative quantum chemical microkinetic simulations for complex chemical reactions
 
 $$
 \ce{NH3(w) + ^{.}OH(w) ->[H3N\cdots{}^{.}OH(w)] ^{.}NH2(w) + H2O(w)}
 $$
-
-<br />
-<br />
 
 ```kotlin {monaco}
 $scheme
@@ -204,9 +187,11 @@ $compounds
  NH3·OH#(w): NH3_OH_ts.out
 ```
 
+<!--
 ::: warning
 _here be dragons_
 :::
+-->
 
 <!-- prettier-ignore-start -->
 
@@ -216,15 +201,15 @@ layout: two-cols
 
 <!-- prettier-ignore-end -->
 
-<small>
+<Transform :scale=0.8>
 
 $$
 \ce{NH3(w) + ^{.}OH(w) ->[H3N\cdots{}^{.}OH(w)] ^{.}NH2(w) + H2O(w)}
 $$
 
-</small>
+</Transform>
 
-- M062X-D3(0)/6-311++G(d,p)/SMD(water)
+- M062X--D3(0)/6--311++G(d,p)/SMD(water)
 - ORCA 4.2.1
 
 ::right::
@@ -238,21 +223,6 @@ $$
 |           Dib _et al._ (calc.) |    $2.3 \times 10^7$ |
 
 [^1]: Hickel
-
-<style>
-.footnotes {
-  @apply absolute bottom-0 left-0 px-8 text-sm;
-}
-.footnotes-sep {
-  @apply hidden;
-}
-tbody tr:not(:last-child) {
-  @apply border-0;
-}
-tbody tr:nth-child(even) {
-  @apply bg-gray-50 dark:bg-gray-900;
-}
-</style>
 
 <!-- prettier-ignore-start -->
 
@@ -292,7 +262,6 @@ layout: section
 <br />
 <schneider.felipe.5@gmail.com>
 <br />
-<br />
-<twemoji-folded-hands />
+<Thanks />
 
 <!-- Presentation conclusion ends. -->

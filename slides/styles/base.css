@@ -1,0 +1,15 @@
+.slidev-vclick-hidden {
+  opacity: 0.2 !important;
+}
+.footnotes {
+  @apply absolute left-60px bottom-20px text-sm;
+}
+.footnotes-sep {
+  @apply hidden;
+}
+tbody tr:not(:last-child) {
+  @apply border-0;
+}
+tbody tr:nth-child(even) {
+  @apply bg-zinc-50 dark:bg-zinc-900;
+}
