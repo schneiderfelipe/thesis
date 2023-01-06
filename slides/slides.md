@@ -280,6 +280,46 @@ layout: center
 
 </span>
 
+---
+
+<Transform :scale=0.675>
+
+![](/tanaka.png)
+
+</Transform>
+
+<div class="absolute right-20px bottom-60px max-w-20rem text-sm">
+
+$$
+\ce{CH4 + Cl^{.} -> CH3 + HCl}
+$$
+
+<br />
+<br />
+<br />
+
+<v-clicks>
+
+- $9.29 \times 10^{−14}$ cm$^3$molecule$^{−1}$s$^{−1}$ (calc., **ours**)
+- $2.20 \times 10^{−14}$ cm$^3$molecule$^{−1}$s$^{−1}$[^tanaka] (calc.)
+- $1.03 \times 10^{−13}$ cm$^3$molecule$^{−1}$s$^{−1}$[^burkholder] (exp.)
+
+- $\kappa = 3.64$
+
+- $r^2 = 0.9984$ in 181 -- 300 K
+- 250, 100, and 25 nM for $\ce{CH4}$, $\ce{Cl^{.}}$, and $\ce{HCl}$.
+
+[^tanaka]: Tanaka
+[^burkholder]: Exp.
+
+</v-clicks>
+
+</div>
+
+<!--
+Confidence interval is 95%.
+-->
+
 <!-- prettier-ignore-start -->
 
 ---
