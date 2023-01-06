@@ -1,4 +1,4 @@
-```kotlin {monaco} {height:'32rem'}
+```kotlin {monaco} {height:'28rem'}
 $scheme
  // Reactants                                              Reactants' adducts
  Benzaldehyde(dcm) +   NButylamine(dcm)                <=> A_N(dcm)     // black

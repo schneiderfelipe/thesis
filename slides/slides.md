@@ -370,16 +370,14 @@ Pérez-Soto _et al._
 
 </span>
 
-<span class="absolute top-80px right-40px max-w-30rem">
+<span class="absolute top-20px right-40px w-35rem">
 
-![](/Perez-Soto2020-compare.png)
+<PerezSotoInput />
 
-<v-clicks>
-
-- 3.2 kcal mol$^{-1}$
-- RMSD = 4.97 mM (**total error**)
-
-</v-clicks>
+```shell
+overreact model.k "Benzaldehyde(dcm): 0.06" "NButylamine(dcm) : 0.06" \
+  "Water(dcm): 0.001" --bias=3.2 --plot=active --max-time 5000
+```
 
 </span>
 
@@ -403,9 +401,16 @@ Pérez-Soto _et al._
 
 </span>
 
-<span class="absolute top-20px right-40px w-35rem">
+<span class="absolute top-80px right-40px max-w-30rem">
 
-<PerezSotoInput />
+![](/Perez-Soto2020-compare.png)
+
+<v-clicks>
+
+- 3.2 kcal mol$^{-1}$
+- RMSD = 4.97 mM (**total error**)
+
+</v-clicks>
 
 </span>
 
