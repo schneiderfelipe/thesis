@@ -194,27 +194,42 @@ $R T \ln{V} = 2.1984 \text{kcal/mol}$
 <!-- prettier-ignore-start -->
 
 ---
-clicks: 9
+layout: two-cols
 ---
 
 <!-- prettier-ignore-end -->
 
-# $\ce{Pt}$--Triggered Bond--Cleavage of Pentynoyl Amide and $\ce{N}$--Propargyl Handles for Drug--Activation[^paper2]
+### $\ce{Pt}$--Triggered Bond--Cleavage of Pentynoyl Amide and $\ce{N}$--Propargyl Handles for Drug--Activation[^paper2]
 
-- <span v-click=4>ORCA 4.2.1</span>: <span v-click=1>rev--PBE0--D4</span>--<span v-click=3>gCP</span>/<span v-click=1>def2--TZVP</span>
-- <span v-click=4>ORCA 4.2.1</span>: - <span v-click=2>DLPNO--CCSD(T)</span>--<span v-click=3>gCP</span>/<span v-click=2>def2--TZVP</span>/<span v-click=2>SMD(water)</span>
-- <span v-click=5>Crest/GFN2--xTB (xtb 6.3.0)</span>
-- <span v-click=6>NEB/GFN2-xTB (<span v-click=4>ORCA 4.2.1</span>, xtb 6.3.0)</span>
-- <span v-click=7>Metadynamic simulation ($\ce{Pt(II)}\cdots$triple bond for $\ce{X} = \ce{C}$, movie)</span>
-- <span v-click=8>Thermodynamics at 298.15 K and 1 M</span>
+<br />
+
+<small>
+
+- ORCA 4.2.1
+  - rev--PBE0--D4--gCP/def2--TZVP
+  - DLPNO--CCSD(T)--gCP/def2--TZVP/SMD(water)
+- Crest/GFN2--xTB (xtb 6.3.0)
+- NEB/GFN2-xTB (ORCA 4.2.1, xtb 6.3.0)
+- Metadynamic simulation ($\ce{Pt(II)}\cdots$triple bond for $\ce{X} = \ce{C}$)
+- Thermodynamics at 298.15 K and 1 M
 <!-- $G_{1 \text{M}} = G_{1 \text{atm}} + R T \ln{V}$ at 298.15 K and 1 atm -->
-- <span v-click=9>Wigner tunneling transmission coefficients ($\kappa = 1 + \frac{1}{24} \left( \frac{h |\nu|}{R T} \right)^2$)</span>
+- Wigner tunneling transmission coefficients ($\kappa = 1 + \frac{1}{24} \left( \frac{h |\nu|}{R T} \right)^2$)
 
 <!--
 $R T \ln{V} = 2.1984 \text{kcal/mol}$
 -->
 
+</small>
+
 [^paper2]: _J. Am. Chem. Soc._ **2020**, 142 (24), 10869--10880. [10.1021/jacs.0c01622](https://doi.org/10.1021/jacs.0c01622).
+
+::right::
+
+<span class="float-right">
+
+<Youtube id="k5ptn50Zjkc" width=400 height=400 />
+
+</span>
 
 <!-- prettier-ignore-start -->
 
