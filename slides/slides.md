@@ -320,6 +320,30 @@ $$
 Confidence interval is 95%.
 -->
 
+---
+
+<v-clicks>
+
+<span class="absolute top-20px left-40px max-w-20rem">
+
+![](/Perez-Soto2020-scheme1.png)
+
+</span>
+
+<span class="absolute bottom-20px left-40px max-w-20rem">
+
+![](/Perez-Soto2020.png)
+
+<small>
+
+Pérez-Soto _et al._
+
+</small>
+
+</span>
+
+</v-clicks>
+
 <!-- prettier-ignore-start -->
 
 ---
