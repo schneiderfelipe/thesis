@@ -203,7 +203,9 @@ layout: two-cols
 
 <br />
 
-<small>
+<span v-click=1>
+
+<Transform :scale=0.65>
 
 - ORCA 4.2.1
   - rev--PBE0--D4--gCP/def2--TZVP
@@ -213,19 +215,27 @@ layout: two-cols
 - Metadynamic simulation ($\ce{Pt(II)}\cdots$triple bond for $\ce{X} = \ce{C}$)
 - Thermodynamics at 298.15 K and 1 M
 <!-- $G_{1 \text{M}} = G_{1 \text{atm}} + R T \ln{V}$ at 298.15 K and 1 atm -->
-- Wigner tunneling transmission coefficients ($\kappa = 1 + \frac{1}{24} \left( \frac{h |\nu|}{R T} \right)^2$)
+- Wigner tunneling transmission coefficients <br /> ($\kappa = 1 + \frac{1}{24} \left( \frac{h |\nu|}{R T} \right)^2$)
 
 <!--
 $R T \ln{V} = 2.1984 \text{kcal/mol}$
 -->
 
-</small>
+</Transform>
 
 [^paper2]: _J. Am. Chem. Soc._ **2020**, 142 (24), 10869--10880. [10.1021/jacs.0c01622](https://doi.org/10.1021/jacs.0c01622).
 
+</span>
+
+<span class="absolute bottom-60px right-28.5rem max-w-15rem">
+
+![](/paper2-toc.jpeg)
+
+</span>
+
 ::right::
 
-<span class="float-right">
+<span v-click=1 class="float-right">
 
 <Youtube id="k5ptn50Zjkc" width=400 height=400 />
 
