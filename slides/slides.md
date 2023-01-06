@@ -443,6 +443,37 @@ Pérez-Soto _et al._
 
 </span>
 
+---
+
+![](/maleamic-reaction.png)
+
+<span class="absolute bottom-20px left-40px max-w-20rem">
+
+<small>
+
+Kirby _et al._
+
+</small>
+
+</span>
+
+<span class="absolute bottom-20px right-40px max-w-30rem">
+
+<v-clicks>
+
+- pH dependency
+- Gaussian 09rC.01: $\omega$B97XD/6--311++G\*\*/SMD(water)
+
+</v-clicks>
+
+</span>
+
+<!--
+I‡ around 28.8 kcal mol-1 without water (kappa = 960), reduces to 13.6 kcal mol-1 with a single water (1.08).
+
+Through C and rest-state J.
+-->
+
 <!-- prettier-ignore-start -->
 
 ---
