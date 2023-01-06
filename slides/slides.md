@@ -1,3 +1,8 @@
+---
+monaco: true
+colorSchema: "light"
+---
+
 # Contribuções quantitativas <br /> para a elucidação de <br /> mecanismos de reação
 
 [Me. Felipe S. S. Schneider](https://schneiderfelipe.github.io/)
@@ -128,8 +133,7 @@ products.
 
 ## Method
 
-- <span v-click=1>ORCA 4.0.1.2</span>
-- <span v-click=4>RIJCOSX</span>--<span v-click=2>PBE0--D3(BJ)</span>/<span v-click=3>ma--def2--TZVP(-f)</span>/<span v-click=5>SMD(water)</span>
+- <span v-click=1>ORCA 4.0.1.2</span>: <span v-click=4>RIJCOSX</span>--<span v-click=2>PBE0--D3(BJ)</span>/<span v-click=3>ma--def2--TZVP(-f)</span>/<span v-click=5>SMD(water)</span>
 - <span v-click=6>Small imaginary frequencies ($<34 i \text{ cm}^{-1}$)</span>
 - <span v-click=8>DLPNO--CCSD(T)</span>--<span v-click=9>gCP</span>/<span v-click=7>ma--def2-TZVP(-f)</span>
 - <span v-click=10>$G_{1 \text{M}} = G_{1 \text{atm}} + R T \ln{V}$ at 298.15 K and 1 atm</span>
@@ -150,11 +154,10 @@ clicks: 9
 
 ## Method
 
-- <span v-click=1>rev--PBE0--D4</span>--<span v-click=3>gCP</span>/<span v-click=1>def2--TZVP</span>
-- <span v-click=2>DLPNO--CCSD(T)</span>--<span v-click=3>gCP</span>/<span v-click=2>def2--TZVP</span>/<span v-click=2>SMD(water)</span>
-- <span v-click=4>ORCA 4.2.1</span>
+- <span v-click=4>ORCA 4.2.1</span>: <span v-click=1>rev--PBE0--D4</span>--<span v-click=3>gCP</span>/<span v-click=1>def2--TZVP</span>
+- <span v-click=4>ORCA 4.2.1</span>: - <span v-click=2>DLPNO--CCSD(T)</span>--<span v-click=3>gCP</span>/<span v-click=2>def2--TZVP</span>/<span v-click=2>SMD(water)</span>
 - <span v-click=5>Crest/GFN2--xTB (xtb 6.3.0)</span>
-- <span v-click=6>NEB/GFN2-xTB (ORCA 4.2.1, xtb 6.3.0)</span>
+- <span v-click=6>NEB/GFN2-xTB (<span v-click=4>ORCA 4.2.1</span>, xtb 6.3.0)</span>
 - <span v-click=7>Metadynamic simulation ($\ce{Pt(II)}\cdots$triple bond for $\ce{X} = \ce{C}$, movie)</span>
 - <span v-click=8>Thermodynamics at 298.15 K and 1 M</span>
 <!-- $G_{1 \text{M}} = G_{1 \text{atm}} + R T \ln{V}$ at 298.15 K and 1 atm -->
@@ -165,32 +168,64 @@ clicks: 9
 $R T \ln{V} = 2.1984 \text{kcal/mol}$
 -->
 
+<!-- prettier-ignore-start -->
+
 ---
+layout: two-cols
+clicks: 4
+---
+
+<!-- prettier-ignore-end -->
+
+<span v-click=3>
 
 # **Overreact**, an _in silico_ lab
 
 Automative quantum chemical microkinetic simulations for complex chemical reactions
 
-$$
-\ce{NH3(w) + ^{.}OH(w) ->[H3N\cdots{}^{.}OH(w)] ^{.}NH2(w) + H2O(w)}
-$$
+</span>
 
-```kotlin {monaco}
-$scheme
- NH3(w) + OH·(w) -> NH3·OH#(w) -> NH2·(w) + H2O(w)
+<HickelReaction />
 
-$compounds
- NH3(w):     NH3.out
- OH·(w):     OH_rad.out
- NH2·(w):    NH2_rad.out
- H2O(w):     H2O.out
- NH3·OH#(w): NH3_OH_ts.out
-```
+<small v-click=1>
+
+- ORCA 4.2.1: M062X--D3(0)/6--311++G(d,p)/SMD(water)
+
+</small>
+
+<span v-click=2>
+
+<HickelInput />
+
+</span>
+
+::right::
+
+<span v-click=3>
+
+<OverreactLogo />
+
+</span>
+
+<span v-click=4>
+
+|                                     | k (M$^{-1}$s$^{-1}$) |
+| ----------------------------------: | -------------------: |
+| Hickel and Sehested[^hickel] (exp.) |    $9.7 \times 10^7$ |
+|    Men'kin _et al._[^menkin] (exp.) |    $7.0 \times 10^7$ |
+|         Neta _et al._[^neta] (exp.) |    $9.0 \times 10^7$ |
+|                    **Ours (calc.)** |    $1.1 \times 10^8$ |
+|        Dzib _et al._[^dzib] (calc.) |    $2.3 \times 10^7$ |
+
+[^hickel]: Hickel
+[^menkin]: Men'kin
+[^neta]: Neta
+[^dzib]: Dzib
+
+</span>
 
 <!--
-::: warning
-_here be dragons_
-:::
+Hickel reaction
 -->
 
 <!-- prettier-ignore-start -->
@@ -201,28 +236,49 @@ layout: two-cols
 
 <!-- prettier-ignore-end -->
 
-<Transform :scale=0.8>
+# **Overreact**, an _in silico_ lab
 
-$$
-\ce{NH3(w) + ^{.}OH(w) ->[H3N\cdots{}^{.}OH(w)] ^{.}NH2(w) + H2O(w)}
-$$
+Automative quantum chemical microkinetic simulations for complex chemical reactions
 
-</Transform>
+<HickelReaction />
 
-- M062X--D3(0)/6--311++G(d,p)/SMD(water)
-- ORCA 4.2.1
+<small>
+
+- ORCA 4.2.1: M062X--D3(0)/6--311++G(d,p)/SMD(water)
+
+</small>
+
+<HickelInput />
 
 ::right::
 
-|                                | k (M$^{-1}$s$^{-1}$) |
-| -----------------------------: | -------------------: |
-| Hickel and Sehested[^1] (exp.) |    $9.7 \times 10^7$ |
-|        Men'kin _et al._ (exp.) |    $7.0 \times 10^7$ |
-|           Neta _et al._ (exp.) |    $9.0 \times 10^7$ |
-|               **Ours (calc.)** |    $1.1 \times 10^8$ |
-|           Dib _et al._ (calc.) |    $2.3 \times 10^7$ |
+<OverreactLogo />
 
-[^1]: Hickel
+<span class="float-right max-w-25rem">
+
+![](/hickel-compare.png)
+
+</span>
+
+<!--
+Hickel reaction
+-->
+
+<!-- prettier-ignore-start -->
+
+---
+layout: center
+---
+
+<!-- prettier-ignore-end -->
+
+<OverreactDiagram />
+
+<span class="absolute right-20px bottom-20px">
+
+<OverreactLogo />
+
+</span>
 
 <!-- prettier-ignore-start -->
 
