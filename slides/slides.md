@@ -153,11 +153,15 @@ layout: two-cols
 
 <br />
 
-- <span v-click=1>ORCA 4.0.1.2</span>: <span v-click=4>RIJCOSX</span>--<span v-click=2>PBE0--D3(BJ)</span>/<span v-click=3>ma--def2--TZVP(-f)</span>/<span v-click=5>SMD(water)</span>
+<span v-click=2>
 
-- <span v-click=8>DLPNO--CCSD(T)</span>--<span v-click=9>gCP</span>/<span v-click=7>ma--def2-TZVP(-f)</span>
+- ORCA 4.0.1.2: RIJCOSX--PBE0--D3(BJ)/ma--def2--TZVP(-f)/SMD(water)
 
-- <span v-click=10>$G_{1 \text{M}} = G_{1 \text{atm}} + R T \ln{V}$ at 298.15 K and 1 atm</span>
+- DLPNO--CCSD(T)--gCP/ma--def2-TZVP(-f)
+
+- $G_{1 \text{M}} = G_{1 \text{atm}} + R T \ln{V}$ at 298.15 K and 1 atm
+
+</span>
 
 <!--
 $R T \ln{V} = 2.1984 \text{kcal/mol}$
@@ -167,7 +171,7 @@ $R T \ln{V} = 2.1984 \text{kcal/mol}$
 
 ::right::
 
-<v-clicks>
+<span v-click=1>
 
 <Transform :scale=0.8>
 
@@ -175,13 +179,17 @@ $R T \ln{V} = 2.1984 \text{kcal/mol}$
 
 </Transform>
 
+</span>
+
+<span v-click=3>
+
 <Transform :scale=0.9>
 
 ![](/paper1-reaction.jpeg)
 
 </Transform>
 
-</v-clicks>
+</span>
 
 <!-- prettier-ignore-start -->
 
