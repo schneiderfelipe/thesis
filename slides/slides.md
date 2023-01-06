@@ -47,13 +47,19 @@ layout: cover
 
 # Research problem
 
+<v-clicks>
+
 - Elucidating mechanisms has great potential
+
+  - Chemical biology and medicinal chemistry (e.g., activating proteins and prodrugs)
 
 - Elucidating mechanisms is hard
 
-- Errors
+  - Errors are exponentiated
 
-- There is a way out
+## Can we _quantitatively_ elucidate chemical reaction mechanisms using computational chemistry _only_?
+
+</v-clicks>
 
 <!--
 Motivation.
@@ -135,15 +141,19 @@ List of papers,
 products.
 -->
 
+<!-- prettier-ignore-start -->
+
+---
+layout: two-cols
 ---
 
-# Mechanism of $\ce{Pd(II)}$--Mediated Uncaging Reactions of Propargylic Substrates[^paper1]
+<!-- prettier-ignore-end -->
 
-## Method
+# Mechanism of <br /> $\ce{Pd(II)}$--Mediated Uncaging Reactions of Propargylic Substrates[^paper1]
+
+<br />
 
 - <span v-click=1>ORCA 4.0.1.2</span>: <span v-click=4>RIJCOSX</span>--<span v-click=2>PBE0--D3(BJ)</span>/<span v-click=3>ma--def2--TZVP(-f)</span>/<span v-click=5>SMD(water)</span>
-
-- <span v-click=6>Small imaginary frequencies ($<34 i \text{ cm}^{-1}$)</span>
 
 - <span v-click=8>DLPNO--CCSD(T)</span>--<span v-click=9>gCP</span>/<span v-click=7>ma--def2-TZVP(-f)</span>
 
@@ -155,6 +165,24 @@ $R T \ln{V} = 2.1984 \text{kcal/mol}$
 
 [^paper1]: _ACS Catal._ **2019**, 9 (5), 3792--3799. [10.1021/acscatal.9b00210](https://doi.org/10.1021/acscatal.9b00210).
 
+::right::
+
+<v-clicks>
+
+<Transform :scale=0.8>
+
+![](/paper1-proposal.jpeg)
+
+</Transform>
+
+<Transform :scale=0.9>
+
+![](/paper1-reaction.jpeg)
+
+</Transform>
+
+</v-clicks>
+
 <!-- prettier-ignore-start -->
 
 ---
@@ -165,8 +193,6 @@ clicks: 9
 
 # $\ce{Pt}$--Triggered Bond--Cleavage of Pentynoyl Amide and $\ce{N}$--Propargyl Handles for Drug--Activation[^paper2]
 
-## Method
-
 - <span v-click=4>ORCA 4.2.1</span>: <span v-click=1>rev--PBE0--D4</span>--<span v-click=3>gCP</span>/<span v-click=1>def2--TZVP</span>
 - <span v-click=4>ORCA 4.2.1</span>: - <span v-click=2>DLPNO--CCSD(T)</span>--<span v-click=3>gCP</span>/<span v-click=2>def2--TZVP</span>/<span v-click=2>SMD(water)</span>
 - <span v-click=5>Crest/GFN2--xTB (xtb 6.3.0)</span>
@@ -175,7 +201,6 @@ clicks: 9
 - <span v-click=8>Thermodynamics at 298.15 K and 1 M</span>
 <!-- $G_{1 \text{M}} = G_{1 \text{atm}} + R T \ln{V}$ at 298.15 K and 1 atm -->
 - <span v-click=9>Wigner tunneling transmission coefficients ($\kappa = 1 + \frac{1}{24} \left( \frac{h |\nu|}{R T} \right)^2$)</span>
-<!-- - Small imaginary frequencies ($<34 i \text{ cm}^{-1}$) -->
 
 <!--
 $R T \ln{V} = 2.1984 \text{kcal/mol}$
