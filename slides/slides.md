@@ -40,24 +40,30 @@ Audience welcome with a table of contents.
 <!-- prettier-ignore-start -->
 
 ---
-layout: cover
+layout: section
 ---
 
 <!-- prettier-ignore-end -->
 
 # Research problem
 
+<!-- prettier-ignore-start -->
+
+---
+layout: cover
+---
+
+<!-- prettier-ignore-end -->
+
+## Elucidating mechanisms has great potential in **rational design**
+
+<br />
+
 <v-clicks>
 
-- Elucidating mechanisms has great potential
-
-  - Chemical biology and medicinal chemistry (e.g., activating proteins and prodrugs)
-
-- Elucidating mechanisms is hard
-
-  - Errors are exponentiated
-
-## Can we _quantitatively_ elucidate chemical reaction mechanisms using computational chemistry _only_?
+- Chemical biology and medicinal chemistry (e.g., activating proteins and prodrugs)
+- Atmospheric chemistry (e.g., climate change mitigation)
+- Green chemistry (e.g., leaner industrial processes)
 
 </v-clicks>
 
@@ -65,27 +71,21 @@ layout: cover
 Motivation.
 
 What are we solving?
+
+Help experimentalists.
 -->
-
----
-
-# Research reason
-
-- Potential
-
-- Things the experiment can't solve
-
-- Reason behind why some things work
 
 <!--
 Why are we doing this?
 -->
 
+<!-- prettier-ignore-start -->
+
+---
+layout: cover
 ---
 
-# Research question
-
-Can we predict reactions from first principles?
+<!-- prettier-ignore-end -->
 
 <!--
 What's our target?
@@ -93,29 +93,12 @@ What's our target?
 Objectives.
 -->
 
----
+## Can we _quantitatively_ elucidate <br /> chemical reaction mechanisms <br /> using computational chemistry _only_?
 
-# Idea
-
-Key project idea.
-
-## Contribution
-
-Key relevant contribution.
-
----
-
-# Effectiveness
-
-What works expected in _our approach_?
-
-# Efficiency
-
-What makes _our approach_ faster and/or cheaper?
-
-# Attractiveness
-
-What makes _our approach_ more interesting?
+<!--
+- Faster route to reaction development
+- Faster and cheaper
+-->
 
 <!-- Presentation introduction ends. -->
 
@@ -127,14 +110,23 @@ layout: cover
 
 <!-- prettier-ignore-end -->
 
-# Results and discussion
+# Results
+
+<v-clicks>
 
 - _ACS Catalysis_ **2019**, 9 (5), 3792--3799. [10.1021/acscatal.9b00210](https://doi.org/10.1021/acscatal.9b00210).
 
+  - Theoretical-experimental investigation
+
 - _Journal of the American Chemical Society_ **2020**, 142 (24), 10869--10880. [10.1021/jacs.0c01622](https://doi.org/10.1021/jacs.0c01622).
 
+  - Theoretical-experimental investigation
+
 - _Journal of Computational Chemistry_ **2022**, 44 (3), 209--217. [10.1002/jcc.26861](https://doi.org/10.1002/jcc.26861).
+  - Software developed (**overreact**)
   - Two reactions presented
+
+</v-clicks>
 
 <!--
 List of papers,
@@ -238,6 +230,62 @@ $R T \ln{V} = 2.1984 \text{kcal/mol}$
 <span v-click=1 class="float-right">
 
 <Youtube id="k5ptn50Zjkc" width=400 height=400 />
+
+</span>
+
+<!-- prettier-ignore-start -->
+
+---
+layout: two-cols
+---
+
+<!-- prettier-ignore-end -->
+
+### $\ce{Pt}$--Triggered Bond--Cleavage of Pentynoyl Amide and $\ce{N}$--Propargyl Handles for Drug--Activation[^paper2]
+
+<br />
+
+<Transform :scale=0.65>
+
+- ORCA 4.2.1
+  - rev--PBE0--D4--gCP/def2--TZVP
+  - DLPNO--CCSD(T)--gCP/def2--TZVP/SMD(water)
+- Crest/GFN2--xTB (xtb 6.3.0)
+- NEB/GFN2-xTB (ORCA 4.2.1, xtb 6.3.0)
+- Metadynamic simulation ($\ce{Pt(II)}\cdots$triple bond for $\ce{X} = \ce{C}$)
+- Thermodynamics at 298.15 K and 1 M
+<!-- $G_{1 \text{M}} = G_{1 \text{atm}} + R T \ln{V}$ at 298.15 K and 1 atm -->
+
+<!--
+$R T \ln{V} = 2.1984 \text{kcal/mol}$
+-->
+
+</Transform>
+
+[^paper2]: _J. Am. Chem. Soc._ **2020**, 142 (24), 10869--10880. [10.1021/jacs.0c01622](https://doi.org/10.1021/jacs.0c01622).
+
+<span class="absolute bottom-60px right-28.5rem max-w-15rem">
+
+![](/paper2-toc.jpeg)
+
+</span>
+
+::right::
+
+<span class="float-right">
+
+![](/paper2-reaction.png)
+
+<span class="float-right">
+
+<v-clicks>
+
+- $\ce{X} = \ce{O}$ (blue)
+- $\ce{X} = \ce{CH2}$ (black)
+
+</v-clicks>
+
+</span>
 
 </span>
 
