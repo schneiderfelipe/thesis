@@ -447,11 +447,11 @@ Pérez-Soto _et al._
 
 ![](/maleamic-reaction.png)
 
-<span class="absolute bottom-20px left-40px max-w-20rem">
+<span class="absolute bottom-20px left-30px max-w-30rem">
 
 <small>
 
-Kirby _et al._
+Kirby _et al._ _J.C.S., Perkin II_ **1974**, No. 12, 1487. [10.1039/p29740001487](https://doi.org/10.1039/p29740001487).
 
 </small>
 
@@ -477,6 +477,51 @@ Through C and rest-state J.
 <!-- prettier-ignore-start -->
 
 ---
+layout: two-cols
+---
+
+<!-- prettier-ignore-end -->
+
+<Transform :scale=0.85>
+
+![](/kirby-ph.png)
+
+</Transform>
+
+<span class="absolute bottom-20px left-30px max-w-30rem">
+
+<small>
+
+Kirby _et al._ _J.C.S., Perkin II_ **1974**, No. 12, 1487. [10.1039/p29740001487](https://doi.org/10.1039/p29740001487).
+
+</small>
+
+</span>
+
+::right::
+
+<span class="float-right max-w-20rem">
+
+![](/kirby-ph-compare-A.png)
+
+![](/kirby-ph-compare-B.png)
+
+</span>
+
+<span class="absolute top-20px right-24rem max-w-30rem">
+
+<v-clicks>
+
+- _pseudo_-first order ($\ce{H2O}$ 55.6 M)
+- **(B)**: pH 2
+
+</v-clicks>
+
+</span>
+
+<!-- prettier-ignore-start -->
+
+---
 layout: cover
 ---
 
@@ -484,19 +529,46 @@ layout: cover
 
 # Conclusions
 
+<!-- prettier-ignore-start -->
+
+---
+layout: center
 ---
 
-# Question reminder
+<!-- prettier-ignore-end -->
 
-## Topic overview reminder
+# Conclusions
+
+<v-clicks>
+
+- Four relatively complex reactions
+- Insight to the experimentalist
+- Feasable to reproduce experiment in a _semi_- or fully-quantitative way
+
+</v-clicks>
 
 <!-- Presentation conclusion starts. -->
 
+<!-- prettier-ignore-start -->
+
+---
+layout: center
 ---
 
-More slides requiring results and discussion.
+<!-- prettier-ignore-end -->
 
-TODO.
+# Future work
+
+<v-clicks>
+
+- Automatic _discovery_ of chemical reaction mechanisms
+- More effects
+  - Translation entropy in solution
+- More experiments reproduced
+  - Kinetic isotope effects (KIE)
+  - Spectroscopies along the reaction in time
+
+</v-clicks>
 
 <!-- prettier-ignore-start -->
 
@@ -508,10 +580,34 @@ layout: section
 
 # Obrigado!
 
+<span class="absolute bottom-4rem right-25rem">
+
+<OverreactLogo />
+
+</span>
+
 [schneiderfelipe.github.io](https://schneiderfelipe.github.io/)
 <br />
 <schneider.felipe.5@gmail.com>
 <br />
 <Thanks />
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+**[geem-lab.github.io/overreact-guide](https://geem-lab.github.io/overreact-guide/)**
 
 <!-- Presentation conclusion ends. -->
