@@ -26,10 +26,10 @@ layout: cover
 # Welcome
 
 - Research problem
-- Results and discussion
-- Conclusions
 
-TODO.
+- Results and discussion
+
+- Conclusions
 
 <!--
 Presentation introduction starts.
@@ -48,8 +48,11 @@ layout: cover
 # Research problem
 
 - Elucidating mechanisms has great potential
+
 - Elucidating mechanisms is hard
+
 - Errors
+
 - There is a way out
 
 <!--
@@ -63,7 +66,9 @@ What are we solving?
 # Research reason
 
 - Potential
+
 - Things the experiment can't solve
+
 - Reason behind why some things work
 
 <!--
@@ -119,8 +124,11 @@ layout: cover
 # Results and discussion
 
 - _ACS Catalysis_ **2019**, 9 (5), 3792--3799. [10.1021/acscatal.9b00210](https://doi.org/10.1021/acscatal.9b00210).
+
 - _Journal of the American Chemical Society_ **2020**, 142 (24), 10869--10880. [10.1021/jacs.0c01622](https://doi.org/10.1021/jacs.0c01622).
+
 - _Journal of Computational Chemistry_ **2022**, 44 (3), 209--217. [10.1002/jcc.26861](https://doi.org/10.1002/jcc.26861).
+  - Two reactions presented
 
 <!--
 List of papers,
@@ -129,18 +137,23 @@ products.
 
 ---
 
-# Mechanism of $\ce{Pd(II)}$--Mediated Uncaging Reactions of Propargylic Substrates
+# Mechanism of $\ce{Pd(II)}$--Mediated Uncaging Reactions of Propargylic Substrates[^paper1]
 
 ## Method
 
 - <span v-click=1>ORCA 4.0.1.2</span>: <span v-click=4>RIJCOSX</span>--<span v-click=2>PBE0--D3(BJ)</span>/<span v-click=3>ma--def2--TZVP(-f)</span>/<span v-click=5>SMD(water)</span>
+
 - <span v-click=6>Small imaginary frequencies ($<34 i \text{ cm}^{-1}$)</span>
+
 - <span v-click=8>DLPNO--CCSD(T)</span>--<span v-click=9>gCP</span>/<span v-click=7>ma--def2-TZVP(-f)</span>
+
 - <span v-click=10>$G_{1 \text{M}} = G_{1 \text{atm}} + R T \ln{V}$ at 298.15 K and 1 atm</span>
 
 <!--
 $R T \ln{V} = 2.1984 \text{kcal/mol}$
 -->
+
+[^paper1]: _ACS Catal._ **2019**, 9 (5), 3792--3799. [10.1021/acscatal.9b00210](https://doi.org/10.1021/acscatal.9b00210).
 
 <!-- prettier-ignore-start -->
 
@@ -150,7 +163,7 @@ clicks: 9
 
 <!-- prettier-ignore-end -->
 
-# $\ce{Pt}$--Triggered Bond--Cleavage of Pentynoyl Amide and $\ce{N}$--Propargyl Handles for Drug--Activation
+# $\ce{Pt}$--Triggered Bond--Cleavage of Pentynoyl Amide and $\ce{N}$--Propargyl Handles for Drug--Activation[^paper2]
 
 ## Method
 
@@ -168,6 +181,8 @@ clicks: 9
 $R T \ln{V} = 2.1984 \text{kcal/mol}$
 -->
 
+[^paper2]: _J. Am. Chem. Soc._ **2020**, 142 (24), 10869--10880. [10.1021/jacs.0c01622](https://doi.org/10.1021/jacs.0c01622).
+
 <!-- prettier-ignore-start -->
 
 ---
@@ -179,7 +194,7 @@ clicks: 4
 
 <span v-click=3>
 
-# **Overreact**, an _in silico_ lab
+# **Overreact**, <br /> an _in silico_ lab[^paper3]
 
 Automative quantum chemical microkinetic simulations for complex chemical reactions
 
@@ -203,30 +218,35 @@ Automative quantum chemical microkinetic simulations for complex chemical reacti
 
 <span v-click=3>
 
+<Transform :scale=0.9125>
+
 <OverreactLogo />
 
+</Transform>
+
 </span>
+
+<Transform :scale=0.9>
 
 <span v-click=4>
 
-|                                     | k (M$^{-1}$s$^{-1}$) |
-| ----------------------------------: | -------------------: |
-| Hickel and Sehested[^hickel] (exp.) |    $9.7 \times 10^7$ |
-|    Men'kin _et al._[^menkin] (exp.) |    $7.0 \times 10^7$ |
-|         Neta _et al._[^neta] (exp.) |    $9.0 \times 10^7$ |
-|                    **Ours (calc.)** |    $1.1 \times 10^8$ |
-|        Dzib _et al._[^dzib] (calc.) |    $2.3 \times 10^7$ |
-
-[^hickel]: Hickel
-[^menkin]: Men'kin
-[^neta]: Neta
-[^dzib]: Dzib
+|                            | k (M$^{-1}$s$^{-1}$) |
+| -------------------------: | -------------------: |
+| Hickel and Sehested (exp.) |    $9.7 \times 10^7$ |
+|    Men'kin _et al._ (exp.) |    $7.0 \times 10^7$ |
+|       Neta _et al._ (exp.) |    $9.0 \times 10^7$ |
+|           **Ours (calc.)** |    $1.1 \times 10^8$ |
+|      Dzib _et al._ (calc.) |    $2.3 \times 10^7$ |
 
 </span>
+
+</Transform>
 
 <!--
 Hickel reaction
 -->
+
+[^paper3]: _J. Comput. Chem._ **2022**, 44 (3), 209--217. [10.1002/jcc.26861](https://doi.org/10.1002/jcc.26861).
 
 <!-- prettier-ignore-start -->
 
@@ -301,16 +321,18 @@ $$
 <v-clicks>
 
 - $9.29 \times 10^{−14}$ cm$^3$molecule$^{−1}$s$^{−1}$ (calc., **ours**)
+
 - $2.20 \times 10^{−14}$ cm$^3$molecule$^{−1}$s$^{−1}$[^tanaka] (calc.)
-- $1.03 \times 10^{−13}$ cm$^3$molecule$^{−1}$s$^{−1}$[^burkholder] (exp.)
+
+- $1.03 \times 10^{−13}$ cm$^3$molecule$^{−1}$s$^{−1}$ (exp.)
 
 - $\kappa = 3.64$
 
 - $r^2 = 0.9984$ in 181 -- 300 K
+
 - 250, 100, and 25 nM for $\ce{CH4}$, $\ce{Cl^{.}}$, and $\ce{HCl}$.
 
-[^tanaka]: Tanaka
-[^burkholder]: Exp.
+[^tanaka]: _J. Atmos. Chem._ **1996**, 23 (1), 37–49. [10.1007/bf00058703](https://doi.org/10.1007/bf00058703).
 
 </v-clicks>
 
@@ -336,7 +358,7 @@ Confidence interval is 95%.
 
 <small>
 
-Pérez-Soto _et al._
+_Organic Letters_ **2020**, 22 (8), 2873–2877. [10.1021/acs.orglett.0c00367](https://doi.org/10.1021/acs.orglett.0c00367).
 
 </small>
 
@@ -364,7 +386,7 @@ Pérez-Soto _et al._
 
 <small>
 
-Pérez-Soto _et al._
+_Organic Letters_ **2020**, 22 (8), 2873–2877. [10.1021/acs.orglett.0c00367](https://doi.org/10.1021/acs.orglett.0c00367).
 
 </small>
 
@@ -399,7 +421,7 @@ overreact model.k "Benzaldehyde(dcm): 0.06" "NButylamine(dcm) : 0.06" \
 
 <small>
 
-Pérez-Soto _et al._
+_Organic Letters_ **2020**, 22 (8), 2873–2877. [10.1021/acs.orglett.0c00367](https://doi.org/10.1021/acs.orglett.0c00367).
 
 </small>
 
@@ -425,7 +447,7 @@ Pérez-Soto _et al._
 
 <small>
 
-Pérez-Soto _et al._
+_Organic Letters_ **2020**, 22 (8), 2873–2877. [10.1021/acs.orglett.0c00367](https://doi.org/10.1021/acs.orglett.0c00367).
 
 </small>
 
@@ -438,6 +460,36 @@ Pérez-Soto _et al._
 <v-clicks>
 
 - RMSD = 4.97 mM (**total error**)
+
+</v-clicks>
+
+</span>
+
+<!-- prettier-ignore-start -->
+
+---
+layout: center
+---
+
+<!-- prettier-ignore-end -->
+
+![](/kirby-reaction.png)
+
+<span class="absolute bottom-20px left-30px max-w-30rem">
+
+<small>
+
+Kirby _et al._ _J.C.S., Perkin II_ **1974**, No. 12, 1487. [10.1039/p29740001487](https://doi.org/10.1039/p29740001487).
+
+</small>
+
+</span>
+
+<span class="absolute bottom-20px right-40px max-w-30rem">
+
+<v-clicks>
+
+- **low pH only**
 
 </v-clicks>
 
@@ -461,7 +513,6 @@ Kirby _et al._ _J.C.S., Perkin II_ **1974**, No. 12, 1487. [10.1039/p29740001487
 
 <v-clicks>
 
-- pH dependency
 - Gaussian 09rC.01: $\omega$B97XD/6--311++G\*\*/SMD(water)
 
 </v-clicks>
@@ -513,6 +564,7 @@ Kirby _et al._ _J.C.S., Perkin II_ **1974**, No. 12, 1487. [10.1039/p29740001487
 <v-clicks>
 
 - _pseudo_-first order ($\ce{H2O}$ 55.6 M)
+
 - **(B)**: pH 2
 
 </v-clicks>
@@ -542,7 +594,9 @@ layout: center
 <v-clicks>
 
 - Four relatively complex reactions
+
 - Insight to the experimentalist
+
 - Feasable to reproduce experiment in a _semi_- or fully-quantitative way
 
 </v-clicks>
@@ -562,8 +616,11 @@ layout: center
 <v-clicks>
 
 - Automatic _discovery_ of chemical reaction mechanisms
+
 - More effects
+
   - Translation entropy in solution
+
 - More experiments reproduced
   - Kinetic isotope effects (KIE)
   - Spectroscopies along the reaction in time
