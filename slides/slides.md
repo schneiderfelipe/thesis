@@ -342,7 +342,46 @@ Pérez-Soto _et al._
 
 </span>
 
+<span class="absolute top-60px right-40px max-w-30rem">
+
+![](/Perez-Soto2020-reaction.png)
+
+</span>
+
 </v-clicks>
+
+---
+
+<span class="absolute top-20px left-40px max-w-20rem">
+
+![](/Perez-Soto2020-scheme1.png)
+
+</span>
+
+<span class="absolute bottom-20px left-40px max-w-20rem">
+
+![](/Perez-Soto2020.png)
+
+<small>
+
+Pérez-Soto _et al._
+
+</small>
+
+</span>
+
+<span class="absolute top-80px right-40px max-w-30rem">
+
+![](/Perez-Soto2020-compare.png)
+
+<v-clicks>
+
+- 3.2 kcal mol$^{-1}$
+- RMSD = 4.97 mM (**total error**)
+
+</v-clicks>
+
+</span>
 
 <!-- prettier-ignore-start -->
 
