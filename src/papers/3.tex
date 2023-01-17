@@ -3,7 +3,7 @@
   an \emph{in silico} lab:
   \linebreak
   automative quantum chemical microkinetic simulations
-  for complex chemical reactions
+  for complex chemical~reactions
  }%
 \label{ch:paper3}
 
@@ -22,7 +22,7 @@ these calculations must take into account as much of the relevant physics of the
 such as pre-equilibration and concentration,
 dispersion corrections,
 solvation,
-molecular symmetry,
+molecular symmetry~\cite{Beruski_2013},
 proper treatment of Gibbs energy contributions,
 standard state corrections,
 quantum tunnelling,
@@ -41,9 +41,19 @@ that can do all of the necessary calculations and generate an~equation system au
 
 This work introduces a novel Python package,
 named~\overreact{}.
+%
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[width=0.5\textwidth]{slides/public/overreact-logo}
+	\caption{Logo of the~\overreact{}~Python package,
+		an open-source program that can be used
+		to automatically perform microkinetic modelling of complex chemical~reactions in solution or gas-phase
+		using data from first-principles quantum chemical calculations.}\label{fig:overreact-logo}
+\end{figure}
+%
 It is a user-friendly,
 open-source program that can be used
-to automatically perform microkinetic modelling of complex chemical reactions in solution or gas-phase
+to automatically perform microkinetic modelling of complex chemical~reactions in solution or gas-phase
 using data from first-principles quantum chemical calculations.
 All it requires is a description of the hypothesized reactions,
 the corresponding computational chemistry output files,
@@ -64,7 +74,7 @@ and a correction can be easily obtained by fitting systematic deviations
 in first-principles reaction schemes by using available experimental data,
 for instance.
 
-The software is useful to inspect steady-state conditions,
+The software is useful to inspect steady-state conditions (in the sense of \emph{quasi}-equilibria),
 search for predominant species under catalytic conditions,
 computationally estimate the overall turn-over frequency and understand selectivity of a catalyst towards particular products.
 It allows rapid rational design and investigation in those areas where understanding how reactions work is important,
@@ -86,6 +96,7 @@ with the experimental value of $4 \times 10^{10}$~s$^{-1}$.
 In the context of gas-phase reactions,
 we modelled the degradation of methane degradation by chlorine radicals,
 an important atmospheric chemistry reaction.
+\linebreak
 \overreact{}~provided reaction rate constants consistent with both
 experimental
 values
@@ -117,7 +128,7 @@ and that it stops happening around~pH~5,
 as expected from experimental results.
 
 In fact,
-by simulating the system for an hour at a~pH~of~2
+by simulating the system for an hour at different~pH~values
 and observing the concentrations of different intermediates over time,
 we could reproduce the experimental fact that
 the reaction only takes place in acidic environments.
@@ -130,7 +141,7 @@ To conclude,
 we discussed a software for obtaining reaction kinetic profiles from first-principle calculations.
 The package is automated and makes it easy for computational discoveries in the elucidation of reaction mechanisms
 to be compared with experimentally obtained results,
-which is crucial for studying chemical reactions.
+which is crucial for studying chemical~reactions.
 The open-source package presented in this article is available to explore and analyze reaction mechanisms.
 The software is suitable for predicting catalysts performance at scale,
 which is crucial for the emergent need for rapid and precise chemical modelling.

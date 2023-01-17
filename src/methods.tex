@@ -14,7 +14,7 @@ details about solving the differential~equations of microkinetic models are give
 \section{Practical theoretical background}%
 \label{sec:background-methods}
 
-In order to computationally model a chemical reaction,
+In order to computationally model a chemical~reaction,
 one needs to collect certain types of information about each participating species.
 The conceptual information of interest is stored as a potential energy surface (PES),
 which can be regarded as a function from the atomic coordinates to molecular potential energy,
@@ -22,7 +22,7 @@ i.e.,
 using the Born-Oppenheimer (BO) approximation,
 the electronic properties of a molecule depend on the nuclear coordinates only parametrically~\cite{Born_1927}.
 In this sense,
-the model treats nuclei as classical particles,
+the model treats nuclei as classical particles as far as geometry optimizations are concerned,
 which is reasonable for most problems of interest in chemistry.
 This limitation is mostly relevant to chemical kinetics when we discuss quantum tunnelling effects (\cref{sec:tunnelling}).
 
@@ -33,7 +33,7 @@ and products.
 While the first one and the last two are minima on the potential energy surface,
 transition states represent saddle points and special methods must be used to find them~\cite{Banerjee_1985,Schlegel_1987,Peng_1993,Peng_1996,Henkelman_2000a,Henkelman_2000b,Henkelman_2002,Mauro_2005,Sheppard_2008,Zimmerman_2013a,Zimmerman_2013b,Zimmerman_2015,Jafari_2017}.
 Once properly optimized structures are obtained,
-the region around them on the potential energy surface holds all the information needed for the prediction of chemical reaction kinetics and thermodynamics (\cref{sec:mol-thermo,sec:rates}).
+the region around them on the potential energy surface holds all the information needed for the prediction of chemical~reaction kinetics and thermodynamics (\cref{sec:mol-thermo,sec:rates}).
 
 In any case,
 one needs a potential energy surface.
@@ -95,7 +95,7 @@ that.
 As such,
 a brief discussion on the choice of density functional is warranted.
 
-Geometries obtained using good density functionals are good enough
+Geometries obtained using recent density functionals are good enough
 for most purposes.
 For instance,~\citeauthor{Bühl_2006} observed typical deviations around~$\pm$~1.6~pm~for
 metal-ligand bond lengths for 50 transition metal complexes for which precise gas-phase geometries
@@ -114,7 +114,7 @@ geometries within~$\pm$~0.1~\AA{}~in terms
 of root-mean-squared displacements.
 All this leads us to conclude that,
 in general,
-density functionals deliver molecular geometries of reasonable quality.
+modern density functionals deliver molecular geometries of reasonable quality.
 
 % TODO: comment on the choice of level of theory of the works
 
@@ -134,7 +134,9 @@ the situation is different.
 in many different applications
 within the GMTKN30 dataset,
 comprising 1218 single point calculations
-and 841 data points of relative energies~\cite{Goerigk_2011}.
+and 841 data points of relative energies~\cite{Goerigk_2011} (covering general main group thermochemistry,
+kinetics,
+and noncovalent interactions).
 In general,
 LDAs perform worse of all in all applications,
 and won't be discussed further here.
@@ -150,7 +152,10 @@ different variations of MP2
 presented errors around~3.5~$\pm$~0.4~\kcalmol.
 \citeauthor{Mardirossian_2017} performed a similar
 benchmark with 200 density functionals and the MGCDB84 dataset
-consisting of nearly 5000 data points~\cite{Mardirossian_2017},
+consisting of nearly 5000 data points~\cite{Mardirossian_2017} (covering noncovalent interactions,
+isomerization energies,
+thermochemistry,
+and barrier heights),
 obtained similar results.
 
 These observations reflect on the choice of method when using DFT.\@
@@ -217,7 +222,7 @@ much smaller than the ones expected from density functionals~\cite{Sandler_2021}
 \section{Molecular thermodynamics}%
 \label{sec:mol-thermo}
 
-In order to investigate chemical reactions,
+In order to investigate chemical~reactions,
 one requires knowledge of the absolute Gibbs' free energies from each compound at a given temperature.
 Those values are calculated from
 \begin{enumerate*}
@@ -339,6 +344,9 @@ Observe that,
 in the~equations above,
 molecular symmetry is not included.
 They will be discussed separately below (\cref{sec:mol-sym}).
+Furthermore,
+$q_\text{elec}$ can in general contain other contributions,
+only only spin multiplicity is currently implemented in \overreact{}.
 
 From the partition functions above,
 we can extract enthalpic and entropic contributions to the Gibbs' free energy,
@@ -525,7 +533,7 @@ automatically determining point groups for molecules of arbitrary size is error 
 As such,
 standard quantum chemistry packages often require the user to manually indicate point-group symmetries.
 Our software~\overreact{} (\cref{ch:paper3}) does automatic point group detection by using a especially designed,
-robust algorithm based on clustering of equivalent atoms and rigid rotor classification,
+robust algorithm based on clustering of equivalent atoms and rigid rotor classification inspired by~\citeauthor{Beruski_2013}~\cite{Beruski_2013},
 which is less sensitive to perturbation of molecular coordinates.
 
 In practice,
@@ -567,7 +575,7 @@ and applies it.
 \section{General representation of chemical kinetic~equations}%
 \label{sec:kin-repr}
 
-Hypothetical reaction mechanisms consist of the interpretation of the available data for chemical reactions in terms of a model that is self-consistent.
+Hypothetical reaction mechanisms consist of the interpretation of the available data for chemical~reactions in terms of a model that is self-consistent.
 After being proposed,
 reaction mechanisms normally do not stay still: they must be compared with each other and with available experimental data.
 Furthermore,
@@ -579,17 +587,17 @@ In sum,
 such proposed mechanisms pass through a series of transformations,
 amendments,
 and refining.
-Although simple for small chemical reaction networks,
+Although simple for small chemical~reaction networks,
 this can be overwhelming for complex ones,
 with dozens of species and reactions,
 like some presented in~\cref{ch:paper1,ch:paper2,ch:paper3}.
 As such,
-it is especially useful to build a mathematical framework with which chemical reaction networks of arbitrary size can be defined and manipulated.
+it is especially useful to build a mathematical framework with which chemical~reaction networks of arbitrary size can be defined and manipulated.
 This is not yet common practice in the field,
 though,
 as can be seen,
 e.g.,
-in the work of~\citeauthor{P_rez_Soto_2020} whose work represents one of the first complex chemical reaction networks in the literature modelled using first-principles computational chemistry data~\cite{P_rez_Soto_2020},
+in the work of~\citeauthor{P_rez_Soto_2020} whose work represents one of the first complex chemical~reaction networks in the literature modelled using first-principles computational chemistry data~\cite{P_rez_Soto_2020},
 but employs an \emph{ad hoc} representation,
 with over 20~equations hard-coded in a Python script.
 As such,
@@ -662,7 +670,7 @@ Essentially,
 this is equivalent of representing a special purpose directed graph,
 which is an idea that has proven useful in catalysis before~\cite{Kozuch_2006,Kozuch_2015,Solel_2019}.
 Matrices~$A$ and~$B$ store all the information required
-for analyzing chemical reaction networks,
+for analyzing chemical~reaction networks,
 as far as stoichiometric information is concerned.
 For instance,
 as we shall see later,
@@ -678,10 +686,10 @@ whose transition states are explicitly taken into account,
 and equilibria,
 represented by pairs of reactions indicating interconvertible reactants and products with no explicit indication of transition states.
 Having a representation that supports both scenarios is important,
-as many chemical reaction mechanism proposals encompass rapid equilibria and key reactions of interest,
+as many chemical~reaction mechanism proposals encompass rapid equilibria and key reactions of interest,
 such as the archetypal Michaelis-Menten model~\cite{Michaelis_1913,Johnson_2011,Srinivasan_2020,Srinivasan_2021},
-where it is assumed that equilibria are much faster than the other chemical reactions.
-This allows phenomena in chemical kinetics such as pH dependencies and equilibrium between conformations to be accounted for in a simple and elegant manner.
+where it is assumed that equilibria are much faster than the other chemical~reactions.
+This allows phenomena in chemical kinetics such as~pH~dependencies and equilibrium between conformations to be accounted for in a simple and elegant manner.
 
 In terms of matrix representation,
 each forward and backward equilibrium half-reaction gives rise to~two columns in matrix~$A$ and two columns in matrix~$B$.
@@ -768,12 +776,12 @@ Later,
 when all reaction rate constants have been calculated,
 all equilibrium half-reaction rates can be multiplied by a positive factor greater than one,
 such that the slowest equilibrium is safely faster than the fastest non-equilibrium reaction in the model.
-This is important for properly modelling chemical reaction mechanisms as intended by the proposer (\cref{sec:microkinetic}).
+This is important for properly modelling chemical~reaction mechanisms as intended by the proposer (\cref{sec:microkinetic}).
 
 \subsection{Error propagation with respect to energies}%
 \label{sec:rates-error-prop}
 
-The prediction of chemical reactions is an unforgiving problem.
+The prediction of chemical~reactions is an unforgiving problem.
 Since reaction rate constants depend exponentially on the activation Gibbs' free energies,
 small deviations on the latter exponentally increase errors on the former.
 As such,
@@ -787,7 +795,7 @@ given an activation energy estimate~$\Delta G^\ddagger$ on the true value~$\Delt
 	= \widehat{k} e^\frac{- \epsilon}{R T}
 \end{equation}
 %
-where~$k$ and~$\widehat{k}$ are the predicted and true chemical reaction constants,
+where~$k$ and~$\widehat{k}$ are the predicted and true chemical~reaction constants,
 respectively.
 Thus,
 at room temperature,
@@ -797,9 +805,9 @@ This is particularly important,
 as popular DFT methods commonly achieve accuracies of~2--3~\kcalmol for many molecules~\cite{Becke_2014,Bogojeski_2020} (more in~\cref{sec:choice-of-method} above).
 In fact,
 an error as small as 0.41~\kcalmol gives rise to a twofold deviation in the reaction rate constant.
-This goes to show that the so called ``quantum chemical accuracy'' of $<$1~\kcalmol~\cite{Bogojeski_2020} is not enough for the prediction of chemical reactions on par with experimental results.
+This goes to show that the so called ``quantum chemical accuracy'' of $<$1~\kcalmol~\cite{Bogojeski_2020} is not enough for the prediction of chemical~reactions on par with experimental results.
 This not only increases the demand for more precise quantum chemical methods,
-but also for methods aiming at mitigating the effects of such errors in computational predictions of chemical reactions.
+but also for methods aiming at mitigating the effects of such errors in computational predictions of chemical~reactions.
 
 Going one step further,
 errors in reaction rate constants have different relationships to individual errors in activation enthalpies and entropies,
@@ -822,7 +830,7 @@ The above suggests that,
 all things equal,
 errors in the predicted activation entropy (enthalpy) dominate at high (low) temperatures.
 The balance between the two will on the other hand depend on the actual reaction at hand.
-These relationships are crucial for actually controlling and mitigating errors when making computational quantitative predictions for chemical reaction networks.
+These relationships are crucial for actually controlling and mitigating errors when making computational quantitative predictions for chemical~reaction networks.
 
 \subsection{Adjustment of systematic errors with respect to energies}%
 \label{sec:rates-error-prop-adj}
@@ -855,10 +863,10 @@ such as the homolysis of~\ce{C-H} bonds by strong oxidants,
 in which case it is often the rate-limiting step.
 Notwithstanding,
 it is hardly known \emph{a priori} whether an elementary step will present quantum tunnelling effects,
-so it is reasonable to apply approximate quantum tunnelling corrections to all steps in a chemical reaction network
+so it is reasonable to apply approximate quantum tunnelling corrections to all steps in a chemical~reaction network
 to account for this possibility.
 
-Two particularly simple approximations that can be readily applied to any standard computational chemical reaction investigation are the Wigner~\cite{Wigner_1932} and Eckart~\cite{Eckart_1930} quantum tunnelling corrections.
+Two particularly simple approximations that can be readily applied to any standard computational chemical~reaction investigation are the Wigner~\cite{Wigner_1932} and Eckart~\cite{Eckart_1930} quantum tunnelling corrections.
 The Wigner correction is the simplest of the two and assumes that most of the tunnelling happens at the top of the reaction barrier,
 %
 \begin{equation}
@@ -966,8 +974,8 @@ from the command-line (see a detailed description of the command-line interface 
 \section{First-principles microkinetic modelling}%
 \label{sec:microkinetic}
 
-Microkinetic modelling is a technique used to predict the outcome of complex chemical reactions.
-It can be used to investigate the catalytic transformations of molecules by propagating a system of ordinary~differential~equations that model the chemical reaction network.
+Microkinetic modelling is a technique used to predict the outcome of complex chemical~reactions.
+It can be used to investigate the catalytic transformations of molecules by propagating a system of ordinary~differential~equations that model the chemical~reaction network.
 
 The technique can be made first-principle by making use of pure computational
 chemistry predictions.
@@ -976,7 +984,7 @@ are not able to,
 such as concentrations of species and relatively complex time dynamics.
 In order to perform microkinetic modelling,
 a system of ordinary~differential~equations must be first derived,
-for which a general representation of chemical reaction networks is most helpful (\cref{sec:kin-repr}),
+for which a general representation of chemical~reaction networks is most helpful (\cref{sec:kin-repr}),
 and then solved over time from starting concentrations.
 
 \subsection{Representation and solution of the chemical kinetic ordinary~differential~equations}
@@ -1026,7 +1034,8 @@ By definition,
 such problems are oftentimes stiff and the use of solvers purposely built  for stiff systems is warranted~\cite{Curtiss_1952,Hairer_1991,Petzold_1983}.
 The implicit Runge-Kutta method of Radau IIA family (of order five)~\cite{Hairer_1996} is used by default in~\overreact{},
 but any solver supported by the~\texttt{SciPy} library~\cite{Virtanen_2020} can be employed.
-Furthermore, \overreact{}~leverages Google's~\texttt{JAX} library~\cite{jax2018github}
+Furthermore,
+\overreact{}~leverages Google's~\texttt{JAX} library~\cite{jax2018github}
 in order to
 obtained an analytic Jacobian of the system in~\cref{eq:master-equation} \emph{via} automatic differentiation,
 which further increases the robustness and efficiency of the scheme,
@@ -1043,15 +1052,14 @@ constant concentration effects are important,
 such as when reactants are used neat or when there is active solvent participation~\cite{Ryu_2018}.
 Our software~\overreact{} allows fixing the concentration of arbitrary compounds,
 allowing for simulations of neat reactions,
-pseudo-first order conditions,
-pH buffering effects (see below),
+pseudo-first order conditions,~pH~buffering effects (see below),
 controlled ionic strengths,
 and more (\cref{ch:paper3}).
 
 \subsubsubsection{Application:~acid-base equilibria}%
 \label{sec:pka}
 
-One practical application of constrained concentrations is simulating reactions at buffered pH values,
+One practical application of constrained concentrations is simulating reactions at buffered~pH~values,
 which requires properly estimating acid-base equilibrium constants or,
 equivalently,
 their log-scaled counterpart,
@@ -1259,7 +1267,7 @@ unit for many solutes and solvents~\cite{Ding_2009}.
 % - One can also fix the concentration of certain compounds,
 % which is useful
 % to model bulk solvent concentration (useful when it participates in the reaction),
-% or buffered pH conditions.
+% or buffered~pH~conditions.
 % This means simulating pseudo-order reactions.
 % - It is oftentimes easier to correct values for equibrium constants than for reaction rates,
 % such as when the pK$_a$ of an acid is known
