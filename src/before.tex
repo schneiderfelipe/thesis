@@ -2,6 +2,37 @@
 \frenchspacing                % remove dead spaces between sentences
 
 % \pretextual             % this is not required (it was commented in the template)
+
+\renewcommand{\imprimircapa}{%
+	\begin{capa}%
+		\begin{center}
+			\includegraphics[height=2.54cm,width=1.84cm]{figures/vertical_sigla_fundo_claro}
+		\end{center}
+
+		\center
+		\ABNTEXchapterfont\large
+		UNIVERSIDADE FEDERAL DE SANTA CATARINA \\
+		CENTRO DE CIÊNCIAS FÍSICAS E MATEMÁTICAS \\
+		PROGRAMA DE PÓS-GRADUAÇÃO EM QUÍMICA
+
+		\vfill
+
+		{\ABNTEXchapterfont\large\imprimirautor}
+
+		\vfill
+		\begin{center}
+			\ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+		\end{center}
+		\vfill
+
+		\large\imprimirlocal
+
+		\large\imprimirdata
+
+		\vspace*{1cm}
+	\end{capa}
+}
+
 \imprimircapa{}
 \imprimirfolhaderosto*    % * means we want cataloging data (ficha bibliográfica)
 
