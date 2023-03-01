@@ -3,6 +3,9 @@
 
 % \pretextual             % this is not required (it was commented in the template)
 
+\renewcommand{\imprimirorientadorRotulo}{Orientador:}
+\renewcommand{\imprimircoorientadorRotulo}{Coorientador:}
+
 \renewcommand{\imprimircapa}{%
 	\begin{capa}%
 		\begin{center}
@@ -29,12 +32,52 @@
 
 		\large\imprimirdata
 
-		\vspace*{1cm}
+		\vspace*{1em}
 	\end{capa}
 }
 
 \imprimircapa{}
-\imprimirfolhaderosto*    % * means we want cataloging data (ficha bibliográfica)
+
+\makeatletter
+\renewcommand{\imprimirfolhaderosto}{
+	\begin{center}
+		{\ABNTEXchapterfont\large\imprimirautor}
+
+		\vspace*{\fill}\vspace*{\fill}
+		\begin{center}
+			\ABNTEXchapterfont\bfseries\large\imprimirtitulo
+		\end{center}
+		\vspace*{\fill}
+
+		\abntex@ifnotempty{\imprimirpreambulo}{%
+			\hspace{0.45\textwidth}
+			\begin{minipage}{0.54\textwidth}
+				\SingleSpacing
+				\imprimirpreambulo
+				\vspace*{1em}
+
+				{\imprimirorientadorRotulo~\imprimirorientador\par}
+				\abntex@ifnotempty{\imprimircoorientador}{%
+					{\imprimircoorientadorRotulo~\imprimircoorientador}%
+				}%
+			\end{minipage}%
+			\vspace*{\fill}
+		}%
+
+		% {\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
+
+		\vspace*{\fill}
+
+		{\large\imprimirlocal}
+		\par
+		{\large\imprimirdata}
+		\vspace*{1em}
+
+	\end{center}
+}
+\makeatother
+
+\imprimirfolhaderosto    % * means we want cataloging data (ficha bibliográfica)
 
 \subimport{.}{ficha}
 % \subimport{.}{errata}
